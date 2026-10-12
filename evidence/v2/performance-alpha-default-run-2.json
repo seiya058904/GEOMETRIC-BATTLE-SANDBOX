@@ -1,0 +1,6573 @@
+{
+  "timestamp": "2026-10-12T17:05:15.819Z",
+  "browser": "151.0.7922.34",
+  "platform": "win32",
+  "architecture": "x64",
+  "environment": {
+    "softwareCanvasControl": false,
+    "synchronizedCanvasControl": false,
+    "cpuBackingControl": false,
+    "requestedCpuBackingOverride": null,
+    "reportedLogicalCPUs": 16,
+    "hostCPUModel": "AMD Ryzen 7 9700X 8-Core Processor             ",
+    "hostReportedMemoryGiB": 31.6142578125,
+    "cgroup": {
+      "cpuMax": null,
+      "cpuQuotaCores": null,
+      "memoryMax": null,
+      "memoryLimitBytes": null
+    }
+  },
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "deviceScaleFactor": 1,
+  "sourceURL": "http://127.0.0.1:4181",
+  "requestedContextAttributeOverride": {
+    "alpha": false
+  },
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "scenes": [
+    {
+      "name": "100-vs-100",
+      "frames": 335,
+      "wallSeconds": 12.006199999999255,
+      "simDelta": 11.883333333333333,
+      "averageFPS": 27.42260277336651,
+      "onePercentLowFPS": 5.853944094833893,
+      "medianFrameMs": 16.700000000000728,
+      "p95FrameMs": 100,
+      "maxFrameMs": 233.29999999999995,
+      "gapsOver250ms": 0,
+      "totalSteps": 713,
+      "totalStepCpuMs": 602.700000019744,
+      "averageStepMs": 0.84530154280469,
+      "averageDrawMs": 1.773809523781806,
+      "requestedSpeed": 1,
+      "actualSpeed": 0.989766398471962,
+      "hudLatestWindowSpeed": 0.9998750156230444,
+      "hudStepEMA": 0.44738416710853157,
+      "simSeconds": 11.883333333333333,
+      "ended": false,
+      "unitsStart": 200,
+      "unitsEnd": 111,
+      "minAlive": 111,
+      "projectilePeak": 40,
+      "effectCount": 27,
+      "drawMetrics": {
+        "drawnUnits": 132,
+        "drawnProjectiles": 24,
+        "effects": 27,
+        "quality": "high",
+        "pixelRatio": 1
+      },
+      "simulationFinite": true,
+      "heapBytes": 10000000,
+      "failures": [],
+      "rawSamples": [
+        {
+          "raf": 974,
+          "wallSeconds": 0.004599999999627471,
+          "gapMs": null,
+          "gameFrame": 21,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 2.5,
+          "simTime": 0,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1207.3,
+          "wallSeconds": 0.03309999999962747,
+          "gapMs": 233.29999999999995,
+          "gameFrame": 22,
+          "steps": 1,
+          "stepCpuMs": 11.5,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 0.016666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1274,
+          "wallSeconds": 0.09459999999962747,
+          "gapMs": 66.70000000000005,
+          "gameFrame": 23,
+          "steps": 9,
+          "stepCpuMs": 8.200000001117587,
+          "drawCpuMs": 1.5,
+          "simTime": 0.16666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1307.3,
+          "wallSeconds": 0.11630000000074506,
+          "gapMs": 33.299999999999955,
+          "gameFrame": 24,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 0.2,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1324,
+          "wallSeconds": 0.13330000000074504,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 25,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 2.600000001490116,
+          "simTime": 0.21666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1340.6,
+          "wallSeconds": 0.14909999999962747,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 26,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 2.699999999254942,
+          "simTime": 0.21666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1373.9,
+          "wallSeconds": 0.18119999999925493,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 27,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 0.25,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1390.6,
+          "wallSeconds": 0.19940000000037253,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 28,
+          "steps": 1,
+          "stepCpuMs": 1.299999998882413,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 0.26666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1407.3,
+          "wallSeconds": 0.2155,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 29,
+          "steps": 2,
+          "stepCpuMs": 1.700000001117587,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 0.3,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1424,
+          "wallSeconds": 0.23069999999925495,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 30,
+          "steps": 1,
+          "stepCpuMs": 0.3999999985098839,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 0.31666666666666665,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1440.7,
+          "wallSeconds": 0.24930000000074506,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 31,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 0.3333333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1457.3,
+          "wallSeconds": 0.265,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 32,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 2.5,
+          "simTime": 0.35,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1474,
+          "wallSeconds": 0.28130000000074507,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 33,
+          "steps": 1,
+          "stepCpuMs": 1.1000000014901161,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 0.36666666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1490.6,
+          "wallSeconds": 0.2970999999996275,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 34,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 0.36666666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1507.3,
+          "wallSeconds": 0.31640000000037255,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 35,
+          "steps": 2,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.5,
+          "simTime": 0.4,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1524,
+          "wallSeconds": 0.33030000000074505,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 36,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 0.4166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1540.6,
+          "wallSeconds": 0.34769999999925494,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 37,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.5,
+          "simTime": 0.4166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1657.3,
+          "wallSeconds": 0.644,
+          "gapMs": 116.70000000000005,
+          "gameFrame": 38,
+          "steps": 6,
+          "stepCpuMs": 1.900000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 0.5166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1857.2,
+          "wallSeconds": 0.6680999999996274,
+          "gapMs": 199.9000000000001,
+          "gameFrame": 39,
+          "steps": 6,
+          "stepCpuMs": 4.199999999254942,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 0.6166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1873.9,
+          "wallSeconds": 0.6815,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 40,
+          "steps": 2,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 0.65,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1890.6,
+          "wallSeconds": 0.6974000000003725,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 41,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 0.6666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1907.3,
+          "wallSeconds": 0.7170999999996275,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 42,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 4.099999999627471,
+          "simTime": 0.6833333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1924,
+          "wallSeconds": 0.7328000000007451,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 43,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 0.7,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1940.6,
+          "wallSeconds": 0.7488000000007451,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 44,
+          "steps": 1,
+          "stepCpuMs": 1.900000000372529,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 0.7166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1973.9,
+          "wallSeconds": 0.7865,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 45,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 0.75,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 1990.6,
+          "wallSeconds": 0.8029000000003725,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 46,
+          "steps": 1,
+          "stepCpuMs": 1.400000000372529,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 0.7666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2007.2,
+          "wallSeconds": 0.8160999999996275,
+          "gapMs": 16.600000000000136,
+          "gameFrame": 47,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 0.7666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2023.9,
+          "wallSeconds": 0.831800000000745,
+          "gapMs": 16.700000000000045,
+          "gameFrame": 48,
+          "steps": 2,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 0.8,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2123.9,
+          "wallSeconds": 0.9355999999996275,
+          "gapMs": 100,
+          "gameFrame": 49,
+          "steps": 6,
+          "stepCpuMs": 4,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 0.9,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2140.6,
+          "wallSeconds": 0.949199999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 50,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 0.9166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2157.2,
+          "wallSeconds": 0.964199999999255,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 51,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 2.099999999627471,
+          "simTime": 0.9166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2173.9,
+          "wallSeconds": 0.9819000000003725,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 52,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 0.95,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2307.3,
+          "wallSeconds": 1.125199999999255,
+          "gapMs": 133.4000000000001,
+          "gameFrame": 53,
+          "steps": 6,
+          "stepCpuMs": 7.400000000372529,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 1.05,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2323.9,
+          "wallSeconds": 1.1425,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 54,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 2.699999999254942,
+          "simTime": 1.05,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2340.6,
+          "wallSeconds": 1.159199999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 55,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 3.099999999627471,
+          "simTime": 1.0666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2357.2,
+          "wallSeconds": 1.1778000000007451,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 56,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 1.0833333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2440.6,
+          "wallSeconds": 1.261800000000745,
+          "gapMs": 83.40000000000009,
+          "gameFrame": 57,
+          "steps": 5,
+          "stepCpuMs": 2.300000000745058,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 1.1666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2457.2,
+          "wallSeconds": 1.2755999999996275,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 58,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 1.1833333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2473.9,
+          "wallSeconds": 1.2901999999992548,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 59,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 1.2,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2490.6,
+          "wallSeconds": 1.3149000000003725,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 60,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 2.200000001117587,
+          "simTime": 1.2166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2590.6,
+          "wallSeconds": 1.4060999999996275,
+          "gapMs": 100,
+          "gameFrame": 61,
+          "steps": 6,
+          "stepCpuMs": 4.300000000745058,
+          "drawCpuMs": 3.199999999254942,
+          "simTime": 1.3166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2607.3,
+          "wallSeconds": 1.421,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 62,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 1.35,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2623.9,
+          "wallSeconds": 1.4334000000003726,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 63,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 1.35,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2640.5,
+          "wallSeconds": 1.4485,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 64,
+          "steps": 1,
+          "stepCpuMs": 0.3999999985098839,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 1.3666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2723.9,
+          "wallSeconds": 1.545699999999255,
+          "gapMs": 83.40000000000009,
+          "gameFrame": 65,
+          "steps": 5,
+          "stepCpuMs": 2,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 1.45,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2740.5,
+          "wallSeconds": 1.559300000000745,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 66,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 1.4666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2773.9,
+          "wallSeconds": 1.5828000000007452,
+          "gapMs": 33.40000000000009,
+          "gameFrame": 67,
+          "steps": 2,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 1.5,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2790.6,
+          "wallSeconds": 1.6015,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 68,
+          "steps": 1,
+          "stepCpuMs": 2.100000001490116,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 1.5166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2890.5,
+          "wallSeconds": 1.7011999999992549,
+          "gapMs": 99.90000000000009,
+          "gameFrame": 69,
+          "steps": 6,
+          "stepCpuMs": 2.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 1.6166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2907.2,
+          "wallSeconds": 1.7175999999996274,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 70,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.5,
+          "simTime": 1.6333333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2923.9,
+          "wallSeconds": 1.7323000000007451,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 71,
+          "steps": 1,
+          "stepCpuMs": 0.30000000074505806,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 1.65,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 2940.6,
+          "wallSeconds": 1.7474000000003724,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 72,
+          "steps": 1,
+          "stepCpuMs": 0.30000000074505806,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 1.6666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3023.8,
+          "wallSeconds": 1.8401999999992549,
+          "gapMs": 83.20000000000027,
+          "gameFrame": 73,
+          "steps": 5,
+          "stepCpuMs": 2.299999998882413,
+          "drawCpuMs": 2.5,
+          "simTime": 1.75,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3040.6,
+          "wallSeconds": 1.8534000000003725,
+          "gapMs": 16.799999999999727,
+          "gameFrame": 74,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 1.7666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3057.2,
+          "wallSeconds": 1.8673000000007451,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 75,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 1.7833333333333332,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3073.9,
+          "wallSeconds": 1.8814000000003726,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 76,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 1.8,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3157.2,
+          "wallSeconds": 1.9775999999996274,
+          "gapMs": 83.29999999999973,
+          "gameFrame": 77,
+          "steps": 5,
+          "stepCpuMs": 4,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 1.8833333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3173.9,
+          "wallSeconds": 1.9915999999996274,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 78,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 1.9,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3190.5,
+          "wallSeconds": 2.0055,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 79,
+          "steps": 1,
+          "stepCpuMs": 1.099999999627471,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 1.9166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3207.2,
+          "wallSeconds": 2.023,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 80,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 1.9333333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3290.5,
+          "wallSeconds": 2.1145,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 81,
+          "steps": 5,
+          "stepCpuMs": 4,
+          "drawCpuMs": 2.200000001117587,
+          "simTime": 2.0166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3307.2,
+          "wallSeconds": 2.1269000000003726,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 82,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 2.033333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3340.6,
+          "wallSeconds": 2.1490999999996276,
+          "gapMs": 33.40000000000009,
+          "gameFrame": 83,
+          "steps": 2,
+          "stepCpuMs": 1.199999999254942,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 2.0666666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3357.2,
+          "wallSeconds": 2.1694000000003726,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 84,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 4.300000000745058,
+          "simTime": 2.0833333333333335,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3440.5,
+          "wallSeconds": 2.255699999999255,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 85,
+          "steps": 5,
+          "stepCpuMs": 3.700000001117587,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.1666666666666665,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3457.2,
+          "wallSeconds": 2.270800000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 86,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 2.183333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3473.9,
+          "wallSeconds": 2.283800000000745,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 87,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 2.2,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3490.6,
+          "wallSeconds": 2.297699999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 88,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.216666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3573.8,
+          "wallSeconds": 2.391300000000745,
+          "gapMs": 83.20000000000027,
+          "gameFrame": 89,
+          "steps": 5,
+          "stepCpuMs": 3.5,
+          "drawCpuMs": 1.6000000014901161,
+          "simTime": 2.3,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3590.6,
+          "wallSeconds": 2.4050999999996274,
+          "gapMs": 16.799999999999727,
+          "gameFrame": 90,
+          "steps": 1,
+          "stepCpuMs": 0.3999999985098839,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 2.3166666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3607.2,
+          "wallSeconds": 2.4189000000003724,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 91,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 2.3333333333333335,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3623.8,
+          "wallSeconds": 2.4365999999996273,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 92,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 2.35,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3707.2,
+          "wallSeconds": 2.5245,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 93,
+          "steps": 5,
+          "stepCpuMs": 2,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.433333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3723.9,
+          "wallSeconds": 2.5369000000003727,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 94,
+          "steps": 1,
+          "stepCpuMs": 0.2999999988824129,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 2.45,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3740.6,
+          "wallSeconds": 2.5485999999996274,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 95,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.466666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3757.2,
+          "wallSeconds": 2.5650999999996276,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 96,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 2.4833333333333334,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3873.8,
+          "wallSeconds": 2.6835,
+          "gapMs": 116.60000000000036,
+          "gameFrame": 97,
+          "steps": 6,
+          "stepCpuMs": 2.800000000745058,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 2.5833333333333335,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3890.6,
+          "wallSeconds": 2.698,
+          "gapMs": 16.799999999999727,
+          "gameFrame": 98,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 2.6166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3907.2,
+          "wallSeconds": 2.713,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 99,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 2.6166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 3923.9,
+          "wallSeconds": 2.7313000000007452,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 100,
+          "steps": 2,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 2.65,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4007.2,
+          "wallSeconds": 2.8239000000003727,
+          "gapMs": 83.29999999999973,
+          "gameFrame": 101,
+          "steps": 4,
+          "stepCpuMs": 2.199999999254942,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 2.716666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4023.9,
+          "wallSeconds": 2.837800000000745,
+          "gapMs": 16.700000000000273,
+          "gameFrame": 102,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 2.75,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4040.5,
+          "wallSeconds": 2.850699999999255,
+          "gapMs": 16.59999999999991,
+          "gameFrame": 103,
+          "steps": 0,
+          "stepCpuMs": 0,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.75,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4057.2,
+          "wallSeconds": 2.8744000000003727,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 104,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 2.7666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4140.5,
+          "wallSeconds": 2.9645,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 105,
+          "steps": 5,
+          "stepCpuMs": 2.400000000372529,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 2.85,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4157.2,
+          "wallSeconds": 2.9775999999996277,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 106,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 2.8666666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4190.5,
+          "wallSeconds": 3.004699999999255,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 107,
+          "steps": 2,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 2.9,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4207.2,
+          "wallSeconds": 3.0213000000007453,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 108,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.8999999985098839,
+          "simTime": 2.9166666666666665,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4290.5,
+          "wallSeconds": 3.1085999999996274,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 109,
+          "steps": 5,
+          "stepCpuMs": 3.5,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 3,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4307.2,
+          "wallSeconds": 3.122699999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 110,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 3.0166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4340.5,
+          "wallSeconds": 3.150800000000745,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 111,
+          "steps": 2,
+          "stepCpuMs": 0.8999999985098839,
+          "drawCpuMs": 2.600000001490116,
+          "simTime": 3.05,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4357.1,
+          "wallSeconds": 3.1675,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 112,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.5,
+          "simTime": 3.0666666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4440.5,
+          "wallSeconds": 3.257300000000745,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 113,
+          "steps": 5,
+          "stepCpuMs": 3,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 3.15,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4457.2,
+          "wallSeconds": 3.2715999999996273,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 114,
+          "steps": 1,
+          "stepCpuMs": 1.199999999254942,
+          "drawCpuMs": 1.5,
+          "simTime": 3.1666666666666665,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4473.9,
+          "wallSeconds": 3.2994000000003725,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 115,
+          "steps": 2,
+          "stepCpuMs": 9.299999998882413,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 3.2,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4507.1,
+          "wallSeconds": 3.317300000000745,
+          "gapMs": 33.20000000000073,
+          "gameFrame": 116,
+          "steps": 1,
+          "stepCpuMs": 2.599999999627471,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 3.216666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4590.5,
+          "wallSeconds": 3.4039000000003727,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 117,
+          "steps": 5,
+          "stepCpuMs": 3.5,
+          "drawCpuMs": 2.299999998882413,
+          "simTime": 3.3,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4607.2,
+          "wallSeconds": 3.4180999999996273,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 118,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 3.3166666666666664,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4623.8,
+          "wallSeconds": 3.431300000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 119,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 3.3333333333333335,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4640.5,
+          "wallSeconds": 3.456300000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 120,
+          "steps": 1,
+          "stepCpuMs": 1.400000000372529,
+          "drawCpuMs": 6,
+          "simTime": 3.35,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4757.2,
+          "wallSeconds": 3.5755999999996275,
+          "gapMs": 116.69999999999982,
+          "gameFrame": 121,
+          "steps": 6,
+          "stepCpuMs": 8,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 3.4499999999999997,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4773.9,
+          "wallSeconds": 3.5970999999996276,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 122,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 3.099999999627471,
+          "simTime": 3.466666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4807.1,
+          "wallSeconds": 3.6169000000003724,
+          "gapMs": 33.20000000000073,
+          "gameFrame": 123,
+          "steps": 2,
+          "stepCpuMs": 1.599999999627471,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 3.5,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4823.8,
+          "wallSeconds": 3.632199999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 124,
+          "steps": 1,
+          "stepCpuMs": 1.099999999627471,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 3.5166666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4907.1,
+          "wallSeconds": 3.719699999999255,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 125,
+          "steps": 5,
+          "stepCpuMs": 2.899999998509884,
+          "drawCpuMs": 2.099999999627471,
+          "simTime": 3.6,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4923.8,
+          "wallSeconds": 3.7349000000003727,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 126,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 3.6166666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4940.4,
+          "wallSeconds": 3.7566999999992547,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 127,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 6.799999998882413,
+          "simTime": 3.6333333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 4957.1,
+          "wallSeconds": 3.773300000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 128,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.5,
+          "simTime": 3.65,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5040.5,
+          "wallSeconds": 3.868199999999255,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 129,
+          "steps": 5,
+          "stepCpuMs": 8.400000000372529,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 3.7333333333333334,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5073.8,
+          "wallSeconds": 3.8844000000003724,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 130,
+          "steps": 2,
+          "stepCpuMs": 2.299999998882413,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 3.7666666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5090.5,
+          "wallSeconds": 3.900300000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 131,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 3.783333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5107.2,
+          "wallSeconds": 3.9180999999996273,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 132,
+          "steps": 1,
+          "stepCpuMs": 1.200000001117587,
+          "drawCpuMs": 2.199999999254942,
+          "simTime": 3.8,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5190.5,
+          "wallSeconds": 4.015199999999255,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 133,
+          "steps": 5,
+          "stepCpuMs": 4.699999999254942,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 3.8833333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5207.2,
+          "wallSeconds": 4.029699999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 134,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 3.9,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5240.5,
+          "wallSeconds": 4.056,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 135,
+          "steps": 2,
+          "stepCpuMs": 1.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 3.933333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5257.1,
+          "wallSeconds": 4.085800000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 136,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 12,
+          "simTime": 3.9499999999999997,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5340.5,
+          "wallSeconds": 4.161599999999628,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 137,
+          "steps": 5,
+          "stepCpuMs": 5.400000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.033333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5357.1,
+          "wallSeconds": 4.177,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 138,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 4.05,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5390.5,
+          "wallSeconds": 4.2025,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 139,
+          "steps": 2,
+          "stepCpuMs": 2.699999999254942,
+          "drawCpuMs": 2.700000001117587,
+          "simTime": 4.083333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5407.2,
+          "wallSeconds": 4.217599999999628,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 140,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.1,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5490.5,
+          "wallSeconds": 4.303199999999255,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 141,
+          "steps": 5,
+          "stepCpuMs": 5.099999999627471,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 4.183333333333334,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5507.1,
+          "wallSeconds": 4.319400000000373,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 142,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 4.2,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5523.8,
+          "wallSeconds": 4.332400000000373,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 143,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 4.216666666666667,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5623.8,
+          "wallSeconds": 4.443699999999255,
+          "gapMs": 100,
+          "gameFrame": 144,
+          "steps": 6,
+          "stepCpuMs": 5.099999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.316666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5640.5,
+          "wallSeconds": 4.457699999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 145,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 4.333333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5673.8,
+          "wallSeconds": 4.483400000000373,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 146,
+          "steps": 2,
+          "stepCpuMs": 2.900000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.366666666666666,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5690.4,
+          "wallSeconds": 4.501099999999627,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 147,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.383333333333333,
+          "active": 200,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5790.5,
+          "wallSeconds": 4.6119000000003725,
+          "gapMs": 100.10000000000036,
+          "gameFrame": 148,
+          "steps": 3,
+          "stepCpuMs": 11.199999999254942,
+          "drawCpuMs": 1.5,
+          "simTime": 4.433333333333334,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5807.1,
+          "wallSeconds": 4.6294000000003726,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 149,
+          "steps": 4,
+          "stepCpuMs": 2.900000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 4.5,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5823.8,
+          "wallSeconds": 4.643300000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 150,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 4.516666666666667,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5857.1,
+          "wallSeconds": 4.667099999999627,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 151,
+          "steps": 2,
+          "stepCpuMs": 1.800000000745058,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.55,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5923.8,
+          "wallSeconds": 4.743400000000372,
+          "gapMs": 66.69999999999982,
+          "gameFrame": 152,
+          "steps": 4,
+          "stepCpuMs": 4.099999999627471,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 4.616666666666666,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5940.4,
+          "wallSeconds": 4.758300000000745,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 153,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 4.633333333333333,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5957.1,
+          "wallSeconds": 4.772,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 154,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 4.65,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 5973.7,
+          "wallSeconds": 4.788800000000745,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 155,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 4.666666666666667,
+          "active": 197,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6073.8,
+          "wallSeconds": 4.891800000000745,
+          "gapMs": 100.10000000000036,
+          "gameFrame": 156,
+          "steps": 6,
+          "stepCpuMs": 10.199999999254942,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 4.766666666666667,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6090.4,
+          "wallSeconds": 4.908199999999255,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 157,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 2.299999998882413,
+          "simTime": 4.783333333333333,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6123.7,
+          "wallSeconds": 4.9485,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 158,
+          "steps": 2,
+          "stepCpuMs": 8,
+          "drawCpuMs": 2.599999999627471,
+          "simTime": 4.816666666666666,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6207.1,
+          "wallSeconds": 5.032099999999628,
+          "gapMs": 83.40000000000055,
+          "gameFrame": 159,
+          "steps": 5,
+          "stepCpuMs": 3.700000001117587,
+          "drawCpuMs": 1.5,
+          "simTime": 4.9,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6240.4,
+          "wallSeconds": 5.048199999999255,
+          "gapMs": 33.29999999999927,
+          "gameFrame": 160,
+          "steps": 2,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 4.933333333333334,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6257.1,
+          "wallSeconds": 5.064099999999628,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 161,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 4.95,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6273.8,
+          "wallSeconds": 5.081300000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 162,
+          "steps": 1,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 1.5,
+          "simTime": 4.966666666666667,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6290.5,
+          "wallSeconds": 5.098599999999627,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 163,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.5,
+          "simTime": 4.983333333333333,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6357.1,
+          "wallSeconds": 5.175300000000745,
+          "gapMs": 66.60000000000036,
+          "gameFrame": 164,
+          "steps": 4,
+          "stepCpuMs": 4.800000000745058,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 5.05,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6373.8,
+          "wallSeconds": 5.191699999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 165,
+          "steps": 1,
+          "stepCpuMs": 0.8999999985098839,
+          "drawCpuMs": 2.5,
+          "simTime": 5.066666666666666,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6390.4,
+          "wallSeconds": 5.206199999999255,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 166,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 5.083333333333333,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6407.1,
+          "wallSeconds": 5.228400000000373,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 167,
+          "steps": 1,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 1.5,
+          "simTime": 5.1,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6490.5,
+          "wallSeconds": 5.316800000000745,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 168,
+          "steps": 5,
+          "stepCpuMs": 3.300000000745058,
+          "drawCpuMs": 2.199999999254942,
+          "simTime": 5.183333333333334,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6523.7,
+          "wallSeconds": 5.332,
+          "gapMs": 33.19999999999982,
+          "gameFrame": 169,
+          "steps": 2,
+          "stepCpuMs": 1.099999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.216666666666667,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6540.4,
+          "wallSeconds": 5.3491999999992546,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 170,
+          "steps": 1,
+          "stepCpuMs": 0.7999999988824129,
+          "drawCpuMs": 2.599999999627471,
+          "simTime": 5.233333333333333,
+          "active": 196,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6557,
+          "wallSeconds": 5.367300000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 171,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.25,
+          "active": 195,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6657.1,
+          "wallSeconds": 5.471800000000745,
+          "gapMs": 100.10000000000036,
+          "gameFrame": 172,
+          "steps": 6,
+          "stepCpuMs": 6.200000001117587,
+          "drawCpuMs": 2.300000000745058,
+          "simTime": 5.35,
+          "active": 194,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6673.7,
+          "wallSeconds": 5.486599999999627,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 173,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.366666666666666,
+          "active": 194,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6690.4,
+          "wallSeconds": 5.500400000000372,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 174,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.383333333333333,
+          "active": 194,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6707.1,
+          "wallSeconds": 5.517900000000372,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 175,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.4,
+          "active": 193,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6790.4,
+          "wallSeconds": 5.617400000000372,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 176,
+          "steps": 5,
+          "stepCpuMs": 4.699999999254942,
+          "drawCpuMs": 2.400000000372529,
+          "simTime": 5.483333333333333,
+          "active": 193,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6823.7,
+          "wallSeconds": 5.632099999999627,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 177,
+          "steps": 2,
+          "stepCpuMs": 1.199999999254942,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 5.516666666666667,
+          "active": 193,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6840.5,
+          "wallSeconds": 5.662199999999255,
+          "gapMs": 16.800000000000182,
+          "gameFrame": 178,
+          "steps": 1,
+          "stepCpuMs": 3.699999999254942,
+          "drawCpuMs": 2,
+          "simTime": 5.533333333333333,
+          "active": 193,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6940.4,
+          "wallSeconds": 5.767,
+          "gapMs": 99.89999999999964,
+          "gameFrame": 179,
+          "steps": 6,
+          "stepCpuMs": 4.200000001117587,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 5.633333333333333,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6973.8,
+          "wallSeconds": 5.7845,
+          "gapMs": 33.400000000000546,
+          "gameFrame": 180,
+          "steps": 2,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 3.199999999254942,
+          "simTime": 5.666666666666667,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 6990.4,
+          "wallSeconds": 5.7994000000003725,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 181,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 5.683333333333334,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7007,
+          "wallSeconds": 5.8175,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 182,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 5.7,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7023.7,
+          "wallSeconds": 5.835400000000373,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 183,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.5,
+          "simTime": 5.716666666666667,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7090.4,
+          "wallSeconds": 5.91,
+          "gapMs": 66.69999999999982,
+          "gameFrame": 184,
+          "steps": 4,
+          "stepCpuMs": 3.199999999254942,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 5.783333333333333,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7107,
+          "wallSeconds": 5.925300000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 185,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 5.8,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7140.4,
+          "wallSeconds": 5.952599999999627,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 186,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 3.900000000372529,
+          "simTime": 5.833333333333333,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7157.1,
+          "wallSeconds": 5.9755,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 187,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 5.85,
+          "active": 191,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7223.8,
+          "wallSeconds": 6.059099999999628,
+          "gapMs": 66.69999999999982,
+          "gameFrame": 188,
+          "steps": 4,
+          "stepCpuMs": 2.099999999627471,
+          "drawCpuMs": 5.700000001117587,
+          "simTime": 5.916666666666667,
+          "active": 190,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7257,
+          "wallSeconds": 6.077300000000745,
+          "gapMs": 33.19999999999982,
+          "gameFrame": 189,
+          "steps": 2,
+          "stepCpuMs": 1.400000000372529,
+          "drawCpuMs": 2,
+          "simTime": 5.95,
+          "active": 190,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7273.8,
+          "wallSeconds": 6.095599999999627,
+          "gapMs": 16.800000000000182,
+          "gameFrame": 190,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.5,
+          "simTime": 5.966666666666667,
+          "active": 190,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7307,
+          "wallSeconds": 6.1155,
+          "gapMs": 33.19999999999982,
+          "gameFrame": 191,
+          "steps": 2,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 2.599999999627471,
+          "simTime": 6,
+          "active": 190,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7373.7,
+          "wallSeconds": 6.201699999999255,
+          "gapMs": 66.69999999999982,
+          "gameFrame": 192,
+          "steps": 4,
+          "stepCpuMs": 6.299999998882413,
+          "drawCpuMs": 2.099999999627471,
+          "simTime": 6.066666666666666,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7407.1,
+          "wallSeconds": 6.217800000000745,
+          "gapMs": 33.400000000000546,
+          "gameFrame": 193,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.6000000014901161,
+          "simTime": 6.1,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7423.7,
+          "wallSeconds": 6.240900000000373,
+          "gapMs": 16.599999999999454,
+          "gameFrame": 194,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 9.400000000372529,
+          "simTime": 6.116666666666666,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7440.4,
+          "wallSeconds": 6.26,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 195,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 6.133333333333333,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7523.7,
+          "wallSeconds": 6.338800000000745,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 196,
+          "steps": 5,
+          "stepCpuMs": 7.5,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 6.216666666666667,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7540.4,
+          "wallSeconds": 6.354800000000745,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 197,
+          "steps": 1,
+          "stepCpuMs": 1.5,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 6.233333333333333,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7557,
+          "wallSeconds": 6.373400000000372,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 198,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.6000000014901161,
+          "simTime": 6.25,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7573.8,
+          "wallSeconds": 6.392699999999255,
+          "gapMs": 16.800000000000182,
+          "gameFrame": 199,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 6.266666666666667,
+          "active": 188,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7657,
+          "wallSeconds": 6.476099999999628,
+          "gapMs": 83.19999999999982,
+          "gameFrame": 200,
+          "steps": 5,
+          "stepCpuMs": 3.200000001117587,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 6.35,
+          "active": 187,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7690.4,
+          "wallSeconds": 6.498400000000372,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 201,
+          "steps": 2,
+          "stepCpuMs": 1.200000001117587,
+          "drawCpuMs": 1.5,
+          "simTime": 6.383333333333333,
+          "active": 186,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7707,
+          "wallSeconds": 6.523900000000372,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 202,
+          "steps": 1,
+          "stepCpuMs": 1.799999998882413,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 6.4,
+          "active": 186,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7790.3,
+          "wallSeconds": 6.613599999999628,
+          "gapMs": 83.30000000000018,
+          "gameFrame": 203,
+          "steps": 5,
+          "stepCpuMs": 6.400000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 6.483333333333333,
+          "active": 185,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7807,
+          "wallSeconds": 6.635,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 204,
+          "steps": 1,
+          "stepCpuMs": 5.5,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 6.5,
+          "active": 185,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7840.4,
+          "wallSeconds": 6.650699999999255,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 205,
+          "steps": 2,
+          "stepCpuMs": 2.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 6.533333333333333,
+          "active": 185,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7857,
+          "wallSeconds": 6.6679000000003725,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 206,
+          "steps": 1,
+          "stepCpuMs": 1.700000001117587,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 6.55,
+          "active": 184,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7873.7,
+          "wallSeconds": 6.688199999999255,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 207,
+          "steps": 1,
+          "stepCpuMs": 4,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 6.566666666666666,
+          "active": 184,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7940.4,
+          "wallSeconds": 6.7675,
+          "gapMs": 66.69999999999982,
+          "gameFrame": 208,
+          "steps": 4,
+          "stepCpuMs": 9.399999998509884,
+          "drawCpuMs": 2.099999999627471,
+          "simTime": 6.633333333333333,
+          "active": 183,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7973.7,
+          "wallSeconds": 6.786,
+          "gapMs": 33.30000000000018,
+          "gameFrame": 209,
+          "steps": 2,
+          "stepCpuMs": 3.200000001117587,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 6.666666666666667,
+          "active": 182,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 7990.4,
+          "wallSeconds": 6.803599999999627,
+          "gapMs": 16.699999999999818,
+          "gameFrame": 210,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 6.683333333333334,
+          "active": 182,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8007,
+          "wallSeconds": 6.8215,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 211,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 6.7,
+          "active": 182,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8090.4,
+          "wallSeconds": 6.912300000000745,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 212,
+          "steps": 5,
+          "stepCpuMs": 8.200000001117587,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 6.783333333333333,
+          "active": 182,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8107,
+          "wallSeconds": 6.927300000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 213,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.5,
+          "simTime": 6.8,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8140.4,
+          "wallSeconds": 6.9485,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 214,
+          "steps": 2,
+          "stepCpuMs": 1.699999999254942,
+          "drawCpuMs": 1.5,
+          "simTime": 6.833333333333333,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8157,
+          "wallSeconds": 6.964300000000745,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 215,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 6.85,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8223.7,
+          "wallSeconds": 7.048400000000372,
+          "gapMs": 66.70000000000073,
+          "gameFrame": 216,
+          "steps": 4,
+          "stepCpuMs": 3.299999998882413,
+          "drawCpuMs": 1.5,
+          "simTime": 6.916666666666667,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8240.3,
+          "wallSeconds": 7.062800000000745,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 217,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 6.933333333333334,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8273.7,
+          "wallSeconds": 7.0815,
+          "gapMs": 33.400000000001455,
+          "gameFrame": 218,
+          "steps": 2,
+          "stepCpuMs": 1.199999999254942,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 6.966666666666667,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8290.3,
+          "wallSeconds": 7.106300000000745,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 219,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 6.983333333333333,
+          "active": 181,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8373.7,
+          "wallSeconds": 7.189400000000372,
+          "gapMs": 83.40000000000146,
+          "gameFrame": 220,
+          "steps": 5,
+          "stepCpuMs": 4,
+          "drawCpuMs": 1.6000000014901161,
+          "simTime": 7.066666666666666,
+          "active": 179,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8390.3,
+          "wallSeconds": 7.206099999999627,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 221,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 7.083333333333333,
+          "active": 179,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8407,
+          "wallSeconds": 7.220099999999627,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 222,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 7.1,
+          "active": 179,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8423.7,
+          "wallSeconds": 7.234699999999255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 223,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 7.116666666666666,
+          "active": 179,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8507,
+          "wallSeconds": 7.325,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 224,
+          "steps": 5,
+          "stepCpuMs": 2.900000000372529,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 7.2,
+          "active": 178,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8523.7,
+          "wallSeconds": 7.338599999999627,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 225,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 7.216666666666667,
+          "active": 178,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8540.3,
+          "wallSeconds": 7.352199999999255,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 226,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 7.233333333333333,
+          "active": 178,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8573.6,
+          "wallSeconds": 7.383300000000745,
+          "gapMs": 33.30000000000109,
+          "gameFrame": 227,
+          "steps": 2,
+          "stepCpuMs": 1.299999998882413,
+          "drawCpuMs": 1.5,
+          "simTime": 7.266666666666667,
+          "active": 178,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8657,
+          "wallSeconds": 7.472,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 228,
+          "steps": 5,
+          "stepCpuMs": 5.400000000372529,
+          "drawCpuMs": 2.599999999627471,
+          "simTime": 7.35,
+          "active": 177,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8673.7,
+          "wallSeconds": 7.486800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 229,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 7.366666666666666,
+          "active": 177,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8690.4,
+          "wallSeconds": 7.509,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 230,
+          "steps": 1,
+          "stepCpuMs": 5.199999999254942,
+          "drawCpuMs": 4.300000000745058,
+          "simTime": 7.383333333333333,
+          "active": 177,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8723.7,
+          "wallSeconds": 7.541699999999255,
+          "gapMs": 33.30000000000109,
+          "gameFrame": 231,
+          "steps": 2,
+          "stepCpuMs": 1.599999999627471,
+          "drawCpuMs": 6.099999999627471,
+          "simTime": 7.416666666666667,
+          "active": 177,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8790.3,
+          "wallSeconds": 7.610800000000745,
+          "gapMs": 66.59999999999854,
+          "gameFrame": 232,
+          "steps": 4,
+          "stepCpuMs": 3.600000001490116,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 7.483333333333333,
+          "active": 176,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8807,
+          "wallSeconds": 7.6255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 233,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 7.5,
+          "active": 176,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8840.4,
+          "wallSeconds": 7.649599999999627,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 234,
+          "steps": 2,
+          "stepCpuMs": 2.300000000745058,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 7.533333333333333,
+          "active": 176,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8857,
+          "wallSeconds": 7.671699999999255,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 235,
+          "steps": 1,
+          "stepCpuMs": 0.7999999988824129,
+          "drawCpuMs": 3,
+          "simTime": 7.55,
+          "active": 175,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8940.3,
+          "wallSeconds": 7.76,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 236,
+          "steps": 5,
+          "stepCpuMs": 8.600000001490116,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 7.633333333333333,
+          "active": 174,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8973.7,
+          "wallSeconds": 7.791900000000372,
+          "gapMs": 33.400000000001455,
+          "gameFrame": 237,
+          "steps": 2,
+          "stepCpuMs": 3.5,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 7.666666666666667,
+          "active": 174,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 8990.4,
+          "wallSeconds": 7.811699999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 238,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 7.683333333333334,
+          "active": 173,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9007,
+          "wallSeconds": 7.829,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 239,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 7.7,
+          "active": 173,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9073.6,
+          "wallSeconds": 7.900300000000745,
+          "gapMs": 66.60000000000036,
+          "gameFrame": 240,
+          "steps": 4,
+          "stepCpuMs": 6.199999999254942,
+          "drawCpuMs": 2.100000001490116,
+          "simTime": 7.766666666666667,
+          "active": 171,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9107,
+          "wallSeconds": 7.922699999999255,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 241,
+          "steps": 2,
+          "stepCpuMs": 1.299999998882413,
+          "drawCpuMs": 3.5,
+          "simTime": 7.8,
+          "active": 171,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9123.6,
+          "wallSeconds": 7.942400000000372,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 242,
+          "steps": 1,
+          "stepCpuMs": 2.400000000372529,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 7.816666666666666,
+          "active": 171,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9223.6,
+          "wallSeconds": 8.051400000000372,
+          "gapMs": 100,
+          "gameFrame": 243,
+          "steps": 6,
+          "stepCpuMs": 5.099999999627471,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 7.916666666666667,
+          "active": 170,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9256.9,
+          "wallSeconds": 8.066800000000745,
+          "gapMs": 33.29999999999927,
+          "gameFrame": 244,
+          "steps": 2,
+          "stepCpuMs": 1.5,
+          "drawCpuMs": 1.5,
+          "simTime": 7.95,
+          "active": 168,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9273.7,
+          "wallSeconds": 8.082599999999628,
+          "gapMs": 16.80000000000109,
+          "gameFrame": 245,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 7.966666666666667,
+          "active": 168,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9290.3,
+          "wallSeconds": 8.102099999999627,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 246,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 7.983333333333333,
+          "active": 168,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9307,
+          "wallSeconds": 8.122400000000372,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 247,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 8,
+          "active": 168,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9406.9,
+          "wallSeconds": 8.218300000000745,
+          "gapMs": 99.89999999999964,
+          "gameFrame": 248,
+          "steps": 6,
+          "stepCpuMs": 4.800000000745058,
+          "drawCpuMs": 1.5,
+          "simTime": 8.1,
+          "active": 166,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9423.7,
+          "wallSeconds": 8.233199999999256,
+          "gapMs": 16.80000000000109,
+          "gameFrame": 249,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 8.116666666666667,
+          "active": 166,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9440.3,
+          "wallSeconds": 8.261099999999628,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 250,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 13.099999999627471,
+          "simTime": 8.133333333333333,
+          "active": 165,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9540.3,
+          "wallSeconds": 8.372900000000373,
+          "gapMs": 100,
+          "gameFrame": 251,
+          "steps": 6,
+          "stepCpuMs": 7.399999998509884,
+          "drawCpuMs": 2.900000000372529,
+          "simTime": 8.233333333333333,
+          "active": 163,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9573.6,
+          "wallSeconds": 8.3935,
+          "gapMs": 33.30000000000109,
+          "gameFrame": 252,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 8.266666666666666,
+          "active": 162,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9590.3,
+          "wallSeconds": 8.406699999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 253,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 8.283333333333333,
+          "active": 162,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9623.6,
+          "wallSeconds": 8.432099999999627,
+          "gapMs": 33.30000000000109,
+          "gameFrame": 254,
+          "steps": 2,
+          "stepCpuMs": 1.099999999627471,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 8.316666666666666,
+          "active": 161,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9640.3,
+          "wallSeconds": 8.448599999999628,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 255,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.333333333333334,
+          "active": 161,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9690.3,
+          "wallSeconds": 8.515,
+          "gapMs": 50,
+          "gameFrame": 256,
+          "steps": 3,
+          "stepCpuMs": 4.199999999254942,
+          "drawCpuMs": 2.199999999254942,
+          "simTime": 8.383333333333333,
+          "active": 159,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9723.6,
+          "wallSeconds": 8.531,
+          "gapMs": 33.30000000000109,
+          "gameFrame": 257,
+          "steps": 2,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.5,
+          "simTime": 8.416666666666666,
+          "active": 158,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9740.3,
+          "wallSeconds": 8.552800000000746,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 258,
+          "steps": 1,
+          "stepCpuMs": 1.5,
+          "drawCpuMs": 4.299999998882413,
+          "simTime": 8.433333333333334,
+          "active": 158,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9757,
+          "wallSeconds": 8.569800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 259,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.45,
+          "active": 155,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9840.2,
+          "wallSeconds": 8.659599999999628,
+          "gapMs": 83.20000000000073,
+          "gameFrame": 260,
+          "steps": 5,
+          "stepCpuMs": 9.199999999254942,
+          "drawCpuMs": 2.400000000372529,
+          "simTime": 8.533333333333333,
+          "active": 153,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9856.9,
+          "wallSeconds": 8.677599999999627,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 261,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 8.55,
+          "active": 152,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9873.6,
+          "wallSeconds": 8.697300000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 262,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 8.566666666666666,
+          "active": 150,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9907,
+          "wallSeconds": 8.715800000000746,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 263,
+          "steps": 2,
+          "stepCpuMs": 1.900000000372529,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 8.6,
+          "active": 150,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 9973.6,
+          "wallSeconds": 8.803199999999254,
+          "gapMs": 66.60000000000036,
+          "gameFrame": 264,
+          "steps": 4,
+          "stepCpuMs": 10.300000000745058,
+          "drawCpuMs": 2.599999999627471,
+          "simTime": 8.666666666666666,
+          "active": 149,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10006.9,
+          "wallSeconds": 8.823199999999256,
+          "gapMs": 33.29999999999927,
+          "gameFrame": 265,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 8.7,
+          "active": 149,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10023.6,
+          "wallSeconds": 8.838400000000373,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 266,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 8.716666666666667,
+          "active": 149,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10040.3,
+          "wallSeconds": 8.855900000000373,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 267,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.1000000014901161,
+          "simTime": 8.733333333333333,
+          "active": 149,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10123.6,
+          "wallSeconds": 8.934800000000745,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 268,
+          "steps": 5,
+          "stepCpuMs": 3,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.816666666666666,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10140.3,
+          "wallSeconds": 8.949199999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 269,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.833333333333334,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10157,
+          "wallSeconds": 8.965099999999627,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 270,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.85,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10173.6,
+          "wallSeconds": 8.981400000000372,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 271,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 8.866666666666667,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10256.9,
+          "wallSeconds": 9.075300000000745,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 272,
+          "steps": 5,
+          "stepCpuMs": 2.100000001490116,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 8.95,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10273.6,
+          "wallSeconds": 9.088699999999255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 273,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.699999999254942,
+          "simTime": 8.966666666666667,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10290.3,
+          "wallSeconds": 9.102699999999254,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 274,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 8.983333333333333,
+          "active": 148,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10306.9,
+          "wallSeconds": 9.12,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 275,
+          "steps": 1,
+          "stepCpuMs": 0.7999999988824129,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 9,
+          "active": 147,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10406.9,
+          "wallSeconds": 9.217400000000373,
+          "gapMs": 100,
+          "gameFrame": 276,
+          "steps": 6,
+          "stepCpuMs": 3.800000000745058,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 9.1,
+          "active": 147,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10423.6,
+          "wallSeconds": 9.231,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 277,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 9.116666666666667,
+          "active": 147,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10440.2,
+          "wallSeconds": 9.247599999999627,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 278,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 9.133333333333333,
+          "active": 147,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10457,
+          "wallSeconds": 9.279699999999256,
+          "gapMs": 16.799999999999272,
+          "gameFrame": 279,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 9.15,
+          "active": 146,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10540.2,
+          "wallSeconds": 9.351300000000744,
+          "gapMs": 83.20000000000073,
+          "gameFrame": 280,
+          "steps": 5,
+          "stepCpuMs": 2.099999999627471,
+          "drawCpuMs": 1.1000000014901161,
+          "simTime": 9.233333333333333,
+          "active": 146,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10573.6,
+          "wallSeconds": 9.381099999999627,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 281,
+          "steps": 2,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 9.266666666666666,
+          "active": 146,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10590.3,
+          "wallSeconds": 9.397199999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 282,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 9.283333333333333,
+          "active": 146,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10607,
+          "wallSeconds": 9.414099999999628,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 283,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 9.3,
+          "active": 146,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10673.6,
+          "wallSeconds": 9.491300000000745,
+          "gapMs": 66.60000000000036,
+          "gameFrame": 284,
+          "steps": 4,
+          "stepCpuMs": 1.700000001117587,
+          "drawCpuMs": 2.400000000372529,
+          "simTime": 9.366666666666667,
+          "active": 145,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10690.3,
+          "wallSeconds": 9.506300000000746,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 285,
+          "steps": 1,
+          "stepCpuMs": 1.199999999254942,
+          "drawCpuMs": 1.6000000014901161,
+          "simTime": 9.383333333333333,
+          "active": 144,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10707,
+          "wallSeconds": 9.525800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 286,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 3.199999999254942,
+          "simTime": 9.4,
+          "active": 144,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10723.6,
+          "wallSeconds": 9.539699999999256,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 287,
+          "steps": 1,
+          "stepCpuMs": 0.7000000011175871,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 9.416666666666666,
+          "active": 144,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10823.6,
+          "wallSeconds": 9.634699999999254,
+          "gapMs": 100,
+          "gameFrame": 288,
+          "steps": 6,
+          "stepCpuMs": 3.300000000745058,
+          "drawCpuMs": 2.5,
+          "simTime": 9.516666666666666,
+          "active": 143,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10840.2,
+          "wallSeconds": 9.649099999999628,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 289,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 9.533333333333333,
+          "active": 142,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10856.9,
+          "wallSeconds": 9.673800000000744,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 290,
+          "steps": 1,
+          "stepCpuMs": 5.5,
+          "drawCpuMs": 5.399999998509884,
+          "simTime": 9.55,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10873.6,
+          "wallSeconds": 9.691699999999255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 291,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 9.566666666666666,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10956.9,
+          "wallSeconds": 9.773099999999628,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 292,
+          "steps": 5,
+          "stepCpuMs": 1.699999999254942,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 9.65,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10973.6,
+          "wallSeconds": 9.786599999999627,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 293,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 9.666666666666666,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 10990.3,
+          "wallSeconds": 9.801099999999627,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 294,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.5,
+          "simTime": 9.683333333333334,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11006.9,
+          "wallSeconds": 9.816599999999628,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 295,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 2.199999999254942,
+          "simTime": 9.7,
+          "active": 141,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11106.9,
+          "wallSeconds": 9.921900000000372,
+          "gapMs": 100,
+          "gameFrame": 296,
+          "steps": 6,
+          "stepCpuMs": 6.300000000745058,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 9.8,
+          "active": 140,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11123.6,
+          "wallSeconds": 9.936199999999255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 297,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 9.816666666666666,
+          "active": 140,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11140.2,
+          "wallSeconds": 9.950199999999255,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 298,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.8999999985098839,
+          "simTime": 9.833333333333334,
+          "active": 139,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11156.9,
+          "wallSeconds": 9.969300000000745,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 299,
+          "steps": 1,
+          "stepCpuMs": 0.7999999988824129,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 9.85,
+          "active": 139,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11240.2,
+          "wallSeconds": 10.063199999999254,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 300,
+          "steps": 5,
+          "stepCpuMs": 2.400000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 9.933333333333334,
+          "active": 138,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11256.9,
+          "wallSeconds": 10.079699999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 301,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 9.95,
+          "active": 138,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11273.6,
+          "wallSeconds": 10.093699999999256,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 302,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 9.966666666666667,
+          "active": 138,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11306.9,
+          "wallSeconds": 10.123300000000745,
+          "gapMs": 33.29999999999927,
+          "gameFrame": 303,
+          "steps": 2,
+          "stepCpuMs": 0.7999999988824129,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 10,
+          "active": 138,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11390.2,
+          "wallSeconds": 10.213199999999254,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 304,
+          "steps": 5,
+          "stepCpuMs": 2,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 10.083333333333334,
+          "active": 137,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11406.9,
+          "wallSeconds": 10.227699999999254,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 305,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 10.1,
+          "active": 137,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11423.5,
+          "wallSeconds": 10.245099999999628,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 306,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 10.116666666666667,
+          "active": 137,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11440.3,
+          "wallSeconds": 10.261199999999254,
+          "gapMs": 16.799999999999272,
+          "gameFrame": 307,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 10.133333333333333,
+          "active": 135,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11540.2,
+          "wallSeconds": 10.359900000000373,
+          "gapMs": 99.90000000000146,
+          "gameFrame": 308,
+          "steps": 6,
+          "stepCpuMs": 3,
+          "drawCpuMs": 2.200000001117587,
+          "simTime": 10.233333333333333,
+          "active": 133,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11556.8,
+          "wallSeconds": 10.372699999999256,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 309,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 10.25,
+          "active": 133,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11590.2,
+          "wallSeconds": 10.4,
+          "gapMs": 33.400000000001455,
+          "gameFrame": 310,
+          "steps": 2,
+          "stepCpuMs": 0.8999999985098839,
+          "drawCpuMs": 1.800000000745058,
+          "simTime": 10.283333333333333,
+          "active": 132,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11606.9,
+          "wallSeconds": 10.415900000000372,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 311,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 10.3,
+          "active": 132,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11690.2,
+          "wallSeconds": 10.501400000000373,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 312,
+          "steps": 5,
+          "stepCpuMs": 2.000000001862645,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 10.383333333333333,
+          "active": 132,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11706.9,
+          "wallSeconds": 10.516199999999255,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 313,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 10.4,
+          "active": 132,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11723.6,
+          "wallSeconds": 10.530400000000373,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 314,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 10.416666666666666,
+          "active": 131,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11740.2,
+          "wallSeconds": 10.5525,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 315,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 10.433333333333334,
+          "active": 130,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11823.5,
+          "wallSeconds": 10.643699999999255,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 316,
+          "steps": 5,
+          "stepCpuMs": 1.900000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 10.516666666666666,
+          "active": 128,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11840.2,
+          "wallSeconds": 10.6565,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 317,
+          "steps": 1,
+          "stepCpuMs": 0.8000000007450581,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 10.533333333333333,
+          "active": 128,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11856.8,
+          "wallSeconds": 10.67,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 318,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 10.55,
+          "active": 128,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11873.5,
+          "wallSeconds": 10.682300000000746,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 319,
+          "steps": 1,
+          "stepCpuMs": 0.3999999985098839,
+          "drawCpuMs": 1.1000000014901161,
+          "simTime": 10.566666666666666,
+          "active": 128,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11973.5,
+          "wallSeconds": 10.781199999999256,
+          "gapMs": 100,
+          "gameFrame": 320,
+          "steps": 6,
+          "stepCpuMs": 1.799999998882413,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 10.666666666666666,
+          "active": 127,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 11990.2,
+          "wallSeconds": 10.797199999999254,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 321,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 10.683333333333334,
+          "active": 127,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12006.8,
+          "wallSeconds": 10.813400000000373,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 322,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 10.7,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12023.6,
+          "wallSeconds": 10.8335,
+          "gapMs": 16.80000000000109,
+          "gameFrame": 323,
+          "steps": 1,
+          "stepCpuMs": 1.300000000745058,
+          "drawCpuMs": 1,
+          "simTime": 10.716666666666667,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12106.9,
+          "wallSeconds": 10.9155,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 324,
+          "steps": 5,
+          "stepCpuMs": 1.699999999254942,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 10.8,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12123.6,
+          "wallSeconds": 10.929900000000373,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 325,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 10.816666666666666,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12140.2,
+          "wallSeconds": 10.947400000000373,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 326,
+          "steps": 1,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 10.833333333333334,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12156.9,
+          "wallSeconds": 10.964199999999256,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 327,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.3999999985098839,
+          "simTime": 10.85,
+          "active": 126,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12240.2,
+          "wallSeconds": 11.0515,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 328,
+          "steps": 5,
+          "stepCpuMs": 2,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 10.933333333333334,
+          "active": 124,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12256.9,
+          "wallSeconds": 11.064099999999627,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 329,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.299999998882413,
+          "simTime": 10.95,
+          "active": 124,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12273.5,
+          "wallSeconds": 11.079900000000373,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 330,
+          "steps": 1,
+          "stepCpuMs": 0.40000000037252903,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 10.966666666666667,
+          "active": 124,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12290.2,
+          "wallSeconds": 11.101800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 331,
+          "steps": 1,
+          "stepCpuMs": 0.900000000372529,
+          "drawCpuMs": 1.5,
+          "simTime": 10.983333333333333,
+          "active": 123,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12373.5,
+          "wallSeconds": 11.189099999999627,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 332,
+          "steps": 5,
+          "stepCpuMs": 1.400000000372529,
+          "drawCpuMs": 1.799999998882413,
+          "simTime": 11.066666666666666,
+          "active": 122,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12390.2,
+          "wallSeconds": 11.204199999999254,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 333,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.083333333333334,
+          "active": 122,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12406.9,
+          "wallSeconds": 11.217900000000373,
+          "gapMs": 16.69999999999891,
+          "gameFrame": 334,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 11.1,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12423.5,
+          "wallSeconds": 11.2305,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 335,
+          "steps": 1,
+          "stepCpuMs": 0.6000000014901161,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 11.116666666666667,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12506.9,
+          "wallSeconds": 11.326699999999255,
+          "gapMs": 83.39999999999964,
+          "gameFrame": 336,
+          "steps": 5,
+          "stepCpuMs": 2.100000001490116,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 11.2,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12523.6,
+          "wallSeconds": 11.339800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 337,
+          "steps": 1,
+          "stepCpuMs": 0.2999999988824129,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.216666666666667,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12540.2,
+          "wallSeconds": 11.354400000000373,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 338,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.233333333333333,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12556.8,
+          "wallSeconds": 11.366599999999627,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 339,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.25,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12656.8,
+          "wallSeconds": 11.466699999999255,
+          "gapMs": 100,
+          "gameFrame": 340,
+          "steps": 6,
+          "stepCpuMs": 2.300000000745058,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 11.35,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12673.5,
+          "wallSeconds": 11.482199999999255,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 341,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.5,
+          "simTime": 11.366666666666667,
+          "active": 120,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12690.2,
+          "wallSeconds": 11.497099999999627,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 342,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.383333333333333,
+          "active": 119,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12706.8,
+          "wallSeconds": 11.5145,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 343,
+          "steps": 1,
+          "stepCpuMs": 0.6999999992549419,
+          "drawCpuMs": 1.400000000372529,
+          "simTime": 11.4,
+          "active": 119,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12790.1,
+          "wallSeconds": 11.604300000000745,
+          "gapMs": 83.30000000000109,
+          "gameFrame": 344,
+          "steps": 5,
+          "stepCpuMs": 2.599999999627471,
+          "drawCpuMs": 1.700000001117587,
+          "simTime": 11.483333333333333,
+          "active": 116,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12806.9,
+          "wallSeconds": 11.617099999999628,
+          "gapMs": 16.799999999999272,
+          "gameFrame": 345,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.5,
+          "active": 116,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12823.5,
+          "wallSeconds": 11.630400000000373,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 346,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.516666666666666,
+          "active": 115,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12840.2,
+          "wallSeconds": 11.6465,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 347,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.533333333333333,
+          "active": 115,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12923.5,
+          "wallSeconds": 11.739900000000372,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 348,
+          "steps": 5,
+          "stepCpuMs": 1.599999999627471,
+          "drawCpuMs": 1.900000000372529,
+          "simTime": 11.616666666666667,
+          "active": 114,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12940.2,
+          "wallSeconds": 11.752900000000373,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 349,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.200000001117587,
+          "simTime": 11.633333333333333,
+          "active": 113,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12956.8,
+          "wallSeconds": 11.766300000000745,
+          "gapMs": 16.599999999998545,
+          "gameFrame": 350,
+          "steps": 1,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.199999999254942,
+          "simTime": 11.65,
+          "active": 113,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 12973.5,
+          "wallSeconds": 11.781599999999628,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 351,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1,
+          "simTime": 11.666666666666666,
+          "active": 113,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 13056.8,
+          "wallSeconds": 11.876099999999628,
+          "gapMs": 83.29999999999927,
+          "gameFrame": 352,
+          "steps": 5,
+          "stepCpuMs": 2.600000001490116,
+          "drawCpuMs": 1.599999999627471,
+          "simTime": 11.75,
+          "active": 111,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 13073.5,
+          "wallSeconds": 11.889800000000745,
+          "gapMs": 16.700000000000728,
+          "gameFrame": 353,
+          "steps": 1,
+          "stepCpuMs": 0.5,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.766666666666666,
+          "active": 111,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 13106.9,
+          "wallSeconds": 11.913300000000746,
+          "gapMs": 33.399999999999636,
+          "gameFrame": 354,
+          "steps": 2,
+          "stepCpuMs": 0.599999999627471,
+          "drawCpuMs": 1.300000000745058,
+          "simTime": 11.8,
+          "active": 111,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 13123.5,
+          "wallSeconds": 11.932099999999627,
+          "gapMs": 16.600000000000364,
+          "gameFrame": 355,
+          "steps": 1,
+          "stepCpuMs": 0.30000000074505806,
+          "drawCpuMs": 1.5,
+          "simTime": 11.816666666666666,
+          "active": 111,
+          "mode": "FIGHTING"
+        },
+        {
+          "raf": 13190.2,
+          "wallSeconds": 12.006199999999255,
+          "gapMs": 66.70000000000073,
+          "gameFrame": 356,
+          "steps": 4,
+          "stepCpuMs": 1,
+          "drawCpuMs": 1.099999999627471,
+          "simTime": 11.883333333333333,
+          "active": 111,
+          "mode": "FIGHTING"
+        }
+      ],
+      "p99FrameMs": 116.70000000000005,
+      "p95DrawMs": 3.199999999254942,
+      "p95FrameMeanStepMs": 1.799999998882413,
+      "gapsOver50ms": 81,
+      "gapsOver100ms": 9,
+      "gapsOver500ms": 0,
+      "visibility": [
+        {
+          "path": "evidence/v2/performance-alpha-default-run-2-100-vs-100-frame-1.png",
+          "simTime": 0.5,
+          "drawnUnits": 200,
+          "units": [
+            {
+              "id": 1,
+              "x": 260.08079330545627,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 2,
+              "x": 304.23567761507724,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 3,
+              "x": 352.5656445606834,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 4,
+              "x": 431.7912230125784,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 5,
+              "x": 460.08079330545644,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 6,
+              "x": 504.23567761507724,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 7,
+              "x": 552.5656445606832,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 8,
+              "x": 631.7912230125786,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 9,
+              "x": 660.0807933054565,
+              "y": 400,
+              "team": "red"
+            },
+            {
+              "id": 10,
+              "x": 254.23567761507732,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 11,
+              "x": 302.5656445606834,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 12,
+              "x": 381.7912230125784,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 13,
+              "x": 410.08079330545644,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 14,
+              "x": 454.23567761507724,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 15,
+              "x": 502.5656445606834,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 16,
+              "x": 581.7912230125786,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 17,
+              "x": 610.0807933054565,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 18,
+              "x": 654.2356776150773,
+              "y": 450,
+              "team": "red"
+            },
+            {
+              "id": 19,
+              "x": 252.56564456068332,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 20,
+              "x": 331.7912230125784,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 21,
+              "x": 360.08079330545644,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 22,
+              "x": 404.23567761507724,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 23,
+              "x": 452.5656445606834,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 24,
+              "x": 531.7912230125785,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 25,
+              "x": 560.0807933054565,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 26,
+              "x": 604.2356776150773,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 27,
+              "x": 652.5656445606832,
+              "y": 500,
+              "team": "red"
+            },
+            {
+              "id": 28,
+              "x": 281.7912230125786,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 29,
+              "x": 310.08079330545644,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 30,
+              "x": 354.23567761507724,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 31,
+              "x": 402.5656445606834,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 32,
+              "x": 481.7912230125784,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 33,
+              "x": 510.08079330545644,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 34,
+              "x": 554.2356776150773,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 35,
+              "x": 602.5656445606832,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 36,
+              "x": 681.7912230125786,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 37,
+              "x": 260.08079330545627,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 38,
+              "x": 304.23567761507724,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 39,
+              "x": 352.5656445606834,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 40,
+              "x": 431.7912230125784,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 41,
+              "x": 460.08079330545644,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 42,
+              "x": 504.23567761507724,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 43,
+              "x": 552.5656445606832,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 44,
+              "x": 631.7912230125786,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 45,
+              "x": 660.0807933054565,
+              "y": 600,
+              "team": "red"
+            },
+            {
+              "id": 46,
+              "x": 254.23567761507732,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 47,
+              "x": 302.5656445606834,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 48,
+              "x": 381.7912230125784,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 49,
+              "x": 410.08079330545644,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 50,
+              "x": 454.23567761507724,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 51,
+              "x": 502.5656445606834,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 52,
+              "x": 581.7912230125786,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 53,
+              "x": 610.0807933054565,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 54,
+              "x": 654.2356776150773,
+              "y": 650,
+              "team": "red"
+            },
+            {
+              "id": 55,
+              "x": 252.56564456068332,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 56,
+              "x": 331.7912230125784,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 57,
+              "x": 360.08079330545644,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 58,
+              "x": 404.23567761507724,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 59,
+              "x": 452.5656445606834,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 60,
+              "x": 531.7912230125785,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 61,
+              "x": 560.0807933054565,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 62,
+              "x": 604.2356776150773,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 63,
+              "x": 652.5656445606832,
+              "y": 700,
+              "team": "red"
+            },
+            {
+              "id": 64,
+              "x": 281.7912230125786,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 65,
+              "x": 310.08079330545644,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 66,
+              "x": 354.23567761507724,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 67,
+              "x": 402.5656445606834,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 68,
+              "x": 481.7912230125784,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 69,
+              "x": 510.08079330545644,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 70,
+              "x": 554.2356776150773,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 71,
+              "x": 602.5656445606832,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 72,
+              "x": 681.7912230125786,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 73,
+              "x": 260.08079330545627,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 74,
+              "x": 304.23567761507724,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 75,
+              "x": 352.5656445606834,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 76,
+              "x": 431.7912230125784,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 77,
+              "x": 460.08079330545644,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 78,
+              "x": 504.23567761507724,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 79,
+              "x": 552.5656445606832,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 80,
+              "x": 631.7912230125786,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 81,
+              "x": 660.0807933054565,
+              "y": 800,
+              "team": "red"
+            },
+            {
+              "id": 82,
+              "x": 254.23567761507732,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 83,
+              "x": 302.5656445606834,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 84,
+              "x": 381.7912230125784,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 85,
+              "x": 410.08079330545644,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 86,
+              "x": 454.23567761507724,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 87,
+              "x": 502.5656445606834,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 88,
+              "x": 581.7912230125786,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 89,
+              "x": 610.0807933054565,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 90,
+              "x": 654.2356776150773,
+              "y": 850,
+              "team": "red"
+            },
+            {
+              "id": 91,
+              "x": 252.56564456068332,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 92,
+              "x": 331.7912230125784,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 93,
+              "x": 360.08079330545644,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 94,
+              "x": 404.23567761507724,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 95,
+              "x": 452.5656445606834,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 96,
+              "x": 531.7912230125785,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 97,
+              "x": 560.0807933054565,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 98,
+              "x": 604.2356776150773,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 99,
+              "x": 652.5656445606832,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 100,
+              "x": 281.7590294000823,
+              "y": 948.0056596248247,
+              "team": "red"
+            },
+            {
+              "id": 101,
+              "x": 2139.919206694544,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 102,
+              "x": 2095.7643223849236,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 103,
+              "x": 2047.434355439317,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 104,
+              "x": 1968.2087769874213,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 105,
+              "x": 1939.919206694544,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 106,
+              "x": 1895.764322384923,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 107,
+              "x": 1847.434355439317,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 108,
+              "x": 1768.2087769874213,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 109,
+              "x": 1739.919206694544,
+              "y": 400,
+              "team": "blue"
+            },
+            {
+              "id": 110,
+              "x": 2145.7643223849236,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 111,
+              "x": 2097.434355439317,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 112,
+              "x": 2018.208776987422,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 113,
+              "x": 1989.919206694544,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 114,
+              "x": 1945.764322384923,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 115,
+              "x": 1897.434355439317,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 116,
+              "x": 1818.2087769874213,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 117,
+              "x": 1789.919206694544,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 118,
+              "x": 1745.764322384923,
+              "y": 450,
+              "team": "blue"
+            },
+            {
+              "id": 119,
+              "x": 2147.434355439317,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 120,
+              "x": 2068.2087769874224,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 121,
+              "x": 2039.9192066945434,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 122,
+              "x": 1995.764322384923,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 123,
+              "x": 1947.434355439317,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 124,
+              "x": 1868.2087769874213,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 125,
+              "x": 1839.919206694544,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 126,
+              "x": 1795.764322384923,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 127,
+              "x": 1747.434355439317,
+              "y": 500,
+              "team": "blue"
+            },
+            {
+              "id": 128,
+              "x": 2118.2087769874224,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 129,
+              "x": 2089.919206694544,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 130,
+              "x": 2045.7643223849238,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 131,
+              "x": 1997.434355439317,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 132,
+              "x": 1918.2087769874213,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 133,
+              "x": 1889.919206694544,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 134,
+              "x": 1845.764322384923,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 135,
+              "x": 1797.434355439317,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 136,
+              "x": 1718.2087769874213,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 137,
+              "x": 2139.919206694544,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 138,
+              "x": 2095.7643223849236,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 139,
+              "x": 2047.434355439317,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 140,
+              "x": 1968.2087769874213,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 141,
+              "x": 1939.919206694544,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 142,
+              "x": 1895.764322384923,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 143,
+              "x": 1847.434355439317,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 144,
+              "x": 1768.2087769874213,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 145,
+              "x": 1739.919206694544,
+              "y": 600,
+              "team": "blue"
+            },
+            {
+              "id": 146,
+              "x": 2145.7643223849236,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 147,
+              "x": 2097.434355439317,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 148,
+              "x": 2018.208776987422,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 149,
+              "x": 1989.919206694544,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 150,
+              "x": 1945.764322384923,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 151,
+              "x": 1897.434355439317,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 152,
+              "x": 1818.2087769874213,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 153,
+              "x": 1789.919206694544,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 154,
+              "x": 1745.764322384923,
+              "y": 650,
+              "team": "blue"
+            },
+            {
+              "id": 155,
+              "x": 2147.434355439317,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 156,
+              "x": 2068.2087769874224,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 157,
+              "x": 2039.9192066945434,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 158,
+              "x": 1995.764322384923,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 159,
+              "x": 1947.434355439317,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 160,
+              "x": 1868.2087769874213,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 161,
+              "x": 1839.919206694544,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 162,
+              "x": 1795.764322384923,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 163,
+              "x": 1747.434355439317,
+              "y": 700,
+              "team": "blue"
+            },
+            {
+              "id": 164,
+              "x": 2118.2087769874224,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 165,
+              "x": 2089.919206694544,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 166,
+              "x": 2045.7643223849238,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 167,
+              "x": 1997.434355439317,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 168,
+              "x": 1918.2087769874213,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 169,
+              "x": 1889.919206694544,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 170,
+              "x": 1845.764322384923,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 171,
+              "x": 1797.434355439317,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 172,
+              "x": 1718.2087769874213,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 173,
+              "x": 2139.919206694544,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 174,
+              "x": 2095.7643223849236,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 175,
+              "x": 2047.434355439317,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 176,
+              "x": 1968.2087769874213,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 177,
+              "x": 1939.919206694544,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 178,
+              "x": 1895.764322384923,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 179,
+              "x": 1847.434355439317,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 180,
+              "x": 1768.2087769874213,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 181,
+              "x": 1739.919206694544,
+              "y": 800,
+              "team": "blue"
+            },
+            {
+              "id": 182,
+              "x": 2145.7643223849236,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 183,
+              "x": 2097.434355439317,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 184,
+              "x": 2018.208776987422,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 185,
+              "x": 1989.919206694544,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 186,
+              "x": 1945.764322384923,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 187,
+              "x": 1897.434355439317,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 188,
+              "x": 1818.2087769874213,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 189,
+              "x": 1789.919206694544,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 190,
+              "x": 1745.764322384923,
+              "y": 850,
+              "team": "blue"
+            },
+            {
+              "id": 191,
+              "x": 2147.434355439317,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 192,
+              "x": 2068.2087769874224,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 193,
+              "x": 2039.9192066945434,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 194,
+              "x": 1995.764322384923,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 195,
+              "x": 1947.434355439317,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 196,
+              "x": 1868.2087769874213,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 197,
+              "x": 1839.919206694544,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 198,
+              "x": 1795.764322384923,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 199,
+              "x": 1747.434355439317,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 200,
+              "x": 2118.2409705999175,
+              "y": 948.0056596248247,
+              "team": "blue"
+            }
+          ],
+          "canvas": {
+            "width": 1616,
+            "height": 938
+          },
+          "pixels": {
+            "width": 1616,
+            "height": 938,
+            "redPixels": 9129,
+            "bluePixels": 9272,
+            "checksum": 410054101,
+            "teamsVisible": true
+          }
+        },
+        {
+          "path": "evidence/v2/performance-alpha-default-run-2-100-vs-100-frame-2.png",
+          "simTime": 2.1,
+          "drawnUnits": 200,
+          "units": [
+            {
+              "id": 1,
+              "x": 410.4651877554088,
+              "y": 410.91615621626096,
+              "team": "red"
+            },
+            {
+              "id": 2,
+              "x": 434.7600500914217,
+              "y": 410.8728884334759,
+              "team": "red"
+            },
+            {
+              "id": 3,
+              "x": 477.01883770669184,
+              "y": 404.64594271185285,
+              "team": "red"
+            },
+            {
+              "id": 4,
+              "x": 631.1431157952708,
+              "y": 386.27092195365856,
+              "team": "red"
+            },
+            {
+              "id": 5,
+              "x": 615.4121456278633,
+              "y": 423.6109747486952,
+              "team": "red"
+            },
+            {
+              "id": 6,
+              "x": 634.8023061236181,
+              "y": 407.977974496106,
+              "team": "red"
+            },
+            {
+              "id": 7,
+              "x": 677.3392294884189,
+              "y": 399.9801115826793,
+              "team": "red"
+            },
+            {
+              "id": 8,
+              "x": 832.5734812909307,
+              "y": 433.55282488640836,
+              "team": "red"
+            },
+            {
+              "id": 9,
+              "x": 818.802883155848,
+              "y": 395.61813884798687,
+              "team": "red"
+            },
+            {
+              "id": 10,
+              "x": 385.4076588934936,
+              "y": 450.14404321728256,
+              "team": "red"
+            },
+            {
+              "id": 11,
+              "x": 427.0352770353023,
+              "y": 457.58352644905636,
+              "team": "red"
+            },
+            {
+              "id": 12,
+              "x": 556.6278116236866,
+              "y": 443.598608470515,
+              "team": "red"
+            },
+            {
+              "id": 13,
+              "x": 571.1931946614717,
+              "y": 457.0575937896394,
+              "team": "red"
+            },
+            {
+              "id": 14,
+              "x": 591.4355807402395,
+              "y": 462.4005673964684,
+              "team": "red"
+            },
+            {
+              "id": 15,
+              "x": 627.3388623767113,
+              "y": 450.16893404035835,
+              "team": "red"
+            },
+            {
+              "id": 16,
+              "x": 755.8806168058854,
+              "y": 461.8403848921139,
+              "team": "red"
+            },
+            {
+              "id": 17,
+              "x": 774.7969547726993,
+              "y": 468.10910082293407,
+              "team": "red"
+            },
+            {
+              "id": 18,
+              "x": 786.9800628073747,
+              "y": 449.5684123503429,
+              "team": "red"
+            },
+            {
+              "id": 19,
+              "x": 377.3392408557382,
+              "y": 500.0006502742375,
+              "team": "red"
+            },
+            {
+              "id": 20,
+              "x": 525.0144679532334,
+              "y": 521.2867891774364,
+              "team": "red"
+            },
+            {
+              "id": 21,
+              "x": 515.863044001044,
+              "y": 491.99577032648415,
+              "team": "red"
+            },
+            {
+              "id": 22,
+              "x": 535.816124994243,
+              "y": 501.54405772987957,
+              "team": "red"
+            },
+            {
+              "id": 23,
+              "x": 577.2492570672617,
+              "y": 503.8653561667086,
+              "team": "red"
+            },
+            {
+              "id": 24,
+              "x": 706.3212757382448,
+              "y": 503.171886073222,
+              "team": "red"
+            },
+            {
+              "id": 25,
+              "x": 723.8233347764544,
+              "y": 493.573438228443,
+              "team": "red"
+            },
+            {
+              "id": 26,
+              "x": 739.1765527845602,
+              "y": 508.38383332138017,
+              "team": "red"
+            },
+            {
+              "id": 27,
+              "x": 777.3392407865003,
+              "y": 500.0009540868734,
+              "team": "red"
+            },
+            {
+              "id": 28,
+              "x": 452.81026234814743,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 29,
+              "x": 472.4382254723526,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 30,
+              "x": 493.3319858921935,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 31,
+              "x": 527.3392409155841,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 32,
+              "x": 652.8102623481481,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 33,
+              "x": 672.4382254723531,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 34,
+              "x": 693.331985892194,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 35,
+              "x": 727.3392409155838,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 36,
+              "x": 918.5411237885436,
+              "y": 550,
+              "team": "red"
+            },
+            {
+              "id": 37,
+              "x": 411.22561916443306,
+              "y": 600.2777815966981,
+              "team": "red"
+            },
+            {
+              "id": 38,
+              "x": 435.32845359896777,
+              "y": 596.2889393688076,
+              "team": "red"
+            },
+            {
+              "id": 39,
+              "x": 477.3392407631425,
+              "y": 600.0035536943377,
+              "team": "red"
+            },
+            {
+              "id": 40,
+              "x": 618.6553451520114,
+              "y": 611.5020817704601,
+              "team": "red"
+            },
+            {
+              "id": 41,
+              "x": 619.9934640954644,
+              "y": 583.7759386400289,
+              "team": "red"
+            },
+            {
+              "id": 42,
+              "x": 635.8239042272454,
+              "y": 602.82032484171,
+              "team": "red"
+            },
+            {
+              "id": 43,
+              "x": 677.2545539670406,
+              "y": 596.8546598991509,
+              "team": "red"
+            },
+            {
+              "id": 44,
+              "x": 831.021041189857,
+              "y": 577.5990336137005,
+              "team": "red"
+            },
+            {
+              "id": 45,
+              "x": 819.3834217767923,
+              "y": 607.403023816361,
+              "team": "red"
+            },
+            {
+              "id": 46,
+              "x": 385.16132830503534,
+              "y": 643.8087278131089,
+              "team": "red"
+            },
+            {
+              "id": 47,
+              "x": 427.0537567118574,
+              "y": 642.95818091562,
+              "team": "red"
+            },
+            {
+              "id": 48,
+              "x": 561.2216745240281,
+              "y": 639.0687748391235,
+              "team": "red"
+            },
+            {
+              "id": 49,
+              "x": 573.0278261265806,
+              "y": 658.0768569757875,
+              "team": "red"
+            },
+            {
+              "id": 50,
+              "x": 586.2317433431199,
+              "y": 637.1790489689869,
+              "team": "red"
+            },
+            {
+              "id": 51,
+              "x": 627.0574818077837,
+              "y": 644.5277352632486,
+              "team": "red"
+            },
+            {
+              "id": 52,
+              "x": 770.1889090543515,
+              "y": 661.6470266893987,
+              "team": "red"
+            },
+            {
+              "id": 53,
+              "x": 769.042908037035,
+              "y": 630.0203494025325,
+              "team": "red"
+            },
+            {
+              "id": 54,
+              "x": 786.1277164684159,
+              "y": 651.5088546066747,
+              "team": "red"
+            },
+            {
+              "id": 55,
+              "x": 377.33919139339145,
+              "y": 700.0615770969348,
+              "team": "red"
+            },
+            {
+              "id": 56,
+              "x": 523.4235241358408,
+              "y": 720.0936309350121,
+              "team": "red"
+            },
+            {
+              "id": 57,
+              "x": 517.2384042881938,
+              "y": 689.2696468481735,
+              "team": "red"
+            },
+            {
+              "id": 58,
+              "x": 535.3982837034625,
+              "y": 704.3541765685078,
+              "team": "red"
+            },
+            {
+              "id": 59,
+              "x": 577.2351520046567,
+              "y": 704.6167030987011,
+              "team": "red"
+            },
+            {
+              "id": 60,
+              "x": 711.6628937775614,
+              "y": 691.5404446437797,
+              "team": "red"
+            },
+            {
+              "id": 61,
+              "x": 720.2136419362297,
+              "y": 711.7043619312802,
+              "team": "red"
+            },
+            {
+              "id": 62,
+              "x": 739.585762276136,
+              "y": 703.4116330737154,
+              "team": "red"
+            },
+            {
+              "id": 63,
+              "x": 777.2702994775098,
+              "y": 702.1694538295502,
+              "team": "red"
+            },
+            {
+              "id": 64,
+              "x": 452.81026234814743,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 65,
+              "x": 472.4382254723526,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 66,
+              "x": 493.3319858921935,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 67,
+              "x": 527.3392409155841,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 68,
+              "x": 652.8102623481481,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 69,
+              "x": 672.4382254723531,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 70,
+              "x": 693.331985892194,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 71,
+              "x": 727.3392409155838,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 72,
+              "x": 918.5411237885436,
+              "y": 750,
+              "team": "red"
+            },
+            {
+              "id": 73,
+              "x": 411.09525655851337,
+              "y": 797.1599124599612,
+              "team": "red"
+            },
+            {
+              "id": 74,
+              "x": 435.3213646217134,
+              "y": 795.6841187040852,
+              "team": "red"
+            },
+            {
+              "id": 75,
+              "x": 477.3388502155548,
+              "y": 799.8184669247563,
+              "team": "red"
+            },
+            {
+              "id": 76,
+              "x": 604.848919723319,
+              "y": 796.3125355772236,
+              "team": "red"
+            },
+            {
+              "id": 77,
+              "x": 623.5083650519695,
+              "y": 789.3487373471669,
+              "team": "red"
+            },
+            {
+              "id": 78,
+              "x": 640.4223717343986,
+              "y": 801.7749123308618,
+              "team": "red"
+            },
+            {
+              "id": 79,
+              "x": 677.3386692895293,
+              "y": 799.7809849704258,
+              "team": "red"
+            },
+            {
+              "id": 80,
+              "x": 828.0830684376991,
+              "y": 776.4973535925035,
+              "team": "red"
+            },
+            {
+              "id": 81,
+              "x": 820.1373316573788,
+              "y": 804.3892476034528,
+              "team": "red"
+            },
+            {
+              "id": 82,
+              "x": 385.40791558933483,
+              "y": 849.9852344985927,
+              "team": "red"
+            },
+            {
+              "id": 83,
+              "x": 427.06334035484997,
+              "y": 843.2337090342162,
+              "team": "red"
+            },
+            {
+              "id": 84,
+              "x": 558.1781251605235,
+              "y": 846.2205041740559,
+              "team": "red"
+            },
+            {
+              "id": 85,
+              "x": 574.5262870614478,
+              "y": 857.705311428144,
+              "team": "red"
+            },
+            {
+              "id": 86,
+              "x": 586.6765111165431,
+              "y": 837.3292410071917,
+              "team": "red"
+            },
+            {
+              "id": 87,
+              "x": 627.3392345739679,
+              "y": 849.9826339414261,
+              "team": "red"
+            },
+            {
+              "id": 88,
+              "x": 769.7773101059087,
+              "y": 855.1081943656113,
+              "team": "red"
+            },
+            {
+              "id": 89,
+              "x": 768.1316222440324,
+              "y": 826.8588705113036,
+              "team": "red"
+            },
+            {
+              "id": 90,
+              "x": 787.9258715346455,
+              "y": 849.9564684630762,
+              "team": "red"
+            },
+            {
+              "id": 91,
+              "x": 376.8181684074856,
+              "y": 891.2307012744541,
+              "team": "red"
+            },
+            {
+              "id": 92,
+              "x": 532.3843847917461,
+              "y": 870.4091329901702,
+              "team": "red"
+            },
+            {
+              "id": 93,
+              "x": 512.878683499374,
+              "y": 901.051801314751,
+              "team": "red"
+            },
+            {
+              "id": 94,
+              "x": 535.3985258791167,
+              "y": 899.0671509518343,
+              "team": "red"
+            },
+            {
+              "id": 95,
+              "x": 576.43769014971,
+              "y": 886.6988597437249,
+              "team": "red"
+            },
+            {
+              "id": 96,
+              "x": 716.8205659369291,
+              "y": 876.9885537072787,
+              "team": "red"
+            },
+            {
+              "id": 97,
+              "x": 721.2316474084633,
+              "y": 908.3324266918571,
+              "team": "red"
+            },
+            {
+              "id": 98,
+              "x": 734.2830691557449,
+              "y": 884.173177386524,
+              "team": "red"
+            },
+            {
+              "id": 99,
+              "x": 777.3392409155838,
+              "y": 900,
+              "team": "red"
+            },
+            {
+              "id": 100,
+              "x": 518.3708447247002,
+              "y": 939.924124154321,
+              "team": "red"
+            },
+            {
+              "id": 101,
+              "x": 1987.756775504728,
+              "y": 413.85479766706027,
+              "team": "blue"
+            },
+            {
+              "id": 102,
+              "x": 1964.59482147332,
+              "y": 399.60524251847846,
+              "team": "blue"
+            },
+            {
+              "id": 103,
+              "x": 1923.1705718248897,
+              "y": 407.7021078637431,
+              "team": "blue"
+            },
+            {
+              "id": 104,
+              "x": 1760.407590161498,
+              "y": 433.29271747298515,
+              "team": "blue"
+            },
+            {
+              "id": 105,
+              "x": 1785.2767816389635,
+              "y": 393.38150361212263,
+              "team": "blue"
+            },
+            {
+              "id": 106,
+              "x": 1765.3064842138642,
+              "y": 410.23754506611436,
+              "team": "blue"
+            },
+            {
+              "id": 107,
+              "x": 1723.6617878888756,
+              "y": 413.1524474921175,
+              "team": "blue"
+            },
+            {
+              "id": 108,
+              "x": 1588.8201938716948,
+              "y": 415.8125630919001,
+              "team": "blue"
+            },
+            {
+              "id": 109,
+              "x": 1575.5749055819194,
+              "y": 397.6976674444679,
+              "team": "blue"
+            },
+            {
+              "id": 110,
+              "x": 2014.8977061415314,
+              "y": 457.95584930507067,
+              "team": "blue"
+            },
+            {
+              "id": 111,
+              "x": 1972.8546934122026,
+              "y": 454.5426570636594,
+              "team": "blue"
+            },
+            {
+              "id": 112,
+              "x": 1830.7385703507275,
+              "y": 438.6920277643238,
+              "team": "blue"
+            },
+            {
+              "id": 113,
+              "x": 1830.4074857743196,
+              "y": 468.8068201203126,
+              "team": "blue"
+            },
+            {
+              "id": 114,
+              "x": 1814.1927434763259,
+              "y": 447.78444635533634,
+              "team": "blue"
+            },
+            {
+              "id": 115,
+              "x": 1772.98448068127,
+              "y": 452.2680355287019,
+              "team": "blue"
+            },
+            {
+              "id": 116,
+              "x": 1616.6696061707396,
+              "y": 479.22694432262847,
+              "team": "blue"
+            },
+            {
+              "id": 117,
+              "x": 1635.1182037428434,
+              "y": 442.0509116174789,
+              "team": "blue"
+            },
+            {
+              "id": 118,
+              "x": 1615.0425262399212,
+              "y": 457.2094241179381,
+              "team": "blue"
+            },
+            {
+              "id": 119,
+              "x": 2022.7353770055151,
+              "y": 503.91084996430203,
+              "team": "blue"
+            },
+            {
+              "id": 120,
+              "x": 1889.6728980406076,
+              "y": 492.0498535123903,
+              "team": "blue"
+            },
+            {
+              "id": 121,
+              "x": 1879.3832048683337,
+              "y": 510.4208348971111,
+              "team": "blue"
+            },
+            {
+              "id": 122,
+              "x": 1859.8843342643167,
+              "y": 502.62460146140387,
+              "team": "blue"
+            },
+            {
+              "id": 123,
+              "x": 1822.704520784307,
+              "y": 501.72053566656496,
+              "team": "blue"
+            },
+            {
+              "id": 124,
+              "x": 1679.0923001090107,
+              "y": 487.63815078256494,
+              "team": "blue"
+            },
+            {
+              "id": 125,
+              "x": 1681.3545731690242,
+              "y": 517.0501496457891,
+              "team": "blue"
+            },
+            {
+              "id": 126,
+              "x": 1664.398482254011,
+              "y": 500.3036056065161,
+              "team": "blue"
+            },
+            {
+              "id": 127,
+              "x": 1622.6961205755322,
+              "y": 500.53669659147994,
+              "team": "blue"
+            },
+            {
+              "id": 128,
+              "x": 1947.189737651853,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 129,
+              "x": 1927.561774527648,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 130,
+              "x": 1906.6680141078068,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 131,
+              "x": 1872.6607590844174,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 132,
+              "x": 1747.1897376518532,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 133,
+              "x": 1727.5617745276481,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 134,
+              "x": 1706.668014107807,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 135,
+              "x": 1672.6607590844174,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 136,
+              "x": 1481.4588762114547,
+              "y": 550,
+              "team": "blue"
+            },
+            {
+              "id": 137,
+              "x": 1988.7943190699484,
+              "y": 595.5164264905042,
+              "team": "blue"
+            },
+            {
+              "id": 138,
+              "x": 1964.6159620845735,
+              "y": 598.7691166800312,
+              "team": "blue"
+            },
+            {
+              "id": 139,
+              "x": 1922.6613015116388,
+              "y": 600.2397840706401,
+              "team": "blue"
+            },
+            {
+              "id": 140,
+              "x": 1773.9881597372473,
+              "y": 578.1159901524177,
+              "team": "blue"
+            },
+            {
+              "id": 141,
+              "x": 1784.539170068641,
+              "y": 607.5493865872826,
+              "team": "blue"
+            },
+            {
+              "id": 142,
+              "x": 1764.3385890444604,
+              "y": 598.8027390570919,
+              "team": "blue"
+            },
+            {
+              "id": 143,
+              "x": 1722.7702545753098,
+              "y": 595.7379496086843,
+              "team": "blue"
+            },
+            {
+              "id": 144,
+              "x": 1592.5752397517745,
+              "y": 600.9278231070712,
+              "team": "blue"
+            },
+            {
+              "id": 145,
+              "x": 1572.6711205695033,
+              "y": 600.1473778402677,
+              "team": "blue"
+            },
+            {
+              "id": 146,
+              "x": 2014.8889754745965,
+              "y": 642.3144367666415,
+              "team": "blue"
+            },
+            {
+              "id": 147,
+              "x": 1972.660776564609,
+              "y": 650.0318194094858,
+              "team": "blue"
+            },
+            {
+              "id": 148,
+              "x": 1820.0302139123642,
+              "y": 671.930013610285,
+              "team": "blue"
+            },
+            {
+              "id": 149,
+              "x": 1833.3257686811487,
+              "y": 632.0682041199307,
+              "team": "blue"
+            },
+            {
+              "id": 150,
+              "x": 1814.6302394396594,
+              "y": 650.5461281687692,
+              "team": "blue"
+            },
+            {
+              "id": 151,
+              "x": 1773.0232523094821,
+              "y": 642.6844727187437,
+              "team": "blue"
+            },
+            {
+              "id": 152,
+              "x": 1619.233038327919,
+              "y": 623.6444136541048,
+              "team": "blue"
+            },
+            {
+              "id": 153,
+              "x": 1635.3897740700288,
+              "y": 662.7724978252858,
+              "team": "blue"
+            },
+            {
+              "id": 154,
+              "x": 1614.6156002643697,
+              "y": 648.6327603917933,
+              "team": "blue"
+            },
+            {
+              "id": 155,
+              "x": 2022.7333320344756,
+              "y": 703.7832181679498,
+              "team": "blue"
+            },
+            {
+              "id": 156,
+              "x": 1889.7670039151428,
+              "y": 710.4964230640232,
+              "team": "blue"
+            },
+            {
+              "id": 157,
+              "x": 1878.0518741097737,
+              "y": 692.6833316405451,
+              "team": "blue"
+            },
+            {
+              "id": 158,
+              "x": 1861.17613632262,
+              "y": 706.1976056943267,
+              "team": "blue"
+            },
+            {
+              "id": 159,
+              "x": 1822.6607724903595,
+              "y": 700.0238040271041,
+              "team": "blue"
+            },
+            {
+              "id": 160,
+              "x": 1680.9055707196705,
+              "y": 688.2649224473269,
+              "team": "blue"
+            },
+            {
+              "id": 161,
+              "x": 1680.1852516017002,
+              "y": 716.7393282966984,
+              "team": "blue"
+            },
+            {
+              "id": 162,
+              "x": 1664.3104798466256,
+              "y": 697.3653916959274,
+              "team": "blue"
+            },
+            {
+              "id": 163,
+              "x": 1622.7671655097638,
+              "y": 703.5247487200049,
+              "team": "blue"
+            },
+            {
+              "id": 164,
+              "x": 1947.189737651853,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 165,
+              "x": 1927.561774527648,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 166,
+              "x": 1906.6680141078068,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 167,
+              "x": 1872.6607590844174,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 168,
+              "x": 1747.1897376518532,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 169,
+              "x": 1727.5617745276481,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 170,
+              "x": 1706.668014107807,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 171,
+              "x": 1672.6607590844174,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 172,
+              "x": 1481.4588762114547,
+              "y": 750,
+              "team": "blue"
+            },
+            {
+              "id": 173,
+              "x": 1988.7305439988747,
+              "y": 795.6285452705743,
+              "team": "blue"
+            },
+            {
+              "id": 174,
+              "x": 1964.594362454344,
+              "y": 800.3996687608469,
+              "team": "blue"
+            },
+            {
+              "id": 175,
+              "x": 1922.6609917327112,
+              "y": 800.1605427498706,
+              "team": "blue"
+            },
+            {
+              "id": 176,
+              "x": 1775.750924052289,
+              "y": 779.265195530845,
+              "team": "blue"
+            },
+            {
+              "id": 177,
+              "x": 1782.9794795442358,
+              "y": 810.8342435232964,
+              "team": "blue"
+            },
+            {
+              "id": 178,
+              "x": 1764.7780580266292,
+              "y": 795.5241192216687,
+              "team": "blue"
+            },
+            {
+              "id": 179,
+              "x": 1722.7866504366225,
+              "y": 794.9246899427366,
+              "team": "blue"
+            },
+            {
+              "id": 180,
+              "x": 1587.024525682533,
+              "y": 808.2387383514191,
+              "team": "blue"
+            },
+            {
+              "id": 181,
+              "x": 1575.9386074250556,
+              "y": 790.7293590241064,
+              "team": "blue"
+            },
+            {
+              "id": 182,
+              "x": 2014.8708715961704,
+              "y": 842.8641770539219,
+              "team": "blue"
+            },
+            {
+              "id": 183,
+              "x": 1972.7919634285995,
+              "y": 847.0238768740091,
+              "team": "blue"
+            },
+            {
+              "id": 184,
+              "x": 1823.7908054055465,
+              "y": 863.5020241325348,
+              "team": "blue"
+            },
+            {
+              "id": 185,
+              "x": 1833.1636519221631,
+              "y": 830.0496222640526,
+              "team": "blue"
+            },
+            {
+              "id": 186,
+              "x": 1814.7344327162962,
+              "y": 846.4302816034445,
+              "team": "blue"
+            },
+            {
+              "id": 187,
+              "x": 1772.6607663770628,
+              "y": 850.0221903129354,
+              "team": "blue"
+            },
+            {
+              "id": 188,
+              "x": 1621.1818455285118,
+              "y": 824.0401483448709,
+              "team": "blue"
+            },
+            {
+              "id": 189,
+              "x": 1635.4093699660452,
+              "y": 857.9339022078445,
+              "team": "blue"
+            },
+            {
+              "id": 190,
+              "x": 1614.616922189429,
+              "y": 848.5941702946348,
+              "team": "blue"
+            },
+            {
+              "id": 191,
+              "x": 2023.2894311122723,
+              "y": 889.1022534363386,
+              "team": "blue"
+            },
+            {
+              "id": 192,
+              "x": 1893.2143469322614,
+              "y": 903.8549856181099,
+              "team": "blue"
+            },
+            {
+              "id": 193,
+              "x": 1878.899226588483,
+              "y": 890.2054451501306,
+              "team": "blue"
+            },
+            {
+              "id": 194,
+              "x": 1859.4857317016547,
+              "y": 882.394814683633,
+              "team": "blue"
+            },
+            {
+              "id": 195,
+              "x": 1822.6607590844174,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 196,
+              "x": 1694.5954184653942,
+              "y": 880.9775902692568,
+              "team": "blue"
+            },
+            {
+              "id": 197,
+              "x": 1674.835863936309,
+              "y": 878.4972761589509,
+              "team": "blue"
+            },
+            {
+              "id": 198,
+              "x": 1664.4486818844405,
+              "y": 898.6570903152774,
+              "team": "blue"
+            },
+            {
+              "id": 199,
+              "x": 1622.6607590844174,
+              "y": 900,
+              "team": "blue"
+            },
+            {
+              "id": 200,
+              "x": 1883.6952784820305,
+              "y": 922.3977204931178,
+              "team": "blue"
+            }
+          ],
+          "canvas": {
+            "width": 1616,
+            "height": 938
+          },
+          "pixels": {
+            "width": 1616,
+            "height": 938,
+            "redPixels": 9140,
+            "bluePixels": 9289,
+            "checksum": 410010225,
+            "teamsVisible": true
+          }
+        }
+      ],
+      "visibleMotionStatePassed": true,
+      "screenshotPixelsPassed": true
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "limitations": [
+    "Headless Chromium with forced SwiftShader; host platform and renderer are recorded. These are not physical GPU or Android measurements.",
+    "os.cpus()/totalmem() are host-reported values, not an allocation claim; readable cgroup limits are recorded separately.",
+    "All observed raw RAF gaps are retained, including startup and outliers. Draw CPU timing excludes asynchronous browser compositing.",
+    "Average step CPU time is the sum of measured Simulation.step work divided by actual executed ticks. HUD EMA is reported separately.",
+    "Scene timing stops at natural battle completion rather than averaging idle result-dialog frames.",
+    "performance.memory is coarse browser telemetry and cannot establish heap stability. Long-run checkpoints additionally read Runtime.getHeapUsage through one CDP session without forcing GC.",
+    "Long-run observer gaps include checkpoint boundaries; CDP heap reads occur between segments and do not affect scene FPS samples."
+  ],
+  "canvasContextAttributes": {
+    "alpha": false,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": true
+  }
+}

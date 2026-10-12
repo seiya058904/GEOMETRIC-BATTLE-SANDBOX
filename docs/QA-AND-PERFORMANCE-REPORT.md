@@ -1,3 +1,5 @@
+> 本文件保留 V1 历史验收原文。V2 当前结果见 [V2-QA-REPORT.md](V2-QA-REPORT.md) 与 [V2-PERFORMANCE-INVESTIGATION.md](V2-PERFORMANCE-INVESTIGATION.md)，不要将下面的版本、人数或FPS当成V2实测。
+
 # GEOBATTLE · 中文验收与性能报告
 
 验收日期：2026-10-12（UTC）。对象为随包的 `src/`、`dist/` 与 `GEOBATTLE-OFFLINE.html`。本报告以实际执行的日志、JSON 读数、真实浏览器操作和截图为依据。

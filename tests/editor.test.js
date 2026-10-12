@@ -19,8 +19,10 @@ const sample = () => ({ schemaVersion: 1, seed: 42, units: [
 ] });
 const clone = value => JSON.parse(JSON.stringify(value));
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-7, `${a} ≠ ${b}`);
-const full = () => ({ schemaVersion: 1, seed: 1, units: Array.from({ length: MAX_UNITS }, (_, i) =>
-  troop(i + 1, 'peasant', i === MAX_UNITS - 1 ? 'blue' : 'red', 30 + (i % 60) * 25, 30 + Math.floor(i / 60) * 25)) });
+const full = () => ({ schemaVersion: 1, seed: 1, units: Array.from({ length: MAX_UNITS }, (_, i) => {
+  const local = i % (MAX_UNITS / 2), x = 30 + (local % 46) * 25;
+  return troop(i + 1, 'peasant', i < MAX_UNITS / 2 ? 'red' : 'blue', i < MAX_UNITS / 2 ? x : WORLD.width - x, 30 + Math.floor(local / 46) * 25);
+}) });
 
 class MemoryStorage {
   constructor() { this.map = new Map(); this.readError = null; this.writeError = null; }
@@ -59,12 +61,13 @@ test('single placement uses the complete body radius at all four boundaries', ()
   assert.equal(editor.place('peasant', 'red', 400, 8).ok, false);
   assert.equal(editor.getCounts().total, 2);
 });
-test('allied and enemy initial overlap are equally invalid, with real mixed radii', () => {
+test('initial overlap uses real mixed radii and position determines team', () => {
   const editor = new Editor(empty());
   assert.equal(editor.place('giant', 'red', 100, 100).ok, true);
   assert.equal(editor.place('peasant', 'blue', 145, 100).ok, false);
   assert.equal(editor.place('peasant', 'red', 145, 100).ok, false);
   assert.equal(editor.place('peasant', 'blue', 146, 100).ok, true);
+  assert.equal(editor.formation.units[1].team, 'red');
   assert.equal(35 + 9 + PLACEMENT_GAP, 46);
 });
 test('batch reports every skipped overlap, boundary and unknown type', () => {
@@ -209,7 +212,7 @@ test('group translation treats old selected bodies as replaced, preserving relat
   editor.undo(); assert.deepEqual(editor.formation, sample()); editor.redo(); assert.equal(editor.formation.units[0].x, 260);
 });
 test('one colliding group member rejects the entire move without a partial mutation', () => {
-  const formation = sample(); formation.units[2].x = 360; formation.units[2].y = 200;
+  const formation = sample(); formation.units[2].x = 360; formation.units[2].y = 200; formation.units[2].team = 'red';
   const editor = new Editor(formation); editor.select([1, 2]); const before = editor.formation;
   assert.equal(editor.moveSelection(100, 0).ok, false);
   assert.equal(editor.formation, before); assert.equal(editor.canUndo, false);
@@ -225,16 +228,16 @@ test('rotation changes both positions and facings around the same center', () =>
   editor.undo(); assert.deepEqual(editor.formation, sample());
 });
 test('rotation collision is atomic for orientation as well as positions', () => {
-  const formation = sample(); formation.units[2].x = 230; formation.units[2].y = 170;
+  const formation = sample(); formation.units[2].x = 230; formation.units[2].y = 170; formation.units[2].team = 'red';
   const editor = new Editor(formation); editor.select([1, 2]); const before = editor.formation;
   assert.equal(editor.rotateSelection(Math.PI / 2).ok, false); assert.equal(editor.formation, before);
 });
-test('copy/paste keeps relative positions and facings, overrides team and allocates fresh IDs', () => {
+test('copy/paste keeps relative positions and facings, assigns target half and allocates fresh IDs', () => {
   const editor = new Editor(sample()); editor.select([1, 2]); editor.copySelection();
   assert.equal(editor.canPaste, true); assert.equal(editor.clipboardSize, 2);
-  assert.equal(editor.pasteAt(500, 500, 'blue').ok, true);
+  assert.equal(editor.pasteAt(1700, 500, 'red').ok, true);
   const pasted = editor.formation.units.slice(-2);
-  assert.deepEqual(pasted.map(u => [u.x, u.y, u.team, u.angle]), [[470, 500, 'blue', 0], [530, 500, 'blue', 0]]);
+  assert.deepEqual(pasted.map(u => [u.x, u.y, u.team, u.angle]), [[1670, 500, 'blue', 0], [1730, 500, 'blue', 0]]);
   assert.equal(new Set(editor.formation.units.map(u => u.id)).size, 5);
   assert.deepEqual([...editor.selection], pasted.map(u => u.id));
   editor.undo(); assert.equal(editor.formation.units.length, 3); assert.deepEqual([...editor.selection], [1, 2]);
@@ -264,20 +267,20 @@ test('mirror copy reflects world x and facing with a new target team', () => {
   assert.equal(validateFormation(editor.formation).ok, true);
   editor.undo(); assert.deepEqual(editor.formation, sample()); editor.redo(); assert.equal(editor.formation.units.length, 5);
 });
-test('mirror copy on an occupied axis is rejected instead of swallowing a unit', () => {
-  const formation = empty(); formation.units.push(troop(1, 'tank', 'red', WORLD.width / 2, 500));
+test('mirror copy on an occupied destination is rejected instead of swallowing a unit', () => {
+  const formation = empty(); formation.units.push(troop(1, 'tank', 'red', 500, 500), troop(2, 'tank', 'blue', WORLD.width - 500, 500));
   const editor = new Editor(formation); editor.select([1]);
-  assert.equal(editor.mirrorSelection('blue').ok, false); assert.equal(editor.formation.units.length, 1);
+  assert.equal(editor.mirrorSelection('blue').ok, false); assert.equal(editor.formation.units.length, 2);
 });
-test('team swap changes identity only, while whole-world mirror preserves identity', () => {
+test('team swap and whole-world mirror exchange position, team and facing legally', () => {
   const editor = new Editor(sample()); editor.swapTeams();
   for (let i = 0; i < 3; i++) {
     const source = sample().units[i], changed = editor.formation.units[i];
-    assert.equal(changed.x, source.x); assert.equal(changed.y, source.y); assert.equal(changed.angle, source.angle);
+    assert.equal(changed.x, WORLD.width - source.x); assert.equal(changed.y, source.y); close(changed.angle, (Math.PI - source.angle + Math.PI * 2) % (Math.PI * 2));
     assert.notEqual(changed.team, source.team);
   }
   editor.undo(); editor.mirrorAll();
-  for (let i = 0; i < 3; i++) assert.equal(editor.formation.units[i].team, sample().units[i].team);
+  for (let i = 0; i < 3; i++) assert.notEqual(editor.formation.units[i].team, sample().units[i].team);
   assert.equal(editor.formation.units[0].x, WORLD.width - 200);
   editor.mirrorAll(); assert.deepEqual(editor.formation, sample());
 });

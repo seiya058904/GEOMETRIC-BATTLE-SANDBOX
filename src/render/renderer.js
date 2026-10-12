@@ -30,7 +30,9 @@ export class Renderer {
     // Prefer CPU-backed Canvas2D for this bounded geometric scene. A controlled
     // same-scene run removed multi-second accelerated-2D stalls in the available
     // SwiftShader browser. This is a browser hint, not a hardware speed guarantee.
-    this.ctx = canvas.getContext('2d', { alpha: false, desynchronized: false, willReadFrequently: true });
+    // In the same visible V2 scene, alpha backing reduced SwiftShader raster
+    // stalls across three trials. We still paint an opaque background each frame.
+    this.ctx = canvas.getContext('2d', { alpha: true, desynchronized: false, willReadFrequently: true });
     if (!this.ctx) throw new Error('浏览器无法创建 Canvas 2D 画布。');
     this.width = 1;
     this.height = 1;
@@ -76,7 +78,7 @@ export class Renderer {
     // Mutable test fixtures and every battle frame always take the normal path.
     if (!battle && String(mode).toLowerCase() === 'preparing' && !Array.isArray(formation) && Object.isFrozen(formation)) {
       const key = [this.width, this.height, this.dpr, cam.x, cam.y, cam.zoom, level, showGrid, showZones, showHealth,
-        typeof hover === 'number' ? hover : hover?.id, hover?.type, hover?.team, hover?.x, hover?.y, hover?.angle, hover?.valid, hover?.invalid,
+        typeof hover === 'number' ? hover : hover?.id, hover?.type, hover?.team, hover?.x, hover?.y, hover?.angle, hover?.valid, hover?.invalid, hover?.reason, hover?.message, hover?.erase,
         selectionRect?.x, selectionRect?.y, selectionRect?.width, selectionRect?.height,
         selectionRect?.x1, selectionRect?.y1, selectionRect?.x2, selectionRect?.y2].join('|');
       const previous = this._editorFrame;
@@ -133,7 +135,7 @@ export class Renderer {
       const previewUnits = Array.isArray(preview) ? preview : preview?.units ?? [];
       if (hover && typeof hover === 'object' && hover.type && valid(hover.x) && valid(hover.y) && !previewUnits.length) {
         // Hover is editor-owned state, so copy the list rather than mutate its preview array.
-        this._ghost(c, hover, bounds);
+        this._ghost(c, hover, bounds, true);
       }
       for (const unit of previewUnits) {
         this._ghost(c, unit, bounds);
@@ -150,10 +152,15 @@ export class Renderer {
     c.globalAlpha = 1;
   }
 
-  _ghost(c, unit, bounds) {
+  _ghost(c, unit, bounds, showLabel=false) {
     const def = getDef(unit), cam = this.camera;
     if (!def || !visible(unit.x, unit.y, def.radius * 4, bounds)) return;
     const invalid = unit.valid === false || unit.invalid;
+    if(unit.erase){
+      circle(c,unit.x,unit.y,def.radius+7/cam.zoom,'#facc65',1.6/cam.zoom);
+      strokeLine(c,unit.x-4/cam.zoom,unit.y,unit.x+4/cam.zoom,unit.y,'#facc65',2/cam.zoom);
+      return;
+    }
     c.save();
     c.globalAlpha = invalid ? .26 : .5;
     c.translate(unit.x, unit.y); c.rotate(unit.angle ?? (unit.team === 'blue' ? Math.PI : 0)); c.scale(def.radius, def.radius);
@@ -164,6 +171,15 @@ export class Renderer {
     circle(c, unit.x, unit.y, radius, invalid ? '#facc65' : TEAM_COLORS[unit.team], 1 / cam.zoom);
     c.setLineDash([]);
     if (invalid) strokeLine(c, unit.x - radius * .7, unit.y + radius * .7, unit.x + radius * .7, unit.y - radius * .7, '#facc65', 1.4 / cam.zoom);
+    if(showLabel){
+    const label=invalid ? (unit.reason || unit.message || '此处不可放置') : unit.team==='blue' ? '放置蓝军 ◇' : '放置红军 ●';
+    c.font=`600 ${12 / cam.zoom}px system-ui, sans-serif`;c.textAlign='center';
+    const labelWidth=c.measureText(label).width+18/cam.zoom;
+    const labelX=Math.max(bounds.left+labelWidth/2+8/cam.zoom,Math.min(bounds.right-labelWidth/2-8/cam.zoom,unit.x));
+    const labelY=Math.max(bounds.top+28/cam.zoom,Math.min(bounds.bottom-18/cam.zoom,unit.y-radius-14/cam.zoom));
+    c.globalAlpha=.95;c.fillStyle='#101b20';c.fillRect(labelX-labelWidth/2,labelY-14/cam.zoom,labelWidth,22/cam.zoom);
+    c.fillStyle=invalid?'#facc65':TEAM_COLORS[unit.team];c.fillText(label,labelX,labelY+1/cam.zoom);
+    }
     c.globalAlpha = 1;
   }
 
@@ -171,8 +187,8 @@ export class Renderer {
     const z = this.camera.zoom;
     c.fillStyle = FIELD; c.fillRect(0, 0, WORLD.width, WORLD.height);
     if (zones) {
-      c.fillStyle = 'rgba(255,112,93,0.021)'; c.fillRect(0, 0, WORLD.width / 2, WORLD.height);
-      c.fillStyle = 'rgba(89,183,250,0.021)'; c.fillRect(WORLD.width / 2, 0, WORLD.width / 2, WORLD.height);
+      c.fillStyle = 'rgba(255,112,93,0.095)'; c.fillRect(0, 0, WORLD.width / 2, WORLD.height);
+      c.fillStyle = 'rgba(89,183,250,0.095)'; c.fillRect(WORLD.width / 2, 0, WORLD.width / 2, WORLD.height);
     }
     if (grid) {
       let spacing = 50;
@@ -184,11 +200,14 @@ export class Renderer {
     c.strokeStyle = '#304249'; c.lineWidth = 1 / z; c.strokeRect(0, 0, WORLD.width, WORLD.height);
     if (zones) {
       c.globalAlpha = .8; c.setLineDash([6 / z, 8 / z]);
-      strokeLine(c, WORLD.width / 2, 18 / z, WORLD.width / 2, WORLD.height - 18 / z, '#3b5157', 1 / z);
+      strokeLine(c, WORLD.width / 2, 48 / z, WORLD.width / 2, WORLD.height - 18 / z, '#aac0c8', 1.3 / z);
       c.setLineDash([]); c.globalAlpha = 1;
-      c.font = `500 ${Math.max(11 / z, 12)}px system-ui, sans-serif`; c.textAlign = 'left';
-      c.fillStyle = '#ad7770'; c.fillText('红方建议区', 22 / z, 29 / z);
-      c.textAlign = 'right'; c.fillStyle = '#698eaa'; c.fillText('蓝方建议区', WORLD.width - 22 / z, 29 / z);
+      c.font = `600 ${14 / z}px system-ui, sans-serif`; c.textAlign = 'left';
+      const labelTop=Math.max(0,bounds.top)+82/z,left=Math.max(0,bounds.left),right=Math.min(WORLD.width,bounds.right);
+      if((Math.min(right,WORLD.width/2)-left)*z>155){c.fillStyle = '#ff9c8d'; c.fillText('● 红军部署区 →', left+22/z, labelTop);}
+      c.textAlign = 'right';
+      if((right-Math.max(left,WORLD.width/2))*z>155){c.fillStyle = '#8ecffd'; c.fillText('← 蓝军部署区 ◇', right-22/z, labelTop);}
+      if(this.width>650&&left<WORLD.width/2-180/z&&right>WORLD.width/2+180/z){c.textAlign='center';c.font=`500 ${11 / z}px system-ui, sans-serif`;c.fillStyle='#becbd0';c.fillText('完整轮廓留在本方 · 开战后可越线',WORLD.width/2,labelTop);}
     }
     // Small corner marks are a board boundary guide, never collision geometry.
     const length = 18 / z;
@@ -500,7 +519,7 @@ export class Renderer {
 }
 
 /** Draw a crisp, transparent menu icon; no sprite sheet or external image dependency. */
-export function drawUnitIcon(canvas, type, team = 'red') {
+export function drawUnitIcon(canvas, type, team = 'neutral') {
   const def = typeof type === 'string' ? UNIT_MAP[type] ?? SUMMON_DEFS[type] : type;
   if (!def || !canvas) return;
   const bounds = canvas.getBoundingClientRect();

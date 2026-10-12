@@ -1,11 +1,11 @@
 import { MAX_UNITS, UNIT_MAP, WORLD } from '../data/units.js';
 import { validateFormation } from '../persistence/validation.js';
 import { createDefaultFormation } from './formations.js';
-import { PlacementIndex, defaultAngle, normalizeAngle, selectionBounds, validatePlacement, validateReplacements } from './placement.js';
+import { PlacementIndex, defaultAngle, normalizeAngle, selectionBounds, teamForDeploymentPosition, resolvePlacementCandidate, validatePlacement, validateReplacements } from './placement.js';
 
 export { createDefaultFormation, generateRandomFormation, RANDOM_SIZES } from './formations.js';
 export { linePoints, gridPoints, brushPoints, MAX_GENERATED_POINTS } from './points.js';
-export { validatePlacement, PLACEMENT_GAP, normalizeAngle, selectionBounds } from './placement.js';
+export { validatePlacement, validateHomeZone, teamForDeploymentPosition, resolvePlacementCandidate, PLACEMENT_GAP, normalizeAngle, selectionBounds } from './placement.js';
 export const HISTORY_LIMIT = 100;
 
 /** @typedef {{id:number,type:string,team:'red'|'blue',x:number,y:number,angle:number}} Deployment */
@@ -165,8 +165,9 @@ export class Editor {
     return id;
   }
 
-  place(type, team, x, y, angle = defaultAngle(team)) {
-    return this.placeMany([{ type, team, x, y, angle }]);
+  place(type, _team, x, y, angle) {
+    const resolved = resolvePlacementCandidate(type, { x, y, angle });
+    return this.placeMany([resolved.candidate]);
   }
 
   /** Partial acceptance is deliberate for brush/line/grid, and always reported. */
@@ -177,11 +178,13 @@ export class Editor {
     const used = new Set(this._formation.units.map(unit => unit.id));
     const added = [];
     const reasons = {};
+    const first = points[0];
+    const lockedTeam = first?.team || teamForDeploymentPosition(first?.type, first?.x, first?.y);
     for (let i = 0; i < points.length; i++) {
       if (index.size >= MAX_UNITS) { reasons.limit = (reasons.limit || 0) + points.length - i; break; }
       const point = points[i];
-      const candidate = point && { type: point.type, team: point.team, x: point.x, y: point.y,
-        angle: point.angle === undefined ? defaultAngle(point.team) : point.angle };
+      const candidate = point && { type: point.type, team: lockedTeam || point.team, x: point.x, y: point.y,
+        angle: point.angle === undefined ? defaultAngle(lockedTeam || point.team) : point.angle };
       const check = validatePlacement(index, candidate);
       if (!check.ok) { reasons[check.code] = (reasons[check.code] || 0) + 1; continue; }
       candidate.angle = normalizeAngle(candidate.angle);
@@ -190,7 +193,7 @@ export class Editor {
     }
     if (added.length) this._apply({ ...this._formation, units: [...this._formation.units, ...added] }, this.selection, index);
     const skipped = points.length - added.length;
-    const labels = { overlap: '位置重叠', bounds: '超出边界', limit: `达到 ${MAX_UNITS} 个上限`, type: '未知兵种', team: '阵营无效', position: '坐标无效', angle: '方向无效', invalid: '数据无效' };
+    const labels = { 'home-zone': '跨越分界线或离开本方区域', overlap: '位置重叠', bounds: '超出边界', limit: `达到 ${MAX_UNITS} 个上限`, type: '未知兵种', team: '阵营无效', position: '坐标无效', angle: '方向无效', invalid: '数据无效' };
     const detail = Object.entries(reasons).map(([reason, count]) => `${labels[reason] || '位置无效'} ${count}`).join('，');
     return { ok: added.length > 0, added: added.length, skipped, reasons,
       message: `已放置 ${added.length} 个单位${skipped ? `，跳过 ${skipped} 个（${detail}）` : ''}。` };
@@ -230,9 +233,27 @@ export class Editor {
     return success(message);
   }
 
-  moveSelection(dx, dy) {
+  getMovePreview(dx, dy) {
     if (!Number.isFinite(dx) || !Number.isFinite(dy)) return fail('移动距离必须是有限数字。');
-    return this._transform(unit => ({ ...unit, x: unit.x + dx, y: unit.y + dy }), '已移动选中阵型。');
+    const selected = this._selected();
+    if (!selected.length) return fail('请先选择一个或多个单位。');
+    const destinations = selected.map(unit => teamForDeploymentPosition(unit.type, unit.x + dx, unit.y + dy));
+    const changed = selected.some((unit, i) => destinations[i] !== unit.team);
+    const candidates = selected.map((unit, i) => ({ ...unit, x: unit.x + dx, y: unit.y + dy,
+      team: changed && destinations[i] ? destinations[i] : unit.team }));
+    if (changed && (new Set(selected.map(unit => unit.team)).size !== 1 || destinations.includes(null) || new Set(destinations).size !== 1)) {
+      return { ...fail('整个阵型保持原位：跨区移动需要完整移入同一方区域。'), code: 'home-zone', candidates };
+    }
+    const check = validateReplacements(this._formation.units, candidates);
+    return { ...check, candidates, message: check.ok ? (changed ? `已将整个选区移入${destinations[0] === 'red' ? '红' : '蓝'}方区域。` : '已移动选中阵型。') : `整个阵型保持原位：${check.message}` };
+  }
+
+  moveSelection(dx, dy) {
+    const preview = this.getMovePreview(dx, dy);
+    if (!preview.ok) return preview;
+    const replacements = new Map(preview.candidates.map(unit => [unit.id, unit]));
+    this._apply({ ...this._formation, units: this._formation.units.map(unit => replacements.get(unit.id) || unit) });
+    return success(preview.message);
   }
 
   rotateSelection(radians) {
@@ -269,11 +290,27 @@ export class Editor {
     return success(`${label} ${added.length} 个单位。`, { added: added.length, skipped: 0 });
   }
 
-  pasteAt(x, y, team) {
+  getPastePreview(x, y, team) {
     if (!this._clipboard.length) return fail('剪贴板为空，请先复制选中部队。');
     if (!Number.isFinite(x) || !Number.isFinite(y)) return fail('粘贴位置无效。');
     if (team !== undefined && team !== 'red' && team !== 'blue') return fail('请选择有效的目标阵营。');
-    return this._addGroup(this._clipboard.map(unit => ({ ...unit, team: team || unit.team, x: unit.x + x, y: unit.y + y })), '已粘贴');
+    const points = this._clipboard.map(unit => ({ ...unit, x: unit.x + x, y: unit.y + y }));
+    const teams = points.map(unit => teamForDeploymentPosition(unit.type, unit.x, unit.y));
+    const candidates = points.map((unit, i) => ({ ...unit, team: teams[i] || unit.team }));
+    if (teams.includes(null) || new Set(teams).size !== 1) return { ...fail('整个军阵未放置：请把完整军阵放在同一方区域。'), code: 'home-zone', candidates };
+    if (this._formation.units.length + points.length > MAX_UNITS) return { ...fail(`完整军阵会超过 ${MAX_UNITS} 个单位上限，未放置任何单位。`), code: 'limit', candidates };
+    const index = new PlacementIndex(this._formation.units);
+    for (const candidate of candidates) {
+      const check = validatePlacement(index, candidate);
+      if (!check.ok) return { ...check, candidates, message: `整个军阵未放置：${check.message}` };
+      index.add(candidate);
+    }
+    return { ok: true, candidates, message: `可粘贴 ${candidates.length} 个${teams[0] === 'red' ? '红' : '蓝'}方单位。` };
+  }
+
+  pasteAt(x, y, team) {
+    const preview = this.getPastePreview(x, y, team);
+    return preview.ok ? this._addGroup(preview.candidates, '已粘贴') : preview;
   }
 
   mirrorSelection(team) {
@@ -281,17 +318,20 @@ export class Editor {
     if (!selected.length) return fail('请先选择需要镜像复制的部队。');
     if (team !== undefined && team !== 'red' && team !== 'blue') return fail('请选择有效的目标阵营。');
     return this._addGroup(selected.map(({ id: _id, ...unit }) => ({ ...unit, x: WORLD.width - unit.x,
-      angle: normalizeAngle(Math.PI - unit.angle), team: team || (unit.team === 'red' ? 'blue' : 'red') })), '已镜像复制');
+      angle: normalizeAngle(Math.PI - unit.angle), team: teamForDeploymentPosition(unit.type, WORLD.width - unit.x, unit.y) })), '已镜像复制');
   }
 
   swapTeams() {
-    this._apply({ ...this._formation, units: this._formation.units.map(unit => ({ ...unit, team: unit.team === 'red' ? 'blue' : 'red' })) });
-    return success('已交换双方身份，位置和面向保持不变。');
+    return this.mirrorAll();
   }
 
   mirrorAll() {
-    this._apply({ ...this._formation, units: this._formation.units.map(unit => ({ ...unit, x: WORLD.width - unit.x, angle: normalizeAngle(Math.PI - unit.angle) })) });
-    return success('已将整个战场左右镜像，阵营身份保持不变。');
+    const units = this._formation.units.map(unit => ({ ...unit, x: WORLD.width - unit.x,
+      angle: normalizeAngle(Math.PI - unit.angle), team: unit.team === 'red' ? 'blue' : 'red' }));
+    const check = validateReplacements(this._formation.units, units);
+    if (!check.ok) return fail(`两军保持原位：${check.message}`);
+    this._apply({ ...this._formation, units });
+    return success('已对调两军的位置、阵营与面向；可以撤销。');
   }
 
   clearTeam(team) {

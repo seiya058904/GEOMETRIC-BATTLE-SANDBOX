@@ -1,0 +1,74 @@
+{
+  "startedAt": "2026-10-12T16:59:21.140Z",
+  "url": "http://127.0.0.1:4178",
+  "section": "regressions",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "role-label-search-finds-melee-and-ranged-units",
+      "status": "pass",
+      "durationMs": 1387,
+      "details": {
+        "screenshot": "browser-role-search-regression.png"
+      }
+    },
+    {
+      "name": "paste-cancelled-by-unit-without-losing-clipboard",
+      "status": "pass",
+      "durationMs": 714
+    },
+    {
+      "name": "paste-cancelled-by-deploy-current-without-losing-clipboard",
+      "status": "pass",
+      "durationMs": 615
+    },
+    {
+      "name": "observation-buttons-retain-focus-and-native-space-enter-activation",
+      "status": "pass",
+      "durationMs": 3381,
+      "details": {
+        "screenshot": "browser-keyboard-follow-regression.png"
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "role-search-regression",
+      "filename": "browser-role-search-regression.png",
+      "status": "pass",
+      "durationMs": 1275
+    },
+    {
+      "name": "keyboard-follow-regression",
+      "filename": "browser-keyboard-follow-regression.png",
+      "status": "pass",
+      "durationMs": 918
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-role-search-regression.png",
+    "browser-keyboard-follow-regression.png"
+  ],
+  "browserVersion": "151.0.7922.34",
+  "summary": {
+    "pass": 5,
+    "fail": 0,
+    "skipped": 0,
+    "total": 5,
+    "capturesPassed": 2,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T16:59:28.225Z"
+}

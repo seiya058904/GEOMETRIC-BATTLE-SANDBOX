@@ -1,0 +1,444 @@
+{
+  "beforeFiles": [
+    "evidence/v2/performance-before-run-1.json",
+    "evidence/v2/performance-before-run-2.json",
+    "evidence/v2/performance-before-run-3.json"
+  ],
+  "afterFiles": [
+    "evidence/v2/performance-after-run-1.json",
+    "evidence/v2/performance-after-run-2.json",
+    "evidence/v2/performance-after-run-3.json"
+  ],
+  "beforeCanvas": {
+    "width": 1452,
+    "height": 949
+  },
+  "afterCanvas": {
+    "width": 1616,
+    "height": 938
+  },
+  "browser": "151.0.7922.34",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "samplingSeconds": 12,
+  "repetitions": 3,
+  "limitations": [
+    "Complete-product source-runtime comparison. Canvas CSS area changed with V2 layout; no isolated renderer attribution.",
+    "Same-V2-UI controlled alpha100v100 comparison is separately recorded.",
+    "All long frames retained, including afterrun2 300v300 slowdown; no replacement best run."
+  ],
+  "scenes": [
+    {
+      "name": "1-vs-1",
+      "before": {
+        "name": "1-vs-1",
+        "runs": 3,
+        "averageFPS": 23.357251207179747,
+        "onePercentLowFPS": 5.818181978181809,
+        "actualSpeed": 0.9764126681217653,
+        "p95FrameMs": 88.9333333333334,
+        "p99FrameMs": 166.60000000000036,
+        "maxFrameMs": 183.4000000000001,
+        "gapsOver50ms": 330,
+        "gapsOver100ms": 18,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.040342354202136645,
+        "averageDrawMs": 0.13264531434963192,
+        "p95DrawMs": 0.2333333333954215,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "1-vs-1",
+        "runs": 3,
+        "averageFPS": 36.084303418329284,
+        "onePercentLowFPS": 9.375586193891166,
+        "actualSpeed": 0.9992386913326824,
+        "p95FrameMs": 66.7000000000002,
+        "p99FrameMs": 83.30000000000018,
+        "maxFrameMs": 183.39999999999964,
+        "gapsOver50ms": 217,
+        "gapsOver100ms": 4,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.05677403743096246,
+        "averageDrawMs": 0.1357207532799509,
+        "p95DrawMs": 0.26666666691501933,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 54.48865578513533,
+      "beforeFPSRange": [
+        23.07774728218315,
+        23.85236295208069
+      ],
+      "afterFPSRange": [
+        35.853224317552424,
+        36.36513905533286
+      ],
+      "afterActualSpeedRange": [
+        0.9981036031539455,
+        1.0007800810062146
+      ],
+      "afterAllRuns30FPS": true
+    },
+    {
+      "name": "10-vs-10",
+      "before": {
+        "name": "10-vs-10",
+        "runs": 3,
+        "averageFPS": 23.719645205028595,
+        "onePercentLowFPS": 5.93535900909617,
+        "actualSpeed": 0.9718517883965229,
+        "p95FrameMs": 83.40000000000146,
+        "p99FrameMs": 166.6333333333338,
+        "maxFrameMs": 183.29999999999927,
+        "gapsOver50ms": 332,
+        "gapsOver100ms": 18,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.100470923540366,
+        "averageDrawMs": 0.26658896659636583,
+        "p95DrawMs": 0.40000000037252903,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "10-vs-10",
+        "runs": 3,
+        "averageFPS": 37.36240574867006,
+        "onePercentLowFPS": 14.501737915728745,
+        "actualSpeed": 0.9995871448807438,
+        "p95FrameMs": 66.63333333333503,
+        "p99FrameMs": 66.70000000000073,
+        "maxFrameMs": 83.40000000000146,
+        "gapsOver50ms": 175,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.12549955624934006,
+        "averageDrawMs": 0.2723887511459692,
+        "p95DrawMs": 0.466666666790843,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 57.51671420763569,
+      "beforeFPSRange": [
+        23.55488701919104,
+        23.851472641446716
+      ],
+      "afterFPSRange": [
+        36.067780834212876,
+        38.00987592846176
+      ],
+      "afterActualSpeedRange": [
+        0.9980454366759315,
+        1.001742643712577
+      ],
+      "afterAllRuns30FPS": true
+    },
+    {
+      "name": "100-vs-100",
+      "before": {
+        "name": "100-vs-100",
+        "runs": 3,
+        "averageFPS": 23.790591290959913,
+        "onePercentLowFPS": 5.935359169096119,
+        "actualSpeed": 0.9726680218031313,
+        "p95FrameMs": 83.40000000000146,
+        "p99FrameMs": 166.66666666666788,
+        "maxFrameMs": 183.3000000000029,
+        "gapsOver50ms": 329,
+        "gapsOver100ms": 15,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.5153974232272397,
+        "averageDrawMs": 1.4460896434055794,
+        "p95DrawMs": 2.1000000002483525,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "100-vs-100",
+        "runs": 3,
+        "averageFPS": 37.425994533838804,
+        "onePercentLowFPS": 14.298012544075581,
+        "actualSpeed": 0.9994290285641041,
+        "p95FrameMs": 66.63333333333382,
+        "p99FrameMs": 66.733333333336,
+        "maxFrameMs": 83.30000000000291,
+        "gapsOver50ms": 157,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.5857395338966815,
+        "averageDrawMs": 1.4583649986265736,
+        "p95DrawMs": 2.1666666672875485,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 57.31426796466445,
+      "beforeFPSRange": [
+        23.601957965245283,
+        23.95120253269464
+      ],
+      "afterFPSRange": [
+        36.317097291592226,
+        38.53163672073302
+      ],
+      "afterActualSpeedRange": [
+        0.9991724305908222,
+        0.9998973753040293
+      ],
+      "afterAllRuns30FPS": true
+    },
+    {
+      "name": "300-vs-300",
+      "before": {
+        "name": "300-vs-300",
+        "runs": 3,
+        "averageFPS": 23.341769942158,
+        "onePercentLowFPS": 6.211443571072046,
+        "actualSpeed": 0.9772390622158902,
+        "p95FrameMs": 83.3666666666686,
+        "p99FrameMs": 155.5666666666657,
+        "maxFrameMs": 166.70000000000437,
+        "gapsOver50ms": 264,
+        "gapsOver100ms": 17,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 1.4352788582886706,
+        "averageDrawMs": 3.8031346682992386,
+        "p95DrawMs": 5.666666666666667,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "300-vs-300",
+        "runs": 3,
+        "averageFPS": 31.533599461773534,
+        "onePercentLowFPS": 12.785685734862312,
+        "actualSpeed": 0.910797116129288,
+        "p95FrameMs": 111.06666666666813,
+        "p99FrameMs": 188.96666666666715,
+        "maxFrameMs": 550,
+        "gapsOver50ms": 41,
+        "gapsOver100ms": 18,
+        "gapsOver250ms": 9,
+        "gapsOver500ms": 1,
+        "averageStepMs": 1.8053952967029137,
+        "averageDrawMs": 5.317471111852927,
+        "p95DrawMs": 7.666666667287548,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": false,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 35.09515148129414,
+      "beforeFPSRange": [
+        23.05221284599124,
+        23.652433710942365
+      ],
+      "afterFPSRange": [
+        19.502722082060817,
+        38.78097901166757
+      ],
+      "afterActualSpeedRange": [
+        0.7325855144716797,
+        0.9999833336111685
+      ],
+      "afterAllRuns30FPS": false
+    },
+    {
+      "name": "500-vs-500",
+      "before": {
+        "name": "500-vs-500",
+        "runs": 3,
+        "averageFPS": 22.00066738887004,
+        "onePercentLowFPS": 8.767004886910515,
+        "actualSpeed": 0.9969523177303219,
+        "p95FrameMs": 72.23333333332994,
+        "p99FrameMs": 88.89999999999903,
+        "maxFrameMs": 166.6999999999971,
+        "gapsOver50ms": 173,
+        "gapsOver100ms": 4,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 2.31181957382031,
+        "averageDrawMs": 2.8710646522522167,
+        "p95DrawMs": 5.266666666294138,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "500-vs-500",
+        "runs": 3,
+        "averageFPS": 27.094593682156674,
+        "onePercentLowFPS": 15.324592385455022,
+        "actualSpeed": 1.0010023862019095,
+        "p95FrameMs": 50.1000000000034,
+        "p99FrameMs": 61.166666666669094,
+        "maxFrameMs": 66.80000000000291,
+        "gapsOver50ms": 76,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 2.033344731267583,
+        "averageDrawMs": 2.711806104627262,
+        "p95DrawMs": 5.199999999254942,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 23.153508042504267,
+      "beforeFPSRange": [
+        19.890271999469597,
+        23.269342641070406
+      ],
+      "afterFPSRange": [
+        26.012017053245682,
+        28.79763643606429
+      ],
+      "afterActualSpeedRange": [
+        1.0008927630740194,
+        1.001142578233361
+      ],
+      "afterAllRuns30FPS": false
+    },
+    {
+      "name": "600-vs-600",
+      "before": {
+        "name": "600-vs-600",
+        "runs": 3,
+        "averageFPS": 21.716211799504876,
+        "onePercentLowFPS": 11.94264214064797,
+        "actualSpeed": 1.0007877934302611,
+        "p95FrameMs": 66.69999999999709,
+        "p99FrameMs": 66.73333333333721,
+        "maxFrameMs": 149.89999999999418,
+        "gapsOver50ms": 153,
+        "gapsOver100ms": 1,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 2.6455223144188156,
+        "averageDrawMs": 2.48298139702397,
+        "p95DrawMs": 3.8666666665424905,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "600-vs-600",
+        "runs": 3,
+        "averageFPS": 22.429902913792798,
+        "onePercentLowFPS": 12.940143390023449,
+        "actualSpeed": 1.0001499389675965,
+        "p95FrameMs": 66.70000000000194,
+        "p99FrameMs": 72.2999999999932,
+        "maxFrameMs": 116.69999999999709,
+        "gapsOver50ms": 164,
+        "gapsOver100ms": 1,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 2.4027720464331224,
+        "averageDrawMs": 2.325526283151973,
+        "p95DrawMs": 3.6999999998758235,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 3.286443882925272,
+      "beforeFPSRange": [
+        21.46509642718027,
+        22.106059220969186
+      ],
+      "afterFPSRange": [
+        20.996547603239957,
+        24.300729854112387
+      ],
+      "afterActualSpeedRange": [
+        0.9992072863138323,
+        1.0012841955195853
+      ],
+      "afterAllRuns30FPS": false
+    },
+    {
+      "name": "extreme-effects",
+      "before": {
+        "name": "extreme-effects",
+        "runs": 3,
+        "averageFPS": 24.05588268880099,
+        "onePercentLowFPS": 6.211843491088071,
+        "actualSpeed": 0.9819858710782946,
+        "p95FrameMs": 83.39999999999418,
+        "p99FrameMs": 150.00000000000486,
+        "maxFrameMs": 166.6999999999971,
+        "gapsOver50ms": 301,
+        "gapsOver100ms": 12,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 0.9186288919549809,
+        "averageDrawMs": 2.5436043572868816,
+        "p95DrawMs": 3.433333333271245,
+        "allVisibleMotionStatePassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true,
+        "allScreenshotPixelsPassed": true
+      },
+      "after": {
+        "name": "extreme-effects",
+        "runs": 3,
+        "averageFPS": 37.83018051826429,
+        "onePercentLowFPS": 15.556205171106226,
+        "actualSpeed": 1.0000093441374889,
+        "p95FrameMs": 50,
+        "p99FrameMs": 61.10000000000582,
+        "maxFrameMs": 66.70000000001164,
+        "gapsOver50ms": 40,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0,
+        "gapsOver500ms": 0,
+        "averageStepMs": 1.0487395977639775,
+        "averageDrawMs": 2.762578141566916,
+        "p95DrawMs": 4.399999999751647,
+        "allVisibleMotionStatePassed": true,
+        "allScreenshotPixelsPassed": true,
+        "realTimeTargetPassed": true,
+        "runsPassed": true
+      },
+      "averageFPSGainPercent": 57.259581814787495,
+      "beforeFPSRange": [
+        23.70257413270124,
+        24.497430252671112
+      ],
+      "afterFPSRange": [
+        36.700759813916356,
+        39.14268380855822
+      ],
+      "afterActualSpeedRange": [
+        0.9996228884526845,
+        1.0004301433348597
+      ],
+      "afterAllRuns30FPS": true
+    }
+  ]
+}

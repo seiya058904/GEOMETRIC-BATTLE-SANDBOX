@@ -3,18 +3,20 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { BASE_URL, launchBrowser, startTestServer } from './browser-runtime.mjs';
+import {UNIT_LIST} from '../src/data/units.js';
+import {validateFormation} from '../src/persistence/validation.js';
 
 /** Real browser interaction: scenarios enter through the JSON file input; no
  * direct simulation stepping, renderer mutations, or controller action calls. */
 const SECTION = process.env.GEOBATTLE_TEST_SECTION || 'all';
 const DIST = process.env.GEOBATTLE_TEST_DIST === '1';
-const evidence = fileURLToPath(new URL('../evidence/', import.meta.url));
+const evidence = process.env.GEOBATTLE_EVIDENCE || fileURLToPath(new URL('../evidence/', import.meta.url));
 await mkdir(evidence, { recursive: true });
 const slug = text => text.replace(/[^a-zA-Z0-9_-]+/g, '-').slice(0, 100);
 const reportPath = `${evidence}/browser-${slug(SECTION)}${DIST ? '-dist' : ''}.json`;
 const report = { startedAt: new Date().toISOString(), url: BASE_URL, section: SECTION, production: DIST,
   screenshotMethod: 'CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports',
-  browserPlugin: 'absent', fallbackReason: 'Browser plugin not available', rendering: 'Headless Chromium; SwiftShader requested; CSS DPR 1',
+  browserPlugin: 'absent', fallbackReason: 'Browser plugin not available', rendering: `${process.env.GEOBATTLE_QA_HEADED==='1'?'Headed':'Headless'} Chromium; ${process.env.GEOBATTLE_QA_NATIVE_GPU==='1'?'native D3D11':'SwiftShader'} requested; DPR per scenario`,
   flow: 'Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.',
   cases: [], captures: [], consoleErrors: [], requestFailures: [], screenshots: [] };
 let browser, stopServer, page;
@@ -29,7 +31,7 @@ const pair = (seed = 20261012, quick = false) => scenario([
 
 async function checkpoint() {
   report.summary = { pass: report.cases.filter(c => c.status === 'pass').length,
-    fail: report.cases.filter(c => c.status === 'fail').length, skipped: 0, total: report.cases.length, capturesPassed: report.captures.filter(c => c.status === 'pass').length, capturesFailed: report.captures.filter(c => c.status === 'fail').length };
+    fail: report.cases.filter(c => c.status === 'fail').length, skipped: report.cases.filter(c=>c.status==='skipped').length, total: report.cases.length, capturesPassed: report.captures.filter(c => c.status === 'pass').length, capturesFailed: report.captures.filter(c => c.status === 'fail').length };
   await writeFile(reportPath, JSON.stringify(report, null, 2));
 }
 async function screenshot(name, target = page) {
@@ -57,8 +59,8 @@ async function check(name, fn) {
   const start = performance.now();
   try {
     const details = await fn();
-    report.cases.push({ name, status: 'pass', durationMs: Math.round(performance.now() - start), ...(details === undefined ? {} : { details }) });
-    console.log(`PASS ${name}`);
+    report.cases.push({ name, status: details?.skipped===true?'skipped':'pass', durationMs: Math.round(performance.now() - start), ...(details === undefined ? {} : { details }) });
+    console.log(`${details?.skipped===true?'SKIP':'PASS'} ${name}`);
   } catch (error) {
     let image;
     try { if (page && !page.isClosed()) image = await screenshot(`failure-${name}`); } catch {}
@@ -67,9 +69,9 @@ async function check(name, fn) {
   }
   await checkpoint();
 }
-async function fresh(width = 1920, height = 1080, touch = false) {
+async function fresh(width = 1920, height = 1080, touch = false, dpr = 1) {
   if (page) await page.context().close();
-  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: touch, locale: 'zh-CN', timezoneId: 'Asia/Shanghai', acceptDownloads: true });
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, hasTouch: touch, locale: 'zh-CN', timezoneId: 'Asia/Shanghai', acceptDownloads: true });
   page = await context.newPage(); page.setDefaultTimeout(4500);
   page.on('pageerror', error => report.consoleErrors.push({ viewport: `${width}x${height}`, kind: 'pageerror', message: error.message }));
   page.on('console', message => { if (message.type() === 'error') report.consoleErrors.push({ viewport: `${width}x${height}`, kind: 'console', message: message.text() }); });
@@ -86,12 +88,22 @@ async function clickControl(locator) {
   await locator.evaluate(el => el.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
   const point = await locator.evaluate(el => {
     const r=el.getBoundingClientRect(), x=r.x+r.width/2, y=r.y+r.height/2, hit=document.elementFromPoint(x,y);
-    return {x,y,hit:!!hit&&el.contains(hit),width:r.width,height:r.height};
+    return {x,y,hit:!!hit&&el.contains(hit),width:r.width,height:r.height,action:el.dataset.action,interceptor:hit?.outerHTML?.slice(0,160)};
   });
-  assert.ok(point.width>0&&point.height>0&&point.hit, 'Control center receives pointer input');
+  assert.ok(point.width>0&&point.height>0&&point.hit, `Control center receives pointer input: ${JSON.stringify(point)}`);
   await page.mouse.click(point.x, point.y);
 }
-async function action(name, scope = '') { await clickControl(page.locator(`${scope ? `${scope} ` : ''}[data-action="${name}"]:visible`).first()); }
+async function action(name, scope = '') {
+  if(['fit','reset-camera','zoom-in','zoom-out'].includes(name)&&await page.locator('#inspector').isVisible())await clickControl(page.locator('#inspector [data-action="inspector-close"]'));
+  if(name==='reset-camera'&&!await page.locator('[data-action="reset-camera"]:visible').count())name='fit';
+  const selector=`${scope ? `${scope} ` : ''}[data-action="${name}"]`;
+  if(!await page.locator(`${selector}:visible`).count() && await page.locator(`#inspector ${selector}`).count()){
+    if(!await page.locator('#inspector').isVisible())await clickControl(page.locator('[data-action="inspector-toggle"]:visible').first());
+    const target=page.locator(selector).first(),detail=target.locator('xpath=ancestor::details').last();
+    if(await detail.count()&&!await detail.evaluate(d=>d.open))await clickControl(detail.locator('summary').first());
+  }
+  await clickControl(page.locator(`${selector}:visible`).first());
+}
 async function closeDialog() { if (await page.locator('#dialog').evaluate(d => d.open)) await action('dialog-close', '#dialog'); }
 async function imported(formation, name = 'QA.geobattle.json') {
   await page.locator('#import-file').setInputFiles({ name, mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(formation)) });
@@ -107,7 +119,6 @@ async function dragWorld(x1, y1, x2, y2, steps = 1, button = 'left') {
   await page.mouse.move(b.x, b.y, { steps }); await page.mouse.up({ button });
 }
 async function choose(type, category, team = 'red') {
-  await action(`team-${team}`);
   if ((await page.viewportSize()).width <= 760 && !(await page.locator('#catalog').evaluate(el => el.classList.contains('open')))) await action('catalog-toggle');
   await clickControl(page.locator(`[data-action="category"][data-category="${category}"]:visible`));
   await clickControl(page.locator(`[data-action="unit"][data-type="${type}"]:visible`));
@@ -155,11 +166,12 @@ async function editorSuite() {
   });
   await check('overlap-and-boundary-clicks-reject-with-visible-feedback', async () => {
     const before = await army(); await clickWorld(1750, 750); assert.deepEqual(await army(), before);
-    assert.match(await page.locator('#toast').textContent(), /跳过|重叠/); await clickWorld(2, 400); assert.deepEqual(await army(), before);
+    assert.equal(await page.evaluate(()=>geobattle.editor.selection.size),1); await clickWorld(2, 400); assert.deepEqual(await army(), before);
+    assert.match(await page.locator('#toast').textContent(), /边界/);
   });
-  await check('free-deployment-allows-a-red-unit-on-the-right-half', async () => {
+  await check('position-automatically-assigns-blue-on-the-right-half', async () => {
     await choose('peasant', 'classical', 'red'); await clickWorld(1900, 1100);
-    const placed = (await army()).units.at(-1); assert.equal(placed.team, 'red'); assert.ok(placed.x > 1200);
+    const placed = (await army()).units.at(-1); assert.equal(placed.team, 'blue'); assert.ok(placed.x > 1200);
   });
   await check('fast-brush-path-one-undo-redo-transaction', async () => {
     await imported(empty(102)); await action('reset-camera'); await choose('peasant', 'classical'); await action('tool-brush');
@@ -177,14 +189,14 @@ async function editorSuite() {
   });
   await check('box-select-move-and-rotate-real-mixed-group', async () => {
     await imported(scenario([unit(1,'swordsman','red',400,400),unit(2,'shield_guard','red',500,400),unit(3,'archer','blue',1900,900)],104));
-    await action('reset-camera'); await action('team-red'); await action('tool-select'); await dragWorld(350,350,550,450);
+    await action('reset-camera'); await action('tool-select'); await dragWorld(350,350,550,450);
     assert.equal(await page.evaluate(() => window.geobattle.editor.selection.size), 2);
     await dragWorld(400,400,450,500); const moved = await army(); assert.ok(Math.abs(moved.units[0].x-450)<.1); assert.ok(Math.abs(moved.units[0].y-500)<.1);
     await action('rotate-right'); const rotated = await army(); assert.ok(rotated.units[0].angle > .26 && rotated.units[0].angle < .263);
     assert.ok(Math.abs(Math.hypot(rotated.units[1].x-rotated.units[0].x,rotated.units[1].y-rotated.units[0].y)-100)<.001);
   });
   await check('clipboard-paste-to-other-team-mirror-delete-and-history', async () => {
-    await action('copy'); await action('team-blue'); await action('paste'); await clickWorld(900,750); assert.equal((await counts()).total,5);
+    await action('copy'); await action('paste'); await clickWorld(1500,750); assert.equal((await counts()).total,5);
     const pasted = (await army()).units.slice(-2); assert.ok(pasted.every(u=>u.team==='blue'));
     await action('mirror'); assert.equal((await counts()).total,7); const mirrored = await army();
     await action('undo'); assert.equal((await counts()).total,5); await action('redo'); assert.deepEqual(await army(),mirrored);
@@ -192,7 +204,7 @@ async function editorSuite() {
   });
   await check('group-out-of-bounds-rejection-keeps-every-position', async () => {
     await imported(scenario([unit(1,'swordsman','red',400,400),unit(2,'shield_guard','red',500,400),unit(3,'archer','blue',1900,900)],105));
-    await action('reset-camera'); await action('team-red'); await action('tool-select'); await dragWorld(350,350,550,450); const before = await army();
+    await action('reset-camera'); await action('tool-select'); await dragWorld(350,350,550,450); const before = await army();
     await dragWorld(400,400,3,400); assert.deepEqual(await army(),before); assert.match(await page.locator('#toast').textContent(),/保持原位|边界/);
   });
   await check('search-input-and-modal-ignore-game-shortcuts', async () => {
@@ -202,7 +214,7 @@ async function editorSuite() {
     assert.equal(await page.evaluate(()=>window.geobattle.mode),'PREPARING'); await page.keyboard.press('Escape'); assert.equal(await page.locator('#dialog').evaluate(d=>d.open),false);
   });
   await check('clear-current-team-confirm-and-undo-preserve-other-team', async () => {
-    await action('team-red'); const before = await army(); await action('presets'); await action('clear-team','#dialog'); await action('confirm-action','#dialog');
+    const before = await army(); await action('presets'); await action('clear-red','#dialog'); await action('confirm-action','#dialog');
     assert.equal((await counts()).red.count,0); assert.equal((await counts()).blue.count,1); await action('undo'); assert.deepEqual(await army(),before);
   });
   await check('empty-side-refuses-start-with-actionable-message', async () => {
@@ -316,7 +328,7 @@ async function replaySuite() {
     assert.equal(await page.evaluate(()=>window.geobattle.sim.units.length),2);await waitResult();await action('return','#dialog');assert.deepEqual(await army(),original);
   });
   await check('starting-during-a-brush-uses-the-post-cancel-editor-snapshot',async()=>{
-    await action('team-red');await choose('peasant','classical');await action('tool-brush');await action('reset-camera');const p=await screen(500,500);await page.mouse.move(p.x,p.y);await page.mouse.down();
+    await choose('peasant','classical');await action('tool-brush');await action('reset-camera');const p=await screen(500,500);await page.mouse.move(p.x,p.y);await page.mouse.down();
     assert.equal(await page.evaluate(()=>window.geobattle.editor.transactionActive),true);await page.keyboard.press('Space');await page.mouse.up();
     const data=await page.evaluate(()=>({army:structuredClone(window.geobattle.editor.formation),battle:structuredClone(window.geobattle.battleFormation)}));assert.deepEqual(data.battle,data.army);assert.deepEqual(data.army,original);
     await action('return');
@@ -345,7 +357,7 @@ async function responsiveSuite(width, height) {
     await page.keyboard.press('Tab');assert.ok(await page.evaluate(()=>document.activeElement!==document.body));return {winner:result.winner,screenshot:screenshotName};
   });
   if(width===375) await check('375x812-two-finger-pinch-changes-camera-without-deploying',async()=>{
-    await imported(empty(37501));await choose('peasant','classical','red');await action('tool-single');
+    await imported(empty(37501));await choose('peasant','classical','red');
     const c=await page.locator('#battlefield').boundingBox();const x=c.x+c.width/2,y=c.y+c.height*.65;const before=await page.evaluate(()=>({count:window.geobattle.editor.formation.units.length,zoom:window.geobattle.renderer.camera.zoom}));
     const session=await page.context().newCDPSession(page);
     await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:x-35,y,id:1},{x:x+35,y,id:2}]});
@@ -363,11 +375,12 @@ async function interactionRegressionSuite() {
     for(const type of ['peasant','swordsman','shield_guard'])assert.equal(await page.locator('[data-action="unit"][data-type="'+type+'"]').count(),1);
     await page.locator('#unit-search').fill('远程火力');
     for(const type of ['archer','rifleman'])assert.equal(await page.locator('[data-action="unit"][data-type="'+type+'"]').count(),1);
+    await page.locator('#unit-search').fill('现代');for(const type of ['rifleman','shotgunner','machine_gunner','sniper','rocketeer','tank'])assert.equal(await page.locator(`#catalog [data-type="${type}"]`).count(),1);
     const capture=await screenshot('role-search-regression');await page.locator('#unit-search').fill('');return {screenshot:capture};
   });
   for(const next of ['unit','deploy-current'])await check('paste-cancelled-by-'+next+'-without-losing-clipboard',async()=>{
     await imported(scenario([unit(1,'swordsman','red',400,400),unit(2,'swordsman','red',450,400),unit(3,'peasant','blue',1900,900)],810));
-    await choose('swordsman','classical');await action('reset-camera');await action('select-team');await action('copy');await action('paste');
+    await choose('swordsman','classical');await action('reset-camera');await action('select-red');await action('copy');await action('paste');
     assert.equal(await page.evaluate(()=>geobattle.input.pasteMode),true);
     if(next==='unit')await clickControl(page.locator('[data-action="unit"][data-type="peasant"]'));else await action('deploy-current');
     assert.equal(await page.evaluate(()=>geobattle.input.pasteMode),false);
@@ -403,9 +416,85 @@ async function interactionRegressionSuite() {
   });
 }
 
+async function v2Suite(){
+  await fresh(1366,768);
+  const assertZones=async()=>{const r=validateFormation(await army());assert.equal(r.ok,true,r.error);};
+  await check('v2-one-choice-two-clicks-center-forbidden-right-delete-undo',async()=>{
+    await imported(empty(920));await action('reset-camera');await clickControl(page.locator('[data-action="unit"][data-type="swordsman"]'));
+    assert.equal(await page.locator('[data-action="unit"][data-type="swordsman"]').count(),1);assert.equal(await page.locator('[data-action="team-red"]').count(),0);
+    await clickWorld(400,500);await clickWorld(1800,500);assert.deepEqual((await army()).units.map(u=>u.team),['red','blue']);
+    const p=await screen(1200,500);await page.mouse.move(p.x,p.y);await page.waitForFunction(()=>geobattle.input.renderState().hover?.valid===false);const forbidden=await screenshot('v2-forbidden-preview');await page.mouse.click(p.x,p.y);assert.equal((await counts()).total,2);
+    for(const x of [400,1800]){const p=await screen(x,500);await page.mouse.click(p.x,p.y,{button:'right'});}assert.equal((await counts()).total,0);await action('undo');assert.equal((await counts()).blue.count,1);await action('undo');assert.equal((await counts()).total,2);await assertZones();return {mainOperations:3,screenshot:forbidden};
+  });
+  await check('v2-default-thirty-unit-brush-and-cross-line-lock-one-undo',async()=>{
+    await imported(empty(921));await choose('peasant','classical');await action('reset-camera');await dragWorld(100,400,2200,400,40);
+    const f=await army();assert.ok(f.units.length>=30);assert.ok(f.units.every(u=>u.team==='red'));await assertZones();await action('undo');assert.equal((await counts()).total,0);await action('redo');assert.deepEqual(await army(),f);return {added:f.units.length};
+  });
+  await check('v2-selected-existing-unit-shows-actual-type-and-team',async()=>{
+    await imported(scenario([unit(1,'peasant','red',400,500),unit(2,'tank','blue',1800,500)],931));await action('reset-camera');await clickControl(page.locator('[data-action="unit"][data-type="swordsman"]'));await clickWorld(1800,500);await action('inspector-toggle');assert.equal(await page.locator('#inspector .unit-hero h3').textContent(),'坦克');assert.match(await page.locator('[data-selected-team="blue"]').textContent(),/蓝军/);await action('delete');assert.equal((await counts()).blue.count,0);assert.equal((await counts()).red.count,1);await action('undo');await assertZones();
+  });
+  await check('v2-batch-cross-line-preview-counts-exact-and-one-undo',async()=>{
+    await imported(empty(922));await action('tool-line');const a=await screen(900,600),b=await screen(1500,600);await page.mouse.move(a.x,a.y);await page.mouse.down();await page.mouse.move(b.x,b.y,{steps:5});
+    const preview=await page.evaluate(()=>geobattle.input.renderState().preview),accepted=preview.filter(p=>p.valid).length;assert.ok(accepted>0&&accepted<preview.length);await page.mouse.up();assert.equal((await counts()).total,accepted);await assertZones();await action('undo');assert.equal((await counts()).total,0);return {accepted,skipped:preview.length-accepted};
+  });
+  await check('v2-mixed-select-illegal-partial-move-rollback-and-exchange',async()=>{
+    const f=scenario([unit(1,'swordsman','red',1000,600),unit(2,'archer','blue',1400,600)],923);await imported(f);await action('reset-camera');await action('tool-select');await dragWorld(950,550,1450,650);
+    assert.equal(await page.evaluate(()=>geobattle.editor.selection.size),2);const before=await army();await dragWorld(1000,600,1250,600);assert.deepEqual(await army(),before);
+    await action('swap');const exchanged=await army();assert.deepEqual(exchanged.units.map(u=>[u.id,u.team,u.x]),[[1,'blue',1400],[2,'red',1000]]);await assertZones();await action('undo');assert.deepEqual(await army(),before);await action('mirror-all');await assertZones();await action('undo');assert.deepEqual(await army(),before);
+  });
+  await check('v2-paste-failure-retains-clipboard-and-moves-whole-group-opposite',async()=>{
+    await imported(scenario([unit(1,'tank','red',300,600),unit(2,'archer','red',400,600)],924));await action('reset-camera');await action('select-red');await action('copy');await action('paste');await clickWorld(1200,600);assert.equal((await counts()).total,2);assert.equal(await page.evaluate(()=>geobattle.input.pasteMode&&geobattle.editor.canPaste),true);
+    await clickWorld(1700,600);assert.equal((await counts()).total,4);assert.ok((await army()).units.slice(2).every(u=>u.team==='blue'));await assertZones();
+    await imported(scenario([unit(1,'tank','red',300,600),unit(2,'archer','red',400,600)],925));await action('reset-camera');await action('tool-select');await dragWorld(200,500,500,700);await dragWorld(300,600,1700,600);assert.ok((await army()).units.every(u=>u.team==='blue'));await assertZones();
+  });
+  await check('v2-legacy-import-readonly-backup-cancel-and-explicit-migration',async()=>{
+    await action('select-blue');await action('copy');await action('paste');
+    const before=await army(),legacy=scenario([unit(21,'tank','red',1700,500),unit(22,'archer','blue',500,700)],926),raw=JSON.stringify(legacy);
+    await page.locator('#import-file').setInputFiles({name:'old.json',mimeType:'application/json',buffer:Buffer.from(raw)});await page.waitForFunction(()=>geobattle.recovery?.code==='migration'&&document.getElementById('dialog').open);assert.deepEqual(await army(),before);
+    assert.equal(await page.evaluate(()=>geobattle.input.pasteMode),false);
+    await action('recovery-preview','#dialog');assert.equal(await page.evaluate(()=>geobattle.recoveryPreview.units.length),2);await screenshot('v2-legacy-readonly');await action('recovery-cancel','#dialog');assert.equal(await page.evaluate(()=>geobattle.recoveryPreview),null);assert.deepEqual(await army(),before);
+    await action('presets');await action('recovery','#dialog');await action('recovery-preview-copy','#dialog');assert.equal(validateFormation(await page.evaluate(()=>geobattle.recoveryPreview)).ok,true);assert.deepEqual(await army(),before);const download=page.waitForEvent('download');await action('recovery-backup','#dialog');const d=await download;assert.equal(await readFile(await d.path(),'utf8'),raw);
+    await action('recovery-migrate','#dialog');const copied=await army();assert.equal(copied.seed,legacy.seed);assert.deepEqual(copied.units.map(u=>[u.id,u.type,u.team,u.angle]),legacy.units.map(u=>[u.id,u.type,u.team,u.angle]));await assertZones();await action('undo');assert.deepEqual(await army(),before);
+  });
+  await check('v2-autosave-crosszone-cancel-never-overwrites-raw',async()=>{
+    const raw=JSON.stringify(scenario([unit(41,'peasant','red',1700,500)],927));await page.waitForTimeout(800);await page.evaluate(raw=>localStorage.setItem('geobattle.autosave.v1',raw),raw);await page.reload();await page.waitForFunction(()=>geobattle.recovery?.code==='migration');await action('recovery-cancel','#dialog');await action('reset-camera');await clickWorld(200,200);await page.waitForTimeout(900);assert.equal(await page.evaluate(()=>localStorage.getItem('geobattle.autosave.v1')),raw);
+    await action('presets');await action('recovery','#dialog');await action('recovery-migrate','#dialog');await page.waitForTimeout(900);assert.notEqual(await page.evaluate(()=>localStorage.getItem('geobattle.autosave.v1')),raw);assert.equal(await page.evaluate(()=>geobattle.store.autosaveProtected),false);await assertZones();
+  });
+  await check('v2-corrupt-and-future-autosave-backup-keeps-original',async()=>{
+    for(const raw of ['', '{bad',JSON.stringify({schemaVersion:999,seed:1,units:[]})]){await page.evaluate(raw=>localStorage.setItem('geobattle.autosave.v1',raw),raw);await page.reload();await page.waitForFunction(()=>geobattle.recovery&&document.getElementById('dialog').open);assert.equal(await page.locator('[data-action="recovery-migrate"]').count(),0);const pending=page.waitForEvent('download');await action('recovery-backup','#dialog');const d=await pending;assert.equal(await readFile(await d.path(),'utf8'),raw);await action('recovery-cancel','#dialog');await action('reset-camera');await clickWorld(200,200);await page.waitForTimeout(800);assert.equal(await page.evaluate(()=>localStorage.getItem('geobattle.autosave.v1')),raw);}
+  });
+  await fresh(1920,1080);
+  await check('v2-all36-single-catalog-identity-and-real-world-render',async()=>{
+    const definitions=UNIT_LIST.map(u=>({id:u.id,category:u.category,radius:u.radius}));
+    const f=empty(928);definitions.forEach((d,i)=>{const team=i<18?'red':'blue',j=i%18;f.units.push(unit(i+1,d.id,team,team==='red'?180+j%6*140:2220-j%6*140,420+Math.floor(j/6)*200));});await imported(f);await action('fit');await page.locator('#unit-search').fill('');
+    for(const category of [...new Set(definitions.map(d=>d.category))]){await clickControl(page.locator(`[data-category="${category}"]`));for(const d of definitions.filter(d=>d.category===category))assert.equal(await page.locator(`[data-action="unit"][data-type="${d.id}"]`).count(),1);await screenshot(`v2-catalog-${category}`);}
+    assert.equal(await page.evaluate(()=>geobattle.renderer.metrics.drawnUnits),36);const gallery=await screenshot('v2-all36-deployment');return {types:36,screenshot:gallery};
+  });
+  for(const [w,h] of [[320,568],[375,812]]){
+    await fresh(w,h,true);
+    await check(`v2-touch-${w}-add-both-erase-undo-pan-second-finger-cancel`,async()=>{
+      await imported(empty(w+1000));await choose('peasant','classical');await action('reset-camera');await clickWorld(500,600,true);await clickWorld(1900,600,true);assert.deepEqual((await army()).units.map(u=>u.team),['red','blue']);
+      await action('tool-erase');await clickWorld(1900,600,true);assert.equal((await counts()).total,1);await action('undo');assert.equal((await counts()).total,2);
+      await action('tool-pan');const cam=await page.evaluate(()=>geobattle.renderer.camera.x);const p=await screen(900,800);const session=await page.context().newCDPSession(page);await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:p.x,y:p.y,id:1}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:p.x+20,y:p.y+20,id:1}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert.notEqual(await page.evaluate(()=>geobattle.renderer.camera.x),cam);assert.equal((await counts()).total,2);
+      await action('tool-brush');await action('reset-camera');const q=await screen(400,850);const before=await army();await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:q.x,y:q.y,id:1}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:q.x+20,y:q.y,id:1}]});await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:q.x+20,y:q.y,id:1},{x:q.x+55,y:q.y,id:2}]});await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:q.x+10,y:q.y,id:1},{x:q.x+70,y:q.y,id:2}]});await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await session.detach();assert.deepEqual(await army(),before);await screenshot(`v2-touch-${w}-modes`);
+      await action('start');await page.waitForFunction(()=>geobattle.sim?.time>.2);await action('return');assert.deepEqual(await army(),before);
+    });
+  }
+  await check('v2-DPR2-world-preview-and-two-team-placement',async()=>{
+    await fresh(1366,768,false,2);await imported(empty(930));await action('reset-camera');await clickControl(page.locator('[data-action="unit"][data-type="swordsman"]'));await clickWorld(400,600);await clickWorld(1900,600);await assertZones();assert.deepEqual((await army()).units.map(u=>u.team),['red','blue']);const p=await screen(1200,600);await page.mouse.move(p.x,p.y);await page.waitForFunction(()=>geobattle.input.renderState().hover?.valid===false);return {dpr:2,screenshot:await screenshot('v2-DPR2-forbidden')};
+  });
+  await backgroundSuite();}
+
+async function backgroundSuite(){
+  await check('v2-real-tab-background-pauses-and-return-stays-paused',async()=>{
+    await fresh(1366,768);await action('start');await page.waitForFunction(()=>geobattle.sim.time>.2);const other=await page.context().newPage();await other.goto('about:blank');await other.bringToFront();const visibility=await page.evaluate(()=>({hidden:document.hidden,state:document.visibilityState}));if(!visibility.hidden){await other.close();await page.bringToFront();await action('return');return {skipped:true,reason:'Browser page surfaces stayed visible despite bringToFront; actual background lifecycle is not established by this environment.',visibility};}await page.waitForFunction(()=>geobattle.mode==='PAUSED',null,{polling:100,timeout:5000});const frozen=await page.evaluate(()=>geobattle.sim.time);await other.close();await page.bringToFront();await page.waitForTimeout(600);assert.equal(await page.evaluate(()=>geobattle.mode),'PAUSED');assert.equal(await page.evaluate(()=>geobattle.sim.time),frozen);await action('return');return {pausedTime:frozen,actualBrowserTabSwitch:true};
+  });
+
+}
+
 try {
   stopServer=await startTestServer();browser=await launchBrowser();report.browserVersion=browser.version();
-  if(SECTION==='smoke'||(DIST&&SECTION==='all')) await productionSmoke();
+  if(SECTION==='smoke') await productionSmoke();
   else {
     if(SECTION==='all'||SECTION==='editor')await editorSuite();
     if(SECTION==='all'||SECTION==='storage')await storageSuite();
@@ -414,6 +503,8 @@ try {
     for(const [w,h] of [[320,568],[375,812],[768,1024],[1366,768],[1920,1080],[3840,2160]])if(SECTION==='all'||SECTION==='responsive'||SECTION===`${w}x${h}`)await responsiveSuite(w,h);
   }
   if(SECTION==='all'||SECTION==='regressions')await interactionRegressionSuite();
+  if(SECTION==='all'||SECTION==='v2')await v2Suite();
+  if(SECTION==='background')await backgroundSuite();
   await check('console-and-request-health',async()=>{assert.deepEqual(report.consoleErrors,[]);assert.deepEqual(report.requestFailures,[]);});
 } catch(error) {
   report.cases.push({name:'browser-suite-bootstrap',status:'fail',error:String(error.message||error),stack:error.stack});console.error(error.stack);

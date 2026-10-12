@@ -1,0 +1,45 @@
+{
+  "startedAt": "2026-10-12T17:46:32.238Z",
+  "url": "http://127.0.0.1:4178",
+  "section": "background",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "v2-real-tab-background-pauses-and-return-stays-paused",
+      "status": "skipped",
+      "durationMs": 1266,
+      "details": {
+        "skipped": true,
+        "reason": "Headless page surfaces stayed visible despite bringToFront; use the headed background section for actual tab lifecycle.",
+        "visibility": {
+          "hidden": false,
+          "state": "visible"
+        }
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 1
+    }
+  ],
+  "captures": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [],
+  "browserVersion": "151.0.7922.34",
+  "summary": {
+    "pass": 1,
+    "fail": 0,
+    "skipped": 1,
+    "total": 2,
+    "capturesPassed": 0,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T17:46:35.061Z"
+}

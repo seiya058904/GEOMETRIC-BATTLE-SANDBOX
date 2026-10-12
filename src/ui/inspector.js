@@ -7,20 +7,47 @@ const AI={AcquireTarget:'寻找目标',Approach:'接近敌人',Reposition:'调�
 export function renderInspector(app){
   const container=document.getElementById('inspector-content');
   if(app.mode!=='PREPARING'){renderBattleInspector(app,container);return;}
-  const u=UNIT_MAP[app.type];const selection=app.editor.selection.size;
+  const focused=container.contains(document.activeElement)?document.activeElement:null;
+  const focusedId=focused?.id||'';
+  const focusedAction=focused?.dataset?.action||'';
+  const focusOccurrence=focusedAction?[...container.querySelectorAll(`[data-action="${focusedAction}"]`)].indexOf(focused):-1;
+  const advancedOpen=container.querySelector('[data-inspector-advanced]')?.open??false;
+  const selection=app.editor.selection.size;const deployed=selection===1?app.editor.formation.units.find(unit=>app.editor.selection.has(unit.id)):null;const u=UNIT_MAP[deployed?.type||app.type];
   document.getElementById('inspector-title').textContent=selection?`选中 ${selection} 个单位`:'单位详情';
-  container.innerHTML=`<div class="unit-hero"><canvas id="detail-icon" width="228" height="228" aria-hidden="true"></canvas><h3>${u.name}</h3><p>${CATEGORIES.find(c=>c.id===u.category)?.name} · ${ROLE_LABEL[u.role]}</p></div>
-    <div class="stat-rows">${[['生命',u.hp],['护甲',u.armor],['攻击',u.damage],['间隔',u.cooldown+'s'],['速度',u.speed],['射程',u.range]].map(([label,value])=>`<div><span>${label}</span><b>${value}</b></div>`).join('')}</div>
-    <div class="description"><strong>${u.skill||'战斗特性'}</strong>${u.description}</div>
-    <div class="inspector-group"><h3>部署设置</h3><label class="field-row">面向角度<input id="facing-input" type="number" min="-360" max="360" step="15" value="${Math.round(app.facing*180/Math.PI)}" aria-label="部署面向角度"></label>
-    <label class="field-row">阵型间距<select id="spacing-select" aria-label="阵型间距"><option value="1" ${app.spacing===1?'selected':''}>紧凑</option><option value="1.5" ${app.spacing===1.5?'selected':''}>标准</option><option value="2" ${app.spacing===2?'selected':''}>宽松</option><option value="3" ${app.spacing===3?'selected':''}>分散</option></select></label>
-    <label class="field-row">自由部署<input id="free-deploy" type="checkbox" ${app.settings.freeDeploy?'checked':''} aria-label="自由部署（双方不限区域）"></label>
-    ${button('deploy-current','在战场上部署','single','class="primary full-width"')}<p class="side-note">参考成本 ${u.cost} · 无限预算<br>双方均可放在任意合法空位。建议区没有阵营限制。</p></div>
-    <div class="inspector-group"><h3>军阵编辑${selection?` · 已选 ${selection} 个`:''}</h3>
-    <div class="selection-actions">${button('select-team','全选本方','select')}${button('copy','复制','copy',selection?'':'disabled')}${button('paste','粘贴','copy',app.editor.canPaste?'':'disabled')}${button('delete','删除','trash',selection?'':'disabled')}${button('rotate-left','转 −15°','rotate',selection?'':'disabled')}${button('rotate-right','转 +15°','rotate',selection?'':'disabled')}${button('mirror','镜像给对方','mirror',selection?'':'disabled')}${button('swap','交换阵营','swap')}</div>
-    <p class="side-note">选择工具框选本方，拖动选区移动。<br>复制后可切换阵营再粘贴。</p></div>
-    <div class="inspector-group"><h3>本场随机种子</h3><div class="form-inline"><input id="seed-input" type="number" min="0" max="4294967295" step="1" value="${app.editor.formation.seed}" aria-label="战斗随机种子">${button('new-seed','更换种子','shuffle','class="icon-button"')}</div><p class="side-note">同编队、同种子、同构建可复现战斗。<br>活动单位保护上限 ${MAX_UNITS}，召唤物同样计入。</p></div>`;
-  drawUnitIcon(document.getElementById('detail-icon'),u.id,app.team);
+  container.innerHTML=`${selection?`<section class="selection-quick" aria-label="选中单位操作"><strong>已选中 ${selection} 个单位</strong><div>${button('copy','复制','copy')}${button('delete','删除选中','trash')}${button('mirror','镜像到对侧','mirror')}</div></section>`:''}
+    <section class="unit-overview" aria-label="${esc(u.name)}单位资料">
+      <div class="unit-hero"><canvas id="detail-icon" width="228" height="228" aria-hidden="true"></canvas><div><h3>${esc(u.name)}</h3><p>${esc(CATEGORIES.find(c=>c.id===u.category)?.name)} · ${esc(ROLE_LABEL[u.role])}</p>${deployed?`<p data-selected-team="${deployed.team}" class="${deployed.team}">${deployed.team==='red'?'红军 ●':'蓝军 ◇'} · #${deployed.id}</p>`:''}</div></div>
+      <p class="description"><strong>${esc(u.skill||'战斗特性')}</strong>${esc(u.description)}</p>
+      <div class="stat-rows">${[['生命',u.hp],['护甲',u.armor],['攻击',u.damage],['间隔',`${u.cooldown}s`],['速度',u.speed],['射程',u.range]].map(([label,value])=>`<div><span>${label}</span><b>${esc(value)}</b></div>`).join('')}</div>
+      <p class="side-note">参考成本 ${n(u.cost)} · 不限制部署</p>
+      ${deployed?button('deploy-same',`部署同类${u.name}`,'brush',`data-type="${u.id}" class="primary full-width"`):button('deploy-current','继续部署','brush','class="primary full-width"')}
+      <p class="deployment-hint">在兵种库选中一次，再点红侧和蓝侧。半场决定队伍。</p>
+    </section>
+    <details class="inspector-group advanced-group" data-inspector-advanced ${advancedOpen?'open':''}><summary>高级编辑与军阵设置</summary>
+      <div class="advanced-content">
+        <label class="field-row">朝向偏转<input id="facing-input" type="number" min="-360" max="360" step="15" value="${Math.round(app.facing*180/Math.PI)}" aria-label="相对默认朝向中线的偏转角度"></label>
+        <label class="field-row">阵型间距<select id="spacing-select" aria-label="阵型间距"><option value="1" ${app.spacing===1?'selected':''}>紧凑</option><option value="1.5" ${app.spacing===1.5?'selected':''}>标准</option><option value="2" ${app.spacing===2?'selected':''}>宽松</option><option value="3" ${app.spacing===3?'selected':''}>分散</option></select></label>
+        <div class="selection-actions">
+          ${button('tool-select','框选与移动','select','data-tool="select" aria-pressed="false"')}
+          ${button('tool-line','直线编队','line','data-tool="line" aria-pressed="false"')}
+          ${button('tool-grid','矩阵编队','grid','data-tool="grid" aria-pressed="false"')}
+          ${button('select-red','选择红军','single')}${button('select-blue','选择蓝军','single')}
+          ${button('copy','复制','copy',selection?'':'disabled')}${button('paste','粘贴','copy',app.editor.canPaste?'':'disabled')}
+          ${button('delete','删除选中','trash',selection?'':'disabled')}${button('rotate-left','转 −15°','rotate',selection?'':'disabled')}${button('rotate-right','转 +15°','rotate',selection?'':'disabled')}
+          ${button('mirror','镜像到对侧','mirror',selection?'':'disabled')}${button('swap','对调两军','swap')}
+        </div>
+        <p class="side-note">选中单位的副本与镜像会根据目标位置重新校验队伍和部署区域。</p>
+        <div class="selection-actions team-actions">${button('clear-red','清空红半场','trash')}${button('clear-blue','清空蓝半场','trash')}${button('clear-all','清空双方','trash')}${button('mirror-all','左右镜像','mirror')}</div>
+        <label class="field-row">本场随机种子<input id="seed-input" type="number" min="0" max="4294967295" step="1" value="${app.editor.formation.seed}" aria-label="战斗随机种子"></label>
+        <div class="form-inline">${button('new-seed','更换种子','shuffle','class="quiet"')}<span class="side-note">同军阵、同种子和同构建可复现战斗。容量上限 ${MAX_UNITS}，召唤物也计入。</span></div>
+      </div>
+    </details>`;
+  drawUnitIcon(document.getElementById('detail-icon'),u.id,deployed?.team||'neutral');
+  if(focusedId)container.querySelector(`#${focusedId}`)?.focus({preventScroll:true});
+  else if(focusedAction){
+    const matches=[...container.querySelectorAll(`[data-action="${focusedAction}"]`)];
+    (matches[Math.max(0,focusOccurrence)]||matches[0])?.focus({preventScroll:true});
+  }
 }
 function renderBattleInspector(app,container){
   const entity=app.selectedId!=null?app.sim?.getEntity(app.selectedId):null;

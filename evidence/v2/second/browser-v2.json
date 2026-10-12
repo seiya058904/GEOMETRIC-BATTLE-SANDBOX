@@ -1,0 +1,181 @@
+{
+  "startedAt": "2026-10-12T16:56:50.945Z",
+  "url": "http://127.0.0.1:4178",
+  "section": "v2",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "v2-one-choice-two-clicks-center-forbidden-right-delete-undo",
+      "status": "pass",
+      "durationMs": 1019,
+      "details": {
+        "mainOperations": 3,
+        "screenshot": "browser-v2-forbidden-preview.png"
+      }
+    },
+    {
+      "name": "v2-default-thirty-unit-brush-and-cross-line-lock-one-undo",
+      "status": "pass",
+      "durationMs": 1204,
+      "details": {
+        "added": 48
+      }
+    },
+    {
+      "name": "v2-batch-cross-line-preview-counts-exact-and-one-undo",
+      "status": "pass",
+      "durationMs": 358,
+      "details": {
+        "accepted": 13,
+        "skipped": 14
+      }
+    },
+    {
+      "name": "v2-mixed-select-illegal-partial-move-rollback-and-exchange",
+      "status": "pass",
+      "durationMs": 372
+    },
+    {
+      "name": "v2-paste-failure-retains-clipboard-and-moves-whole-group-opposite",
+      "status": "pass",
+      "durationMs": 606
+    },
+    {
+      "name": "v2-legacy-import-readonly-backup-cancel-and-explicit-migration",
+      "status": "pass",
+      "durationMs": 1435
+    },
+    {
+      "name": "v2-autosave-crosszone-cancel-never-overwrites-raw",
+      "status": "pass",
+      "durationMs": 3361
+    },
+    {
+      "name": "v2-corrupt-and-future-autosave-backup-keeps-original",
+      "status": "pass",
+      "durationMs": 4971
+    },
+    {
+      "name": "v2-all36-single-catalog-identity-and-real-world-render",
+      "status": "pass",
+      "durationMs": 3617,
+      "details": {
+        "types": 36,
+        "screenshot": "browser-v2-all36-deployment.png"
+      }
+    },
+    {
+      "name": "v2-touch-320-add-both-erase-undo-pan-second-finger-cancel",
+      "status": "pass",
+      "durationMs": 1025
+    },
+    {
+      "name": "v2-touch-375-add-both-erase-undo-pan-second-finger-cancel",
+      "status": "pass",
+      "durationMs": 1052
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "v2-forbidden-preview",
+      "filename": "browser-v2-forbidden-preview.png",
+      "status": "pass",
+      "durationMs": 771
+    },
+    {
+      "name": "v2-legacy-readonly",
+      "filename": "browser-v2-legacy-readonly.png",
+      "status": "pass",
+      "durationMs": 867
+    },
+    {
+      "name": "v2-catalog-classical",
+      "filename": "browser-v2-catalog-classical.png",
+      "status": "pass",
+      "durationMs": 660
+    },
+    {
+      "name": "v2-catalog-modern",
+      "filename": "browser-v2-catalog-modern.png",
+      "status": "pass",
+      "durationMs": 272
+    },
+    {
+      "name": "v2-catalog-fantasy",
+      "filename": "browser-v2-catalog-fantasy.png",
+      "status": "pass",
+      "durationMs": 460
+    },
+    {
+      "name": "v2-catalog-beasts",
+      "filename": "browser-v2-catalog-beasts.png",
+      "status": "pass",
+      "durationMs": 543
+    },
+    {
+      "name": "v2-catalog-scifi",
+      "filename": "browser-v2-catalog-scifi.png",
+      "status": "pass",
+      "durationMs": 356
+    },
+    {
+      "name": "v2-catalog-weird",
+      "filename": "browser-v2-catalog-weird.png",
+      "status": "pass",
+      "durationMs": 313
+    },
+    {
+      "name": "v2-all36-deployment",
+      "filename": "browser-v2-all36-deployment.png",
+      "status": "pass",
+      "durationMs": 454
+    },
+    {
+      "name": "v2-touch-320-modes",
+      "filename": "browser-v2-touch-320-modes.png",
+      "status": "pass",
+      "durationMs": 98
+    },
+    {
+      "name": "v2-touch-375-modes",
+      "filename": "browser-v2-touch-375-modes.png",
+      "status": "pass",
+      "durationMs": 123
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-v2-forbidden-preview.png",
+    "browser-v2-legacy-readonly.png",
+    "browser-v2-catalog-classical.png",
+    "browser-v2-catalog-modern.png",
+    "browser-v2-catalog-fantasy.png",
+    "browser-v2-catalog-beasts.png",
+    "browser-v2-catalog-scifi.png",
+    "browser-v2-catalog-weird.png",
+    "browser-v2-all36-deployment.png",
+    "browser-v2-touch-320-modes.png",
+    "browser-v2-touch-375-modes.png"
+  ],
+  "browserVersion": "151.0.7922.34",
+  "summary": {
+    "pass": 12,
+    "fail": 0,
+    "skipped": 0,
+    "total": 12,
+    "capturesPassed": 11,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T16:57:13.187Z"
+}

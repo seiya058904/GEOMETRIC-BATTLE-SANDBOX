@@ -21,6 +21,36 @@ export function isUnitType(type) {
 
 const fail = (code, message, extra = {}) => ({ ok: false, code, message, ...extra });
 
+/** Preparation only. Simulation movement deliberately does not call this rule. */
+export function teamForDeploymentPosition(type, x, y) {
+  if (!isUnitType(type) || !Number.isFinite(x) || !Number.isFinite(y)) return null;
+  const radius = UNIT_MAP[type].radius;
+  if (x < radius - EPSILON || x > WORLD.width - radius + EPSILON ||
+      y < radius - EPSILON || y > WORLD.height - radius + EPSILON) return null;
+  const margin = radius + PLACEMENT_GAP;
+  if (x + margin <= WORLD.width / 2 + EPSILON) return 'red';
+  if (x - margin >= WORLD.width / 2 - EPSILON) return 'blue';
+  return null;
+}
+
+export function validateHomeZone(candidate) {
+  const team = teamForDeploymentPosition(candidate?.type, candidate?.x, candidate?.y);
+  if (!team) return fail('home-zone', '此处跨越分界线，请让完整体型留在红色或蓝色区域。');
+  if (candidate.team !== team) return fail('home-zone', `这次绘制属于${candidate.team === 'red' ? '红' : '蓝'}方，请留在本方区域。`);
+  return { ok: true, team, message: `可以部署${team === 'red' ? '红' : '蓝'}方单位。` };
+}
+
+/** Shared by ghost previews and commit. lockedTeam is the current gesture only. */
+export function resolvePlacementCandidate(type, position, lockedTeam) {
+  const team = teamForDeploymentPosition(type, position?.x, position?.y);
+  const inferred = team || (position?.x < WORLD.width / 2 ? 'red' : 'blue');
+  const candidate = { type, x: position?.x, y: position?.y, team: lockedTeam || inferred,
+    angle: position?.angle === undefined ? defaultAngle(lockedTeam || inferred) : position.angle };
+  // Reuse the complete check to retain specific type/bounds/numeric feedback.
+  const check = validatePlacement([], candidate);
+  return { ...check, candidate };
+}
+
 /** Incremental neighbor index: batch placement never scans every deployed pair. */
 export class PlacementIndex {
   constructor(units = []) {
@@ -63,7 +93,7 @@ export class PlacementIndex {
  * @param {Set<number>|number[]} [ignoreIds] Existing units being replaced.
  * @returns {{ok:boolean,code?:string,message:string,conflictId?:number}}
  */
-export function validatePlacement(units, candidate, ignoreIds = new Set()) {
+export function validatePlacement(units, candidate, ignoreIds = new Set(), { allowLegacy = false } = {}) {
   if (!candidate || typeof candidate !== 'object') return fail('invalid', '单位数据无效。');
   if (!isUnitType(candidate.type)) return fail('type', '无法部署未知兵种。');
   if (candidate.team !== 'red' && candidate.team !== 'blue') return fail('team', '请选择红队或蓝队。');
@@ -74,6 +104,10 @@ export function validatePlacement(units, candidate, ignoreIds = new Set()) {
   if (candidate.x < radius - EPSILON || candidate.x > WORLD.width - radius + EPSILON ||
       candidate.y < radius - EPSILON || candidate.y > WORLD.height - radius + EPSILON) {
     return fail('bounds', '单位不能超出战场边界，请为完整体型留出空间。');
+  }
+  if (!allowLegacy) {
+    const zone = validateHomeZone(candidate);
+    if (!zone.ok) return zone;
   }
   const ignored = ignoreIds instanceof Set ? ignoreIds : new Set(ignoreIds || []);
   const index = units instanceof PlacementIndex ? units : new PlacementIndex(units);

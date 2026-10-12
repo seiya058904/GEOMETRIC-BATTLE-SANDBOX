@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "surface": "game",
+  "mode": "operate",
+  "source": "DESIGN.md",
+  "tokens": {
+    "background": "#10191d",
+    "surface": "#172328",
+    "text": "#f0f2ed",
+    "muted": "#a6b5b6",
+    "red": "#ff705d",
+    "blue": "#59b7fa",
+    "primary": "#d3ee89",
+    "radius": "5px",
+    "font": "Segoe UI, Microsoft YaHei, PingFang SC, sans-serif",
+    "mobileTarget": "44px"
+  },
+  "runtimeImages": false,
+  "directionReferences": ["design/v2-composition-reference.png", "design/v2-catalog-reference.png", "design/v2-battle-reference.png"],
+  "qualityBar": "design/V2-QUALITY-BAR.md"
+}

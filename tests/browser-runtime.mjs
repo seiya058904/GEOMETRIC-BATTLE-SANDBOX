@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 export async function launchBrowser(){
   let playwright;
   try{playwright=await import('playwright');}catch(error){if(!process.env.PLAYWRIGHT_MODULE)throw new Error('浏览器验收需要 Playwright：npm install --no-save playwright，然后 npx playwright install chromium；或设置 PLAYWRIGHT_MODULE。');playwright=await import(pathToFileURL(process.env.PLAYWRIGHT_MODULE).href);}
-  return playwright.chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_EXECUTABLE||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader',...(process.env.GEOBATTLE_QA_SOFTWARE_CANVAS==='1'?['--disable-accelerated-2d-canvas']:[])]});
+  return playwright.chromium.launch({headless:process.env.GEOBATTLE_QA_HEADED!=='1',executablePath:process.env.PLAYWRIGHT_EXECUTABLE||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.env.GEOBATTLE_QA_NATIVE_GPU==='1'?['--use-gl=angle','--use-angle=d3d11','--enable-gpu','--enable-automation']:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']),...(process.env.GEOBATTLE_QA_SOFTWARE_CANVAS==='1'?['--disable-accelerated-2d-canvas']:[])]});
 }
 export const BASE_URL=process.env.GEOBATTLE_TEST_URL||'http://127.0.0.1:4178';
 export async function startTestServer(){

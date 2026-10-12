@@ -1,0 +1,9 @@
+PASS visual-320x568
+PASS visual-375x812
+PASS visual-768x1024
+PASS visual-1366x768
+PASS visual-1920x1080
+PASS visual-3840x2160
+PASS all36-natural-mechanism-observation
+PASS 1200-deployment-trusted-input-latency
+{"pass":8,"fail":0,"errors":[]}

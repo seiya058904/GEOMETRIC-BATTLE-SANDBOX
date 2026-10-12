@@ -31,8 +31,9 @@ try {
 } catch (error) {
   report.pass=false; report.failure=error.stack; process.exitCode=1;
 } finally {
-  await mkdir(fileURLToPath(new URL('../evidence/',import.meta.url)),{recursive:true});
-  await writeFile(new URL('../evidence/offline-build-verification.json',import.meta.url),JSON.stringify(report,null,2));
+  const evidence=process.env.GEOBATTLE_EVIDENCE || fileURLToPath(new URL('../evidence/',import.meta.url));
+  await mkdir(evidence,{recursive:true});
+  await writeFile(`${evidence}/offline-build-verification.json`,JSON.stringify(report,null,2));
   await context.close(); await browser.close();
 }
 console.log(JSON.stringify(report));

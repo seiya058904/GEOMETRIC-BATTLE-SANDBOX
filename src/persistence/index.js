@@ -1,6 +1,6 @@
-import { exportFormationJSON, parseFormationJSON, utf8Bytes, validateFormation } from './validation.js';
+import { exportFormationJSON, inspectFormation, parseFormationJSON, utf8Bytes, validateFormation } from './validation.js';
 
-export { exportFormationJSON, parseFormationJSON, validateFormation, MAX_FILE_BYTES, SCHEMA_VERSION } from './validation.js';
+export { exportFormationJSON, parseFormationJSON, validateFormation, inspectFormation, migrateFormation, MAX_FILE_BYTES, SCHEMA_VERSION } from './validation.js';
 export const AUTOSAVE_KEY = 'geobattle.autosave.v1';
 export const PRESETS_KEY = 'geobattle.presets.v1';
 const MAX_PRESET_BYTES = 8 * 1024 * 1024;
@@ -26,6 +26,8 @@ export class PresetStore {
     this._storage = null;
     this._accessError = null;
     this._idCounter = 0;
+    this._autosaveProtection = null;
+    this._autosaveRead = false;
     try {
       this._storage = arguments.length ? storage : globalThis.localStorage;
       if (!this._storage || typeof this._storage.getItem !== 'function' || typeof this._storage.setItem !== 'function') {
@@ -47,6 +49,9 @@ export class PresetStore {
   }
 
   saveAutosave(formation) {
+    if (!this._autosaveRead) this.loadAutosave();
+    if (this._autosaveProtection !== null) return { ok: false, code: 'protected', raw: this._autosaveProtection,
+      error: '原始自动存档仍受保护，请先导出备份并明确接受恢复结果。' };
     const serialized = exportFormationJSON(formation);
     if (!serialized.ok) return serialized;
     const result = this._write(AUTOSAVE_KEY, serialized.value, '自动保存');
@@ -54,12 +59,17 @@ export class PresetStore {
   }
 
   loadAutosave() {
+    this._autosaveRead = true;
     const result = this._read(AUTOSAVE_KEY, '恢复布阵');
-    if (!result.ok) return result;
+    if (!result.ok) { this._autosaveProtection = undefined; return result; }
     if (result.value === null || result.value === undefined) return { ok: true, value: null };
     const parsed = parseFormationJSON(result.value);
-    return parsed.ok ? parsed : fail(`无法恢复最近布阵：${parsed.error}`);
+    if (!parsed.ok) this._autosaveProtection = result.value;
+    return parsed.ok ? parsed : { ...parsed, raw: result.value, error: `无法恢复最近布阵：${parsed.error}` };
   }
+
+  get autosaveProtected() { return this._autosaveProtection !== null; }
+  releaseAutosaveProtection() { this._autosaveProtection = null; }
 
   _readPresets() {
     const result = this._read(PRESETS_KEY, '读取预设');
@@ -83,10 +93,14 @@ export class PresetStore {
           typeof preset.updatedAt !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(preset.updatedAt) || !Number.isFinite(Date.parse(preset.updatedAt))) {
         return fail(`第 ${i + 1} 个预设的名称、ID 或日期无效，原始数据保持不变。`);
       }
-      const validation = validateFormation(preset.formation);
+      const validation = validateFormation(preset.formation, { allowLegacy: true });
       if (!validation.ok) return fail(`预设「${preset.name}」损坏：${validation.error}`);
       ids.add(preset.id); names.add(preset.name);
-      presets.push({ id: preset.id, name: preset.name, updatedAt: preset.updatedAt, formation: validation.value });
+      const record = { id: preset.id, name: preset.name, updatedAt: preset.updatedAt, formation: validation.value };
+      // Keep original fields for a recovery download without adding them to the
+      // sanitized collection when it is serialized for ordinary preset writes.
+      Object.defineProperty(record, 'raw', { value: JSON.stringify(preset.formation, null, 2) });
+      presets.push(record);
     }
     return { ok: true, value: presets };
   }
@@ -126,7 +140,9 @@ export class PresetStore {
     const result = this._readPresets();
     if (!result.ok) return result;
     const preset = result.value.find(item => item.id === id);
-    return preset ? { ok: true, value: preset.formation } : fail('没有找到这个预设，可能已在另一窗口被删除。');
+    if (!preset) return fail('没有找到这个预设，可能已在另一窗口被删除。');
+    const inspected = inspectFormation(preset.formation);
+    return inspected.ok ? inspected : { ...inspected, raw: preset.raw };
   }
 
   deletePreset(id) {

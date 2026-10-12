@@ -1,0 +1,18 @@
+{
+  "device": "emulator-5554",
+  "name": "Codex_Maestro_Android34",
+  "physicalDevice": false,
+  "androidVersion": "14",
+  "chromeVersion": "113.0.5672.136",
+  "adbDevicesExitCode": 0,
+  "maestro": {
+    "inspectScreen": "failed",
+    "reason": "Maestro Android driver did not start up in time (port 7001)"
+  },
+  "launch": {
+    "status": "blocked",
+    "reason": "blocked by policy",
+    "action": "adb shell am start ACTION_VIEW of local production URL in com.android.chrome"
+  },
+  "verification": "Not executed. No bypass was attempted. Existing tcp:9224 forwarding was preserved. Local test server4190 stopped."
+}

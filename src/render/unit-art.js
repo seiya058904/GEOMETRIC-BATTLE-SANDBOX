@@ -1,5 +1,5 @@
 /** Every soldier is drawn from geometry. The same drawing is used in the catalogue and battlefield. */
-export const TEAM_COLORS = Object.freeze({ red: '#ff705d', blue: '#59b7fa' });
+export const TEAM_COLORS = Object.freeze({ red: '#ff705d', blue: '#59b7fa', neutral: '#d6dfd1' });
 const INK = '#142329';
 const PAPER = '#edf0e6';
 const TAU = Math.PI * 2;

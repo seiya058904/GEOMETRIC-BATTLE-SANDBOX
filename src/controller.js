@@ -52,8 +52,8 @@ export class GameController{
       case 'speed':this.speed=Number(el.dataset.speed);this.refreshPlayback();break;
       case 'team-red':case 'team-blue':this.team=action.slice(5);this.facing=this.team==='red'?0:Math.PI;this.editor.select([]);this.refresh();break;
       case 'category':this.category=el.dataset.category;this.search='';document.getElementById('unit-search').value='';renderCategories(this);renderCatalog(this);break;
-      case 'unit':this.type=el.dataset.type;if(this.tool==='select'||this.tool==='erase'||this.tool==='pan')this.tool='single';renderCatalog(this);this.refreshInspector();this.refreshToolHint();this.refreshToolButtons();if(innerWidth<=760)this.closeDrawers();break;
-      case 'deploy-current':this.tool='single';this.closeDrawers();this.refreshToolButtons();this.refreshToolHint();this.toast(`已选${UNIT_MAP[this.type].name}，点击战场放置。`);break;
+      case 'unit':this.input.cancelOperation();this.type=el.dataset.type;if(this.tool==='select'||this.tool==='erase'||this.tool==='pan')this.tool='single';renderCatalog(this);this.refreshInspector();this.refreshToolHint();this.refreshToolButtons();if(innerWidth<=760)this.closeDrawers();break;
+      case 'deploy-current':this.input.cancelOperation();this.tool='single';this.closeDrawers();this.refreshToolButtons();this.refreshToolHint();this.toast(`已选${UNIT_MAP[this.type].name}，点击战场放置。`);break;
       case 'undo':this.editResult(this.editor.undo());break;case 'redo':this.editResult(this.editor.redo());break;
       case 'copy':{const r=this.editor.copySelection();this.toast(r.message,!r.ok);this.refreshInspector();break;}
       case 'paste':if(this.editor.canPaste){this.closeDrawers();this.input.beginPaste();}else this.toast('请先选择并复制一组单位。');break;

@@ -109,6 +109,14 @@ test('undo, both redo shortcuts and team shortcuts route to the expected actions
   input.key(keyboard('y', { ctrlKey: true })); input.key(keyboard('1')); input.key(keyboard('2'));
   assert.deepEqual(app.actions, ['undo', 'redo', 'redo', 'team-red', 'team-blue']);
 });
+
+test('Space on a focused button retains native activation without toggling battle', () => {
+  const { input, app } = fixture(); app.mode = 'PAUSED';
+  let prevented = false;
+  input.key(keyboard(' ', { target: { tagName: 'BUTTON' }, preventDefault() { prevented = true; } }));
+  assert.deepEqual(app.actions, []); assert.equal(prevented, false);
+  input.key(keyboard(' ')); assert.deepEqual(app.actions, ['start']);
+});
 test('battle mode blocks deployment shortcuts but retains pause and fit controls', () => {
   const { input, app } = fixture(); app.mode = 'PAUSED';
   input.key(keyboard('b')); input.key(keyboard('Delete')); input.key(keyboard('z', { ctrlKey: true }));

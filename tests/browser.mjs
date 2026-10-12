@@ -356,6 +356,53 @@ async function responsiveSuite(width, height) {
   });
 }
 
+async function interactionRegressionSuite() {
+  await fresh(1440,900);
+  await check('role-label-search-finds-melee-and-ranged-units',async()=>{
+    await page.locator('#unit-search').fill('近战先锋');
+    for(const type of ['peasant','swordsman','shield_guard'])assert.equal(await page.locator('[data-action="unit"][data-type="'+type+'"]').count(),1);
+    await page.locator('#unit-search').fill('远程火力');
+    for(const type of ['archer','rifleman'])assert.equal(await page.locator('[data-action="unit"][data-type="'+type+'"]').count(),1);
+    const capture=await screenshot('role-search-regression');await page.locator('#unit-search').fill('');return {screenshot:capture};
+  });
+  for(const next of ['unit','deploy-current'])await check('paste-cancelled-by-'+next+'-without-losing-clipboard',async()=>{
+    await imported(scenario([unit(1,'swordsman','red',400,400),unit(2,'swordsman','red',450,400),unit(3,'peasant','blue',1900,900)],810));
+    await choose('swordsman','classical');await action('reset-camera');await action('select-team');await action('copy');await action('paste');
+    assert.equal(await page.evaluate(()=>geobattle.input.pasteMode),true);
+    if(next==='unit')await clickControl(page.locator('[data-action="unit"][data-type="peasant"]'));else await action('deploy-current');
+    assert.equal(await page.evaluate(()=>geobattle.input.pasteMode),false);
+    assert.equal(await page.evaluate(()=>geobattle.editor.canPaste),true);
+    const before=await army();await clickWorld(900,700);const after=await army();
+    assert.equal(after.units.length,before.units.length+1);assert.equal(after.units.at(-1).type,next==='unit'?'peasant':'swordsman');
+    await action('undo');assert.deepEqual(await army(),before);await action('redo');assert.deepEqual(await army(),after);
+    await action('paste');await clickWorld(1250,600);assert.equal((await army()).units.length,after.units.length+2);
+  });
+  await check('observation-buttons-retain-focus-and-native-space-enter-activation',async()=>{
+    await imported(pair(811));await action('start');await action('start');assert.equal(await page.evaluate(()=>geobattle.mode),'PAUSED');
+    const paused=await page.evaluate(()=>geobattle.sim.time);
+    const observed=await page.evaluate(()=>{const u=geobattle.sim.units.find(u=>u.alive&&u.team==='red');return {id:u.id,x:u.x,y:u.y};});
+    await clickWorld(observed.x,observed.y);
+    for(let i=0;i<35;i++){await page.keyboard.press('Tab');if(await page.evaluate(()=>document.activeElement.dataset.action==='follow'))break;}
+    assert.equal(await page.evaluate(()=>document.activeElement.dataset.action),'follow');
+    await page.evaluate(()=>{window.__qaFollowButton=document.activeElement;});await page.waitForTimeout(650);
+    assert.equal(await page.evaluate(()=>document.activeElement===window.__qaFollowButton),true);
+    assert.equal(await page.evaluate(()=>geobattle.sim.time),paused);
+    await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>geobattle.followId),observed.id);
+    assert.equal(await page.evaluate(()=>geobattle.mode),'PAUSED');await page.waitForTimeout(650);
+    assert.equal(await page.evaluate(()=>document.activeElement===window.__qaFollowButton),true);
+    const capture=await screenshot('keyboard-follow-regression');
+    await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>geobattle.followId),null);
+    await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>geobattle.followId),observed.id);
+    await page.keyboard.press('Tab');assert.equal(await page.evaluate(()=>document.activeElement.dataset.action),'deselect');
+    await page.waitForTimeout(650);assert.equal(await page.evaluate(()=>document.activeElement.dataset.action),'deselect');
+    await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>geobattle.selectedId),null);
+    assert.equal(await page.evaluate(()=>geobattle.mode),'PAUSED');
+    await clickWorld(1200,100);await page.keyboard.press('Space');
+    await page.waitForFunction(t=>geobattle.mode==='FIGHTING'&&geobattle.sim.time>t,paused);
+    await action('return');return {screenshot:capture};
+  });
+}
+
 try {
   stopServer=await startTestServer();browser=await launchBrowser();report.browserVersion=browser.version();
   if(SECTION==='smoke'||(DIST&&SECTION==='all')) await productionSmoke();
@@ -366,6 +413,7 @@ try {
     if(SECTION==='all'||SECTION==='replay')await replaySuite();
     for(const [w,h] of [[320,568],[375,812],[768,1024],[1366,768],[1920,1080],[3840,2160]])if(SECTION==='all'||SECTION==='responsive'||SECTION===`${w}x${h}`)await responsiveSuite(w,h);
   }
+  if(SECTION==='all'||SECTION==='regressions')await interactionRegressionSuite();
   await check('console-and-request-health',async()=>{assert.deepEqual(report.consoleErrors,[]);assert.deepEqual(report.requestFailures,[]);});
 } catch(error) {
   report.cases.push({name:'browser-suite-bootstrap',status:'fail',error:String(error.message||error),stack:error.stack});console.error(error.stack);

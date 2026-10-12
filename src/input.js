@@ -95,7 +95,7 @@ export class BattlefieldInput{
     const app=this.app,tag=e.target?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag)||e.target?.isContentEditable||app.dialog.open)return;
     const mod=e.ctrlKey||e.metaKey;
     if(e.key==='Escape'){this.cancelOperation();app.closeDrawers();return;}
-    if(e.code==='Space'){e.preventDefault();app.handleAction('start');return;}
+    if(e.code==='Space'){if(tag==='BUTTON')return;e.preventDefault();app.handleAction('start');return;}
     if(e.key.toLowerCase()==='f'){e.preventDefault();app.handleAction('fit');return;}
     if(e.key==='/'&&app.mode==='PREPARING'){e.preventDefault();app.openCatalog();document.getElementById('unit-search').focus();return;}
     if(app.mode!=='PREPARING')return;

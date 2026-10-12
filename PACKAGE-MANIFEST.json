@@ -6,13 +6,13 @@
   "files": [
     {
       "path": "GEOBATTLE-OFFLINE.html",
-      "bytes": 195273,
-      "sha256": "e28a4be55175a156272d893da45923cd46809ac285e2c16706eeb57d094df28f"
+      "bytes": 195728,
+      "sha256": "e9c47c5b41fd3244ac41e259f0df95764c859dd4c3964786dd78e7fb99a2c102"
     },
     {
       "path": "README.md",
-      "bytes": 15544,
-      "sha256": "e410008875406c6aed7251d7375454b5126bd3c20ca60d9d2eaf23f4eac4db67"
+      "bytes": 16376,
+      "sha256": "5bdf9d251e4de751a658b7d9fcc21b95c443613dbd6c8811ecf919ac8044173b"
     },
     {
       "path": "design/DESIGN-REFERENCES.md",
@@ -36,8 +36,8 @@
     },
     {
       "path": "dist/game.js",
-      "bytes": 168540,
-      "sha256": "53d6df6d81f6203ec31a308777930e9299c166cf778f6b0bf8c3a293edb7477e"
+      "bytes": 168995,
+      "sha256": "14d355f069e5e4399bc8452d7fb55bc3dd44e1300823a367315b025209b17fb2"
     },
     {
       "path": "dist/index.html",
@@ -686,8 +686,8 @@
     },
     {
       "path": "src/controller.js",
-      "bytes": 24527,
-      "sha256": "ec3acd47d30c62b5c4931438cc8f43504d29179c952f38bcb2216233acef9081"
+      "bytes": 24585,
+      "sha256": "9f955d8111ce230fc76bc9210605e0c6b30cebea7df106c28c1df5dbc4c748b5"
     },
     {
       "path": "src/data/units.js",
@@ -716,8 +716,8 @@
     },
     {
       "path": "src/input.js",
-      "bytes": 9931,
-      "sha256": "12efe46aca4f87aedd5acf8fb404ddb01efee1352eea8a1806894a88f0d29804"
+      "bytes": 9956,
+      "sha256": "114add9c3697b95a467039d529fe43c739608c4dc93e0599cc9ebe1891bd895e"
     },
     {
       "path": "src/main.js",
@@ -801,8 +801,8 @@
     },
     {
       "path": "src/ui/catalog.js",
-      "bytes": 1792,
-      "sha256": "023a97527dd2b342ea4a6baac5acc79210e0c2c3fbf1f20bc82ce5d1463a2a38"
+      "bytes": 1818,
+      "sha256": "0b2c99b556e72be8aeef2ac662d02903d7ba67b76fbfdda3ae884c99ff44b067"
     },
     {
       "path": "src/ui/dialogs.js",
@@ -816,8 +816,8 @@
     },
     {
       "path": "src/ui/inspector.js",
-      "bytes": 7578,
-      "sha256": "f3d7a2811d6affcfc72192581c84856ccf208c6e3567e7e8d768ed5df2cfb938"
+      "bytes": 8265,
+      "sha256": "600a91f935991ef97306fd7826251066022a0b0ddfd7eccf89565ad77cf4a5d6"
     },
     {
       "path": "src/ui/shell.js",
@@ -846,13 +846,13 @@
     },
     {
       "path": "tests/browser.mjs",
-      "bytes": 33120,
-      "sha256": "31527671314f4ae5f7fc9e3bcb2a17c7e7c289b124de5de1dbc69a29fdff7f3a"
+      "bytes": 37348,
+      "sha256": "c21b0a870e3002b09691f10c1c2e364b8eb23a313690356bacea68a3cceec9c8"
     },
     {
       "path": "tests/editor-input.test.js",
-      "bytes": 10194,
-      "sha256": "6ad409204bfee592da9b3f372dd3a9c5647b7d70fd849c6db76ae489a7c06e93"
+      "bytes": 10615,
+      "sha256": "82a12dddaa14684bb5db01a715745842b6a9c3201fa89e207acf0300223a4253"
     },
     {
       "path": "tests/editor.test.js",

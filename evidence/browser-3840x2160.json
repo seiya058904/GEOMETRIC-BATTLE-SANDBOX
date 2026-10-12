@@ -1,0 +1,96 @@
+{
+  "startedAt": "2026-10-12T14:42:36.474Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "3840x2160",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "3840x2160-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 2477,
+      "details": {
+        "innerWidth": 3840,
+        "innerHeight": 2160,
+        "scrollWidth": 3840,
+        "scrollHeight": 2160,
+        "canvas": {
+          "x": 290,
+          "y": 82,
+          "width": 3265,
+          "height": 2001
+        },
+        "button": {
+          "x": 3668,
+          "y": 17.375,
+          "width": 145,
+          "height": 46.25
+        },
+        "screenshot": "browser-3840x2160-initial.png"
+      }
+    },
+    {
+      "name": "3840x2160-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 7109,
+      "details": {
+        "screenshot": "browser-3840x2160-deployment.png"
+      }
+    },
+    {
+      "name": "3840x2160-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 14000,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-3840x2160-result.png"
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "3840x2160-initial",
+      "filename": "browser-3840x2160-initial.png",
+      "status": "pass",
+      "durationMs": 2472
+    },
+    {
+      "name": "3840x2160-deployment",
+      "filename": "browser-3840x2160-deployment.png",
+      "status": "pass",
+      "durationMs": 6036
+    },
+    {
+      "name": "3840x2160-result",
+      "filename": "browser-3840x2160-result.png",
+      "status": "pass",
+      "durationMs": 12956
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-3840x2160-initial.png",
+    "browser-3840x2160-deployment.png",
+    "browser-3840x2160-result.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 4,
+    "fail": 0,
+    "skipped": 0,
+    "total": 4,
+    "capturesPassed": 3,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T14:43:01.386Z"
+}

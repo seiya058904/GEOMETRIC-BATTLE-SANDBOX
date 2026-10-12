@@ -1,0 +1,12 @@
+import {build} from 'esbuild';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+await mkdir('dist',{recursive:true});
+await build({entryPoints:['src/main.js'],bundle:true,format:'iife',target:['es2022'],outfile:'dist/game.js',minify:true,legalComments:'none'});
+const html=await readFile('index.html','utf8');
+const css=await readFile('src/style.css','utf8');
+await writeFile('dist/style.css',css);
+await writeFile('dist/index.html',html.replace('./src/style.css','./style.css').replace('<script type="module" src="./src/main.js"></script>','<script src="./game.js"></script>'));
+const js=await readFile('dist/game.js','utf8');
+const offline=html.replace('<link rel="stylesheet" href="./src/style.css">',`<style>${css}</style>`).replace('<script type="module" src="./src/main.js"></script>',`<script>${js.replace(/<\/script/gi,'<\\/script')}</script>`);
+await writeFile('GEOBATTLE-OFFLINE.html',offline);
+console.log(`已构建 dist/ 与 GEOBATTLE-OFFLINE.html (${(Buffer.byteLength(offline)/1024).toFixed(1)} KiB)。`);

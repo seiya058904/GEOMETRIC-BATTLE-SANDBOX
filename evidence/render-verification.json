@@ -1,0 +1,55 @@
+{
+  "extra": {
+    "objectFormation": {
+      "drawn": 55,
+      "quality": "high"
+    },
+    "renderer1200": {
+      "purpose": "Rendering and bounded-cache coverage only; not a gameplay FPS benchmark",
+      "frames": 8,
+      "cachedSpriteCount": 35,
+      "metrics": {
+        "drawnUnits": 1200,
+        "drawnProjectiles": 0,
+        "effects": 0,
+        "quality": "low",
+        "pixelRatio": 1
+      }
+    }
+  },
+  "audioResult": {
+    "first": {
+      "voices": 5,
+      "seen": 200,
+      "state": "running"
+    },
+    "same": {
+      "voices": 5,
+      "seen": 200
+    },
+    "muted": {
+      "voices": 0,
+      "muted": true
+    },
+    "boundedSeen": 2048,
+    "restarted": {
+      "seen": 1,
+      "hasFirst": true
+    }
+  },
+  "title": "GEOBATTLE — renderer verification",
+  "cards": 36,
+  "errors": [],
+  "staticFramePixelIdentical": true,
+  "zoomBefore": 0.4014814814814815,
+  "zoomAfter": 0.7226666666666667,
+  "timeAfterStep": 1,
+  "metrics": {
+    "drawnUnits": 55,
+    "drawnProjectiles": 0,
+    "effects": 4,
+    "quality": "high",
+    "pixelRatio": 1
+  },
+  "browser": "153.0.8010.0"
+}

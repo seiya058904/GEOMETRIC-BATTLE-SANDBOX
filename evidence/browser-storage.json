@@ -1,0 +1,99 @@
+{
+  "startedAt": "2026-10-12T14:27:58.124Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "storage",
+  "production": false,
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "named-preset-save-shows-actual-unit-count",
+      "status": "pass",
+      "durationMs": 204
+    },
+    {
+      "name": "autosave-refresh-restores-the-exact-editable-formation",
+      "status": "pass",
+      "durationMs": 4602
+    },
+    {
+      "name": "named-load-restores-an-altered-army-and-can-be-undone",
+      "status": "pass",
+      "durationMs": 2601
+    },
+    {
+      "name": "JSON-download-contains-complete-live-configuration",
+      "status": "pass",
+      "durationMs": 160,
+      "details": {
+        "bytes": 319,
+        "sha256": "cbffcccc830c7613910eeba3ac4338211dd5caccdecc6db0099b8c2d347fc7eb"
+      }
+    },
+    {
+      "name": "JSON-file-import-restores-exported-data-after-clear",
+      "status": "pass",
+      "durationMs": 219
+    },
+    {
+      "name": "malformed-file-and-oversize-file-protect-current-army",
+      "status": "pass",
+      "durationMs": 367
+    },
+    {
+      "name": "preset-markup-name-is-rendered-as-text-without-execution",
+      "status": "pass",
+      "durationMs": 1962
+    },
+    {
+      "name": "deleting-one-preset-keeps-the-current-army-and-other-preset",
+      "status": "pass",
+      "durationMs": 214
+    },
+    {
+      "name": "random-dialog-small-20-legal-editable-units",
+      "status": "pass",
+      "durationMs": 169
+    },
+    {
+      "name": "random-dialog-normal-80-legal-editable-units",
+      "status": "pass",
+      "durationMs": 197
+    },
+    {
+      "name": "random-dialog-large-300-legal-editable-units",
+      "status": "pass",
+      "durationMs": 229
+    },
+    {
+      "name": "random-dialog-chaos-600-legal-editable-units",
+      "status": "pass",
+      "durationMs": 334
+    },
+    {
+      "name": "generated-random-army-can-be-undone-in-one-step",
+      "status": "pass",
+      "durationMs": 82
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-preset-escaped-name.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 14,
+    "fail": 0,
+    "skipped": 0,
+    "total": 14
+  },
+  "completedAt": "2026-10-12T14:28:10.591Z"
+}

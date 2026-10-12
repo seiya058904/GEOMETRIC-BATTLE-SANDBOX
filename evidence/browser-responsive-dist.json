@@ -1,0 +1,421 @@
+{
+  "startedAt": "2026-10-12T15:21:03.988Z",
+  "url": "http://127.0.0.1:4197",
+  "section": "responsive",
+  "production": true,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "320x568-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 415,
+      "details": {
+        "innerWidth": 320,
+        "innerHeight": 568,
+        "scrollWidth": 320,
+        "scrollHeight": 568,
+        "canvas": {
+          "x": 0,
+          "y": 96,
+          "width": 320,
+          "height": 377
+        },
+        "button": {
+          "x": 191,
+          "y": 52.5,
+          "width": 118,
+          "height": 35
+        },
+        "screenshot": "browser-320x568-initial-dist.png"
+      }
+    },
+    {
+      "name": "320x568-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 1120,
+      "details": {
+        "screenshot": "browser-320x568-deployment-dist.png"
+      }
+    },
+    {
+      "name": "320x568-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 546,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-320x568-result-dist.png"
+      }
+    },
+    {
+      "name": "375x812-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 72,
+      "details": {
+        "innerWidth": 375,
+        "innerHeight": 812,
+        "scrollWidth": 375,
+        "scrollHeight": 812,
+        "canvas": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 621
+        },
+        "button": {
+          "x": 238,
+          "y": 52.5,
+          "width": 126,
+          "height": 35
+        },
+        "screenshot": "browser-375x812-initial-dist.png"
+      }
+    },
+    {
+      "name": "375x812-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 655,
+      "details": {
+        "screenshot": "browser-375x812-deployment-dist.png"
+      }
+    },
+    {
+      "name": "375x812-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 602,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-375x812-result-dist.png"
+      }
+    },
+    {
+      "name": "375x812-two-finger-pinch-changes-camera-without-deploying",
+      "status": "pass",
+      "durationMs": 264,
+      "details": {
+        "before": {
+          "count": 0,
+          "zoom": 0.14458333333333334
+        },
+        "after": {
+          "count": 0,
+          "zoom": 0.227202380952381
+        }
+      }
+    },
+    {
+      "name": "768x1024-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 75,
+      "details": {
+        "innerWidth": 768,
+        "innerHeight": 1024,
+        "scrollWidth": 768,
+        "scrollHeight": 1024,
+        "canvas": {
+          "x": 220,
+          "y": 66,
+          "width": 548,
+          "height": 893
+        },
+        "button": {
+          "x": 637,
+          "y": 11.5,
+          "width": 118,
+          "height": 42
+        },
+        "screenshot": "browser-768x1024-initial-dist.png"
+      }
+    },
+    {
+      "name": "768x1024-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 600,
+      "details": {
+        "screenshot": "browser-768x1024-deployment-dist.png"
+      }
+    },
+    {
+      "name": "768x1024-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 1046,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-768x1024-result-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 111,
+      "details": {
+        "innerWidth": 1366,
+        "innerHeight": 768,
+        "scrollWidth": 1366,
+        "scrollHeight": 768,
+        "canvas": {
+          "x": 236,
+          "y": 66,
+          "width": 898,
+          "height": 637
+        },
+        "button": {
+          "x": 1201,
+          "y": 9.5,
+          "width": 145,
+          "height": 46
+        },
+        "screenshot": "browser-1366x768-initial-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 1226,
+      "details": {
+        "screenshot": "browser-1366x768-deployment-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 1886,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-1366x768-result-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 223,
+      "details": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "canvas": {
+          "x": 236,
+          "y": 66,
+          "width": 1452,
+          "height": 949
+        },
+        "button": {
+          "x": 1755,
+          "y": 9.5,
+          "width": 145,
+          "height": 46
+        },
+        "screenshot": "browser-1920x1080-initial-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 1454,
+      "details": {
+        "screenshot": "browser-1920x1080-deployment-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 2483,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-1920x1080-result-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 1047,
+      "details": {
+        "innerWidth": 3840,
+        "innerHeight": 2160,
+        "scrollWidth": 3840,
+        "scrollHeight": 2160,
+        "canvas": {
+          "x": 290,
+          "y": 82,
+          "width": 3265,
+          "height": 2001
+        },
+        "button": {
+          "x": 3668,
+          "y": 17.375,
+          "width": 145,
+          "height": 46.25
+        },
+        "screenshot": "browser-3840x2160-initial-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 3781,
+      "details": {
+        "screenshot": "browser-3840x2160-deployment-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 6088,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-3840x2160-result-dist.png"
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "320x568-initial",
+      "filename": "browser-320x568-initial-dist.png",
+      "status": "pass",
+      "durationMs": 411
+    },
+    {
+      "name": "320x568-deployment",
+      "filename": "browser-320x568-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 637
+    },
+    {
+      "name": "320x568-result",
+      "filename": "browser-320x568-result-dist.png",
+      "status": "pass",
+      "durationMs": 123
+    },
+    {
+      "name": "375x812-initial",
+      "filename": "browser-375x812-initial-dist.png",
+      "status": "pass",
+      "durationMs": 70
+    },
+    {
+      "name": "375x812-deployment",
+      "filename": "browser-375x812-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 340
+    },
+    {
+      "name": "375x812-result",
+      "filename": "browser-375x812-result-dist.png",
+      "status": "pass",
+      "durationMs": 234
+    },
+    {
+      "name": "768x1024-initial",
+      "filename": "browser-768x1024-initial-dist.png",
+      "status": "pass",
+      "durationMs": 73
+    },
+    {
+      "name": "768x1024-deployment",
+      "filename": "browser-768x1024-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 282
+    },
+    {
+      "name": "768x1024-result",
+      "filename": "browser-768x1024-result-dist.png",
+      "status": "pass",
+      "durationMs": 569
+    },
+    {
+      "name": "1366x768-initial",
+      "filename": "browser-1366x768-initial-dist.png",
+      "status": "pass",
+      "durationMs": 108
+    },
+    {
+      "name": "1366x768-deployment",
+      "filename": "browser-1366x768-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 922
+    },
+    {
+      "name": "1366x768-result",
+      "filename": "browser-1366x768-result-dist.png",
+      "status": "pass",
+      "durationMs": 1388
+    },
+    {
+      "name": "1920x1080-initial",
+      "filename": "browser-1920x1080-initial-dist.png",
+      "status": "pass",
+      "durationMs": 221
+    },
+    {
+      "name": "1920x1080-deployment",
+      "filename": "browser-1920x1080-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 660
+    },
+    {
+      "name": "1920x1080-result",
+      "filename": "browser-1920x1080-result-dist.png",
+      "status": "pass",
+      "durationMs": 1370
+    },
+    {
+      "name": "3840x2160-initial",
+      "filename": "browser-3840x2160-initial-dist.png",
+      "status": "pass",
+      "durationMs": 1044
+    },
+    {
+      "name": "3840x2160-deployment",
+      "filename": "browser-3840x2160-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 3246
+    },
+    {
+      "name": "3840x2160-result",
+      "filename": "browser-3840x2160-result-dist.png",
+      "status": "pass",
+      "durationMs": 2824
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-320x568-initial-dist.png",
+    "browser-320x568-deployment-dist.png",
+    "browser-320x568-result-dist.png",
+    "browser-375x812-initial-dist.png",
+    "browser-375x812-deployment-dist.png",
+    "browser-375x812-result-dist.png",
+    "browser-768x1024-initial-dist.png",
+    "browser-768x1024-deployment-dist.png",
+    "browser-768x1024-result-dist.png",
+    "browser-1366x768-initial-dist.png",
+    "browser-1366x768-deployment-dist.png",
+    "browser-1366x768-result-dist.png",
+    "browser-1920x1080-initial-dist.png",
+    "browser-1920x1080-deployment-dist.png",
+    "browser-1920x1080-result-dist.png",
+    "browser-3840x2160-initial-dist.png",
+    "browser-3840x2160-deployment-dist.png",
+    "browser-3840x2160-result-dist.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 20,
+    "fail": 0,
+    "skipped": 0,
+    "total": 20,
+    "capturesPassed": 18,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T15:21:36.292Z"
+}

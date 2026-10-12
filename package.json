@@ -1,0 +1,19 @@
+{
+  "name": "geometric-battle-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "离线可玩的 2D 几何自动战争沙盒",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dist",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node tests/browser.mjs",
+    "test:offline": "node tests/offline.mjs",
+    "test:performance": "node tests/performance.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "esbuild": "0.25.10" }
+}

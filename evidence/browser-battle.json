@@ -1,0 +1,101 @@
+{
+  "startedAt": "2026-10-12T14:46:15.875Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "battle",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "natural-1v1-RAF-combat-causes-real-damage",
+      "status": "pass",
+      "durationMs": 4669,
+      "details": {
+        "tick": 41,
+        "hp": [
+          60,
+          60
+        ]
+      }
+    },
+    {
+      "name": "pause-ten-seconds-freezes-simulation-effects-and-canvas",
+      "status": "pass",
+      "durationMs": 59578,
+      "details": {
+        "durationMs": 10000,
+        "coreSHA256": "7b4317f9bfc2321f13a75f0c890203940405d3802e50168fdeb1d41f2feef64f",
+        "canvasSHA256": "45e9344adf6c282cd47879a6b7677675d7e9305c11423bce04c09b042c484ca2",
+        "screenshot": "browser-paused-battle.png"
+      }
+    },
+    {
+      "name": "all-five-speed-buttons-work-while-paused-without-ticking",
+      "status": "pass",
+      "durationMs": 438
+    },
+    {
+      "name": "battle-locks-deployment-and-keyboard-edits",
+      "status": "pass",
+      "durationMs": 87
+    },
+    {
+      "name": "unit-observation-follow-and-paused-camera-pan-zoom",
+      "status": "pass",
+      "durationMs": 434
+    },
+    {
+      "name": "resume-finishes-through-natural-ticks-and-shows-real-statistics",
+      "status": "pass",
+      "durationMs": 16585,
+      "details": {
+        "winner": "draw",
+        "duration": 6.366666666666666,
+        "screenshot": null
+      }
+    },
+    {
+      "name": "return-to-editor-restores-the-untouched-original-army",
+      "status": "pass",
+      "durationMs": 105
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "paused-battle",
+      "filename": "browser-paused-battle.png",
+      "status": "pass",
+      "durationMs": 1258
+    },
+    {
+      "name": "battle-result",
+      "filename": "browser-battle-result.png",
+      "status": "fail",
+      "durationMs": 15004,
+      "error": "CDP screenshot exceeded 15 seconds"
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-paused-battle.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "skipped": 0,
+    "total": 8,
+    "capturesPassed": 1,
+    "capturesFailed": 1
+  },
+  "completedAt": "2026-10-12T14:47:39.609Z"
+}

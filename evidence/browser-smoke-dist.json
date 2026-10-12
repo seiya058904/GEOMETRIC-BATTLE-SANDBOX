@@ -1,0 +1,58 @@
+{
+  "startedAt": "2026-10-12T14:48:17.390Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "smoke",
+  "production": true,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "production-entry-and-real-render",
+      "status": "pass",
+      "durationMs": 2125,
+      "details": {
+        "screenshot": "browser-production-initial-dist.png"
+      }
+    },
+    {
+      "name": "production-import-click-fight-result-return",
+      "status": "pass",
+      "durationMs": 1222,
+      "details": {
+        "winner": "red",
+        "simulationSeconds": 0.75
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "production-initial",
+      "filename": "browser-production-initial-dist.png",
+      "status": "pass",
+      "durationMs": 2081
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-production-initial-dist.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 3,
+    "fail": 0,
+    "skipped": 0,
+    "total": 3,
+    "capturesPassed": 1,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-12T14:48:22.201Z"
+}

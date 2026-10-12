@@ -1,0 +1,6 @@
+# Original delivery archive stays local.
+/GEOMETRIC-BATTLE-SANDBOX-v1.0.0.zip
+node_modules/
+.codebase-memory/
+.DS_Store
+Thumbs.db

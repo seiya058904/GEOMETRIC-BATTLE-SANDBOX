@@ -1,0 +1,80 @@
+{
+  "startedAt": "2026-10-12T14:29:06.649Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "battle",
+  "production": false,
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "natural-1v1-RAF-combat-causes-real-damage",
+      "status": "pass",
+      "durationMs": 4640,
+      "details": {
+        "tick": 40,
+        "hp": [
+          60,
+          60
+        ]
+      }
+    },
+    {
+      "name": "pause-ten-seconds-freezes-simulation-effects-and-canvas",
+      "status": "pass",
+      "durationMs": 60679,
+      "details": {
+        "durationMs": 10000,
+        "coreSHA256": "f5ddb35b1773eb423ddccda628cd714963b719d26ee29829f1bd68af8b1b7a1c",
+        "canvasSHA256": "28ccdc9d1d51da3e95770fff7678f060eeba853cbb16fe41875d2cc57cffd929",
+        "screenshot": "browser-paused-battle.png"
+      }
+    },
+    {
+      "name": "all-five-speed-buttons-work-while-paused-without-ticking",
+      "status": "pass",
+      "durationMs": 861
+    },
+    {
+      "name": "battle-locks-deployment-and-keyboard-edits",
+      "status": "pass",
+      "durationMs": 168
+    },
+    {
+      "name": "unit-observation-follow-and-paused-camera-pan-zoom",
+      "status": "pass",
+      "durationMs": 637
+    },
+    {
+      "name": "resume-finishes-through-natural-ticks-and-shows-real-statistics",
+      "status": "fail",
+      "durationMs": 31619,
+      "error": "page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n",
+      "stack": "page.screenshot: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\n    at screenshot (/workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:36:16)\n    at /workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:272:76\n    at async check (/workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:42:21)\n    at async battleSuite (/workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:269:3)\n    at async file:///workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:337:44"
+    },
+    {
+      "name": "return-to-editor-restores-the-untouched-original-army",
+      "status": "pass",
+      "durationMs": 650
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-paused-battle.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 7,
+    "fail": 1,
+    "skipped": 0,
+    "total": 8
+  },
+  "completedAt": "2026-10-12T14:30:47.163Z"
+}

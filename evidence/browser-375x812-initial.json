@@ -1,0 +1,83 @@
+{
+  "startedAt": "2026-10-12T14:32:15.347Z",
+  "url": "http://127.0.0.1:4190",
+  "section": "375x812",
+  "production": false,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; CSS DPR 1",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "375x812-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 5175,
+      "details": {
+        "innerWidth": 375,
+        "innerHeight": 812,
+        "scrollWidth": 375,
+        "scrollHeight": 812,
+        "canvas": {
+          "x": 0,
+          "y": 96,
+          "width": 375,
+          "height": 621
+        },
+        "button": {
+          "x": 238,
+          "y": 52.5,
+          "width": 126,
+          "height": 35
+        },
+        "screenshot": "browser-375x812-initial.png"
+      }
+    },
+    {
+      "name": "375x812-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 6789,
+      "details": {
+        "screenshot": "browser-375x812-deployment.png"
+      }
+    },
+    {
+      "name": "375x812-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 19068,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-375x812-result.png"
+      }
+    },
+    {
+      "name": "375x812-two-finger-pinch-changes-camera-without-deploying",
+      "status": "fail",
+      "durationMs": 39347,
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n",
+      "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at file:///workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:331:189\n    at async check (file:///workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:47:21)\n    at async responsiveSuite (file:///workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:324:19)\n    at async file:///workspace/scratch/29b1e9a09fce/GEOMETRIC-BATTLE-SANDBOX/tests/browser.mjs:344:158",
+      "screenshot": "browser-failure-375x812-two-finger-pinch-changes-camera-without-deploying.png"
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-375x812-initial.png",
+    "browser-375x812-deployment.png",
+    "browser-375x812-result.png",
+    "browser-failure-375x812-two-finger-pinch-changes-camera-without-deploying.png"
+  ],
+  "browserVersion": "153.0.8010.0",
+  "summary": {
+    "pass": 4,
+    "fail": 1,
+    "skipped": 0,
+    "total": 5
+  },
+  "completedAt": "2026-10-12T14:33:27.493Z"
+}

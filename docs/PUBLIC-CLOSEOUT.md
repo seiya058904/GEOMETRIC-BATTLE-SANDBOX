@@ -35,7 +35,15 @@ README新增两张1600×900真实Chromium截图（压缩JPEG合计226,342 bytes�
 
 最终提交前串行门禁通过：语法检查、275/275 Node、生产浏览器73通过/0失败/1跳过、V3 UI 12/12、批量编辑9/9、离线3/3（外部请求0、错误0）、缓存34/34、生产/离线字节一致、diff-check。六要求视口的控件与抽屉实测通过；73项回归另覆盖4K/DPR2、36兵种、取消/撤销、存档、自然战斗/结算/重赛。测试输出分别在本轮local-regression、local-ui、local-bulk、local-offline、local-cache及build-final.json。GitHub Markdown API实际渲染README，12个本地文件链接与两个手写锚点校验通过；公网图片与窄屏将在公开后实际检查。
 
-main集成、Public转换、Pages发布和线上验收尚待下列执行记录；不以workflow文件存在代替上线。
+**PUBLIC & DEPLOYED / CLEAN & SYNCED。** 原仓库已实际设为Public，Pages发布源已通过API确认为`build_type: workflow`，HTTPS启用。原main安全快进924150f→c86b290，没有重写四个既有功能提交；首次上线完整SHA为`c86b290720a510657342010985902b55cdae1a6c`，[对应Actions](https://github.com/seiya058904/GEOMETRIC-BATTLE-SANDBOX/actions/runs/38354492531)的build/deploy均成功。最后收尾提交仅补充本报告，随后正常推送功能分支并再次快进main；最终main与功能分支相同，保留功能分支。当前精确发布SHA可从[线上build-info.json](https://seiya058904.github.io/GEOMETRIC-BATTLE-SANDBOX/build-info.json)及[Pages工作流](https://github.com/seiya058904/GEOMETRIC-BATTLE-SANDBOX/actions/workflows/pages.yml)核对，避免文档自身提交散列循环。
+
+- [公开仓库](https://github.com/seiya058904/GEOMETRIC-BATTLE-SANDBOX)、[在线游戏](https://seiya058904.github.io/GEOMETRIC-BATTLE-SANDBOX/)、[最终README](https://github.com/seiya058904/GEOMETRIC-BATTLE-SANDBOX/blob/main/README.md)已匿名访问。About描述、六个实际相关topics与验证过的homepage已写入并重新查询。
+- 正式子路径下完整生产回归**73通过/0失败/1跳过**、UI**12/12**、批量编辑**9/9**。真实鼠标/触点验证选兵、左右半场、中线保护、大范围部署/扫擦、松手、整笔撤销/重做、第二指取消、战斗锁定、自然结算、暂停、重赛、返回、保存与刷新。来源URL为实际Pages路径；没有用localhost替代线上。
+- 额外公开/产物/README专项**5/5**：匿名API确认Public，线上build-info.commit匹配本地HEAD；入口、JS、CSS、离线HTML均200且MIME正确，四文件SHA与本地逐一一致；生产子路径加载/刷新与默认军阵战斗；公网单HTML加载只请求自身；GitHub实际README渲染、主试玩链接、两个锚点、两图匿名200/自然宽度、390px正文不横向溢出。页面错误0；桌面与手机截图保留。
+- 第一次README专项的额外图片HTTP请求发生`ECONNRESET`，当次4通过/1失败；浏览器图片已加载，但没有将这一失败冒称通过。请求诊断保留错误类别并移除匿名会话请求头；增加有限网络重试后，保持原图像/HTTP/布局断言完整重跑5/5通过。记录为public-site-first-redacted.json与public-site-accepted.json。
+- 最后一份报告提交部署后再次确认Actions最终SHA成功、线上manifest与四产物散列一致、真实浏览器与README可用；文档更新没有改变已完整实测的游戏字节。最终本地main工作区干净，origin/main...main为0/0；功能分支也同步。测试进程/服务器关闭，仅清理本轮拥有的dist暂存副本，保留所有用户ZIP、附件、历史记录与测试JSON。没有新ZIP、Release、tag、PR或APK。
+
+线上证据位于online-regression、online-ui、online-bulk、public-site-accepted.json及最后public-site-final.json；离线与本地证据在上述local-*目录。SHA清单包括下载离线单HTML，不只是主页首屏截图。
 
 本轮证据目录：`C:/Users/admin/.codex/visualizations/2026/10/13/01a1339d-24ca-7dd1-907d-70c279bb0a46/public-closeout/`。这是本机交付定位，不是公网证据链接；公众可查看本报告及仓库已有evidence。
 

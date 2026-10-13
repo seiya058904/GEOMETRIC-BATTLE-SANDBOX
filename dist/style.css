@@ -332,6 +332,11 @@ dialog .dialog-foot button{min-height:44px}
 }
 
 /* Phase-aware workspace. Panels reads the computed layout tokens. */
+.edit-controls{position:absolute;top:64px;left:16px;display:flex;align-items:center;gap:8px;font-size:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:2px 8px}
+.edit-controls select,.edit-controls button{min-height:44px;min-width:44px}
+.edit-controls select{padding:6px 8px}
+.control-locked .edit-controls{display:none}
+@media(max-width:760px),(max-height:540px){.edit-controls{top:58px;left:9px;gap:5px;padding:2px 6px}}
 #app.control-locked .workspace{grid-template-columns:minmax(0,1fr)}
 .control-locked .catalog,.control-locked .deployment-tools,.control-locked .scene-actions{display:none}
 .battle-guide{display:flex;gap:8px 18px;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap}

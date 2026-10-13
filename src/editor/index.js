@@ -200,12 +200,20 @@ export class Editor {
   }
 
   eraseAt(x, y, radius, team) {
-    if (![x, y, radius].every(Number.isFinite) || radius < 0) return fail('擦除范围无效。');
+    return this.eraseStroke(x, y, x, y, radius, team);
+  }
+
+  /** Sweep a circular eraser along the whole segment, including fast jumps. */
+  eraseStroke(x1, y1, x2, y2, radius, team) {
+    if (![x1, y1, x2, y2, radius].every(Number.isFinite) || radius < 0) return fail('擦除范围无效。');
     if (team !== undefined && team !== 'red' && team !== 'blue') return fail('请选择有效阵营。');
+    const dx = x2 - x1, dy = y2 - y1, lengthSquared = dx * dx + dy * dy;
+    if (!Number.isFinite(lengthSquared)) return fail('擦除范围无效。');
     const removed = new Set();
-    for (const unit of this._index.near(x, y, radius + this._index.maxRadius)) {
+    for (const unit of this._formation.units) {
+      const t = lengthSquared ? Math.max(0, Math.min(1, ((unit.x - x1) * dx + (unit.y - y1) * dy) / lengthSquared)) : 0;
       const r = radius + UNIT_MAP[unit.type].radius;
-      if ((team === undefined || unit.team === team) && (unit.x - x) ** 2 + (unit.y - y) ** 2 <= r * r) removed.add(unit.id);
+      if ((team === undefined || unit.team === team) && (unit.x - x1 - t * dx) ** 2 + (unit.y - y1 - t * dy) ** 2 <= r * r) removed.add(unit.id);
     }
     return this._remove(removed);
   }

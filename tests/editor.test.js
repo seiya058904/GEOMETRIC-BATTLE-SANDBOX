@@ -18,6 +18,16 @@ const sample = () => ({ schemaVersion: 1, seed: 42, units: [
   troop(3, 'archer', 'blue', 1800, 900),
 ] });
 const clone = value => JSON.parse(JSON.stringify(value));
+
+test('swept eraser covers a sparse diagonal path including unit edges and preserves outside units',()=>{
+  const initial=empty();initial.units=[troop(1,'peasant','red',300,300),troop(2,'peasant','red',500,500),troop(3,'peasant','red',600,700),troop(4,'peasant','blue',1800,500)];
+  const editor=new Editor(initial);const before=editor.formation;
+  const result=editor.eraseStroke(200,200,800,800,12,'red');
+  assert.equal(result.deleted,2);assert.deepEqual(editor.formation.units.map(u=>u.id),[3,4]);
+  editor.undo();assert.deepEqual(editor.formation,before);
+  for(const args of [[NaN,0,0,0,1],[0,0,1,1,-1],[0,0,Infinity,0,1]])assert.equal(editor.eraseStroke(...args).ok,false);
+  assert.deepEqual(editor.formation,before);
+});
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-7, `${a} ≠ ${b}`);
 const full = () => ({ schemaVersion: 1, seed: 1, units: Array.from({ length: MAX_UNITS }, (_, i) => {
   const local = i % (MAX_UNITS / 2), x = 30 + (local % 46) * 25;

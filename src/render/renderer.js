@@ -92,7 +92,7 @@ export class Renderer {
     // Mutable test fixtures and every battle frame always take the normal path.
     if (!battle && String(mode).toLowerCase() === 'preparing' && !Array.isArray(formation) && Object.isFrozen(formation)) {
       const key = [this.width, this.height, this.dpr, cam.x, cam.y, cam.zoom, level, showGrid, showZones, showHealth,
-        typeof hover === 'number' ? hover : hover?.id, hover?.type, hover?.team, hover?.x, hover?.y, hover?.angle, hover?.valid, hover?.invalid, hover?.reason, hover?.message, hover?.erase,
+        typeof hover === 'number' ? hover : hover?.id, hover?.type, hover?.team, hover?.x, hover?.y, hover?.angle, hover?.valid, hover?.invalid, hover?.reason, hover?.message, hover?.erase, hover?.brushRadius,
         selectionRect?.x, selectionRect?.y, selectionRect?.width, selectionRect?.height,
         selectionRect?.x1, selectionRect?.y1, selectionRect?.x2, selectionRect?.y2].join('|');
       const previous = this._editorFrame;
@@ -168,13 +168,14 @@ export class Renderer {
 
   _ghost(c, unit, bounds, showLabel=false) {
     const def = getDef(unit), cam = this.camera;
-    if (!def || !visible(unit.x, unit.y, def.radius * 4, bounds)) return;
+    if (!def || !visible(unit.x, unit.y, Math.max(def.radius * 4,unit.brushRadius||0), bounds)) return;
     const invalid = unit.valid === false || unit.invalid;
     if(unit.erase){
-      circle(c,unit.x,unit.y,def.radius+7/cam.zoom,'#facc65',1.6/cam.zoom);
+      circle(c,unit.x,unit.y,unit.brushRadius??def.radius+7/cam.zoom,'#facc65',1.6/cam.zoom);
       strokeLine(c,unit.x-4/cam.zoom,unit.y,unit.x+4/cam.zoom,unit.y,'#facc65',2/cam.zoom);
       return;
     }
+    if(unit.brushRadius>0)circle(c,unit.x,unit.y,unit.brushRadius,'#d3ee89',1.4/cam.zoom);
     c.save();
     c.globalAlpha = invalid ? .26 : .5;
     c.translate(unit.x, unit.y); c.rotate(unit.angle ?? (unit.team === 'blue' ? Math.PI : 0)); c.scale(def.radius, def.radius);

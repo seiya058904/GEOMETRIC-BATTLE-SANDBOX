@@ -53,6 +53,10 @@ export function createShell(root) {
           </div>
         </div>
         <div class="playback" id="playback" hidden aria-label="战斗速度"><span>速度</span>${[.25, .5, 1, 2, 4].map(s => `<button data-action="speed" data-speed="${s}" class="${s === 1 ? 'active' : ''}" aria-pressed="${s === 1}">${s}×</button>`).join('')}</div>
+        <div class="edit-controls" aria-label="批量布阵">
+          <label for="brush-size">范围</label><select id="brush-size" aria-label="部署与擦除范围" title="中、大范围可一次铺多排；擦除范围随缩放保持可见大小"><option value="small">小</option><option value="medium">中</option><option value="large">大</option></select>
+          ${button('quick-clear', '清空', 'trash', 'class="arena-button" title="一键清空双方，可撤销" aria-label="一键清空双方，可撤销"')}
+        </div>
         <div class="observation-controls" aria-label="观察尺度">
           ${button('inspect-close', '近看', 'eye', 'class="arena-button" title="拉近观察单位"')}
           ${button('reset-camera', '全图', 'target', 'class="arena-button"')}

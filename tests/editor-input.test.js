@@ -26,6 +26,34 @@ function fixture(initial = formation()) {
 const pointer = (x, y, extra = {}) => ({ clientX: x, clientY: y, pointerId: 1, button: 0, preventDefault() {}, ...extra });
 const keyboard = (key, extra = {}) => ({ key, code: key === ' ' ? 'Space' : key, target: { tagName: 'CANVAS' }, preventDefault() {}, ...extra });
 
+test('wide deployment stamps multiple rows, stays in its starting team and undoes as one stroke',()=>{
+  const {input,app}=fixture();app.brushSize='large';
+  input.down(pointer(300,300));assert.equal(app.editor.formation.units.length,13);
+  input.move(pointer(1250,300));input.up(pointer(1250,300));
+  const placed=app.editor.formation;assert.ok(placed.units.length>50);
+  assert.ok(new Set(placed.units.map(u=>u.y)).size>=5);
+  assert.ok(placed.units.every(u=>u.team==='red'&&validatePlacement(placed.units.filter(p=>p.id!==u.id),u).ok));
+  app.editor.undo();assert.equal(app.editor.formation.units.length,0);app.editor.redo();assert.deepEqual(app.editor.formation,placed);
+});
+test('brush and eraser include the release position when no final pointermove arrives',()=>{
+  const {input,app}=fixture();input.down(pointer(200,300));input.up(pointer(800,300));
+  assert.ok(app.editor.formation.units.length>15);const before=app.editor.formation;
+  input.down(pointer(180,300,{button:2}));input.up(pointer(850,300,{button:2}));
+  assert.equal(app.editor.formation.units.length,0);app.editor.undo();assert.deepEqual(app.editor.formation,before);
+});
+test('eraser has screen-sized tolerance independent of selected troop and zoom',()=>{
+  const {input,app}=fixture();app.tool='erase';app.type='tank';app.brushSize='medium';
+  app.renderer.camera.zoom=.5;app.editor.place('peasant','red',300,350);
+  input.move(pointer(300,300));assert.equal(input.renderState().hover.brushRadius,56);
+  input.down(pointer(300,300));input.up(pointer(300,300));assert.equal(app.editor.formation.units.length,0);
+});
+test('wide touch deployment rolls back completely when a second finger starts camera control',()=>{
+  const {input,app}=fixture();app.brushSize='large';input.down(pointer(300,300,{pointerType:'touch'}));
+  assert.equal(app.editor.formation.units.length,13);input.down(pointer(400,300,{pointerId:2,pointerType:'touch'}));
+  input.up(pointer(400,300,{pointerId:2}));input.up(pointer(300,300));
+  assert.equal(app.editor.formation.units.length,0);assert.equal(app.editor.canUndo,false);
+});
+
 test('default brush uses one selected identity on both halves and locks each stroke',()=>{
   const {input,app}=fixture();app.type='peasant';
   input.down(pointer(100,200));input.move(pointer(1800,200));input.up(pointer(1800,200));

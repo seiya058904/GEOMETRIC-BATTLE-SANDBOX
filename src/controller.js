@@ -16,7 +16,7 @@ import {EXPERIMENTS,experimentFormation} from './data/experiments.js';
 import {RecentReports} from './ui/reports.js';
 
 function freshSeed(){const n=new Uint32Array(1);if(globalThis.crypto?.getRandomValues)crypto.getRandomValues(n);else n[0]=(Date.now()^(performance.now()*100000))>>>0;return n[0];}
-const editActions=new Set(['unit','deploy-same','category','presets','random','undo','redo','copy','paste','delete','rotate-left','rotate-right','mirror','swap','deploy-current','new-seed','clear-all','reset-default','mirror-all','export','import','load-preset','delete-preset','generate-random','random-size','random-new-seed','confirm-action']);
+const editActions=new Set(['unit','deploy-same','category','presets','random','undo','redo','copy','paste','delete','rotate-left','rotate-right','mirror','swap','deploy-current','new-seed','quick-clear','clear-red','clear-blue','clear-all','reset-default','mirror-all','export','import','load-preset','delete-preset','generate-random','random-size','random-new-seed','confirm-action']);
 
 export class GameController{
   constructor(root){
@@ -24,6 +24,7 @@ export class GameController{
     this.store=new PresetStore();const restored=this.store.loadAutosave();this.editor=new Editor(restored.ok&&restored.value?restored.value:undefined);
     this.mode='PREPARING';this.sim=null;this.battleFormation=null;this.type='swordsman';this.category='classical';this.search='';this.tool='brush';this.spacing=1;this.facing=0;this.brushRadius=35;this.speed=1;this.selectedId=null;this.followId=null;this.randomSize='normal';this.randomSeed=freshSeed();
     this.settings={quality:'auto',showHealth:false,showGrid:true,screenShake:!matchMedia('(prefers-reduced-motion: reduce)').matches,autoCamera:false,performance:false,muted:false,volume:.24};
+    this.brushSize='small';
     this.loadSettings();this.renderer=new Renderer(document.getElementById('battlefield'));this.audio=new SynthAudio();this.audio.setVolume(this.settings.volume);this.audio.setMuted(this.settings.muted);this.input=new BattlefieldInput(document.getElementById('battlefield'),this);
     this.accumulator=0;this.lastFrame=0;this.lastUI=0;this.lastCamera=0;this.frameMs=16.7;this.stepMs=0;this.lastFrameSteps=0;this.lastFrameStepMs=0;this.drawMs=0;this.realSpeed=0;this.speedMeasure={wall:0,sim:0};this.resultShown=false;this.toastUntil=0;this.reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');this.autosaveAt=0;this.autosaveErrorShown=false;this.performanceSamples=[];this.rafCount=0;
     this.resizeObserver=new ResizeObserver(()=>{this.renderer.resize();this.refreshZoom();});this.resizeObserver.observe(document.getElementById('battlefield'));
@@ -71,6 +72,7 @@ export class GameController{
       case 'copy':{const r=this.editor.copySelection();this.toast(r.message,!r.ok);this.refreshInspector();break;}
       case 'paste':if(this.editor.canPaste){this.closeDrawers();this.input.beginPaste();}else this.toast('请先选择并复制一组单位。');break;
       case 'delete':this.editResult(this.editor.deleteSelection());break;
+      case 'quick-clear':this.input.cancelOperation();this.experiment=null;this.editResult(this.editor.clearAll());this.toast('已清空双方；点击撤销可恢复完整军阵。');break;
       case 'rotate-left':this.editResult(this.editor.rotateSelection(-Math.PI/12));break;
       case 'rotate-right':this.editResult(this.editor.rotateSelection(Math.PI/12));break;
       case 'mirror':this.editResult(this.editor.mirrorSelection());break;
@@ -115,6 +117,7 @@ export class GameController{
     const t=e.target;if(t.dataset.setting){const k=t.dataset.setting;if(typeof this.settings[k]==='boolean')this.settings[k]=t.checked;if(k==='autoCamera')this.manualCameraOverride=false;this.audio.setMuted(this.settings.muted);document.getElementById('performance').hidden=!this.settings.performance;this.refreshSound();this.persistSettings();return;}
     if(t.id==='quality-select'){this.settings.quality=t.value;this.renderer.resize();this.persistSettings();return;}
     if(this.mode!=='PREPARING')return;
+    if(t.id==='brush-size'&&['small','medium','large'].includes(t.value)){this.input.cancelOperation();this.brushSize=t.value;this.refreshToolHint();}
     if(t.id==='facing-input'){if(Number.isFinite(Number(t.value)))this.facing=Number(t.value)*Math.PI/180;}
     if(t.id==='spacing-select')this.spacing=Number(t.value);
     if(t.id==='seed-input')this.editResult(this.editor.setSeed(Number(t.value)));
@@ -151,6 +154,7 @@ export class GameController{
     document.querySelector('.team-counter.red').title=this.sim?`红队在场 ${red}（含召唤物）`:`红队 ${red} · 参考成本 ${counts.red.cost.toLocaleString()}`;
     document.querySelector('.team-counter.blue').title=this.sim?`蓝队在场 ${blue}（含召唤物）`:`蓝队 ${blue} · 参考成本 ${counts.blue.cost.toLocaleString()}`;
     document.getElementById('formation-count').textContent=`${red+blue} ${this.sim?'在场':'单位'}`;
+    document.querySelector('[data-action="quick-clear"]').disabled=this.mode!=='PREPARING'||!counts.red.count&&!counts.blue.count;
     document.getElementById('undo-button').disabled=this.mode!=='PREPARING'||!this.editor.canUndo;document.getElementById('redo-button').disabled=this.mode!=='PREPARING'||!this.editor.canRedo;
     const seconds=this.sim?.time||0;document.getElementById('sim-time').textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(Math.floor(seconds%60)).padStart(2,'0')}`;
     const phases={PREPARING:'准备布阵',FIGHTING:'自动战斗',PAUSED:'已暂停',FINISHED:'战斗结束'};

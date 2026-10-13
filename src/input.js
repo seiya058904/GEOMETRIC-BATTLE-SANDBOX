@@ -21,24 +21,38 @@ export class BattlefieldInput{
   world(p){return this.app.renderer.camera.screenToWorld(p.x,p.y);}
   nearest(p,units,team){let found=null,best=Infinity;const allowance=5/this.app.renderer.camera.zoom;for(const u of units){if(team&&u.team!==team)continue;if(u.alive===false)continue;const radius=u.radius||UNIT_MAP[u.type]?.radius||10;const d=Math.hypot(u.x-p.x,u.y-p.y);if(d<=radius+allowance&&d<best){best=d;found=u;}}return found;}
   point(p,lockedTeam){const a=this.app;const team=lockedTeam||teamForDeploymentPosition(a.type,p.x,p.y)||'red';const r=resolvePlacementCandidate(a.type,{...p,angle:a.facing+(team==='blue'?Math.PI:0)},lockedTeam);return r.candidate||{type:a.type,team,x:p.x,y:p.y,angle:a.facing+(team==='blue'?Math.PI:0)};}
+  brushExtent(erase=false){
+    const a=this.app,size=a.brushSize||'small';
+    if(erase)return ({small:12,medium:28,large:52}[size]||12)/a.renderer.camera.zoom;
+    return (UNIT_MAP[a.type].radius*2+5)*a.spacing*({small:0,medium:1,large:2}[size]||0);
+  }
+  brushCandidates(centers,team){
+    const a=this.app,spacing=(UNIT_MAP[a.type].radius*2+5)*a.spacing,radius=this.brushExtent(),steps=Math.round(radius/spacing),points=[];
+    for(const center of centers)for(let y=-steps;y<=steps;y++)for(let x=-steps;x<=steps;x++){
+      if(x*x+y*y>steps*steps)continue;
+      points.push(this.point({x:center.x+x*spacing,y:center.y+y*spacing},team));
+      if(points.length>=1201)return points;
+    }
+    return points;
+  }
   cancelOperation(){if(this.drag?.transaction)this.app.editor.cancelTransaction();this.drag=null;this.preview=[];this.selectionRect=null;this.pasteMode=false;this.pinch=null;this.app.refresh();}
   down(e){
     if(e.button>2)return;e.preventDefault();this.canvas.focus({preventScroll:true});this.canvas.setPointerCapture(e.pointerId);
     const screen=this.local(e);this.pointers.set(e.pointerId,screen);
     if(this.pointers.size>=2){if(this.drag?.transaction)this.app.editor.cancelTransaction();this.drag=null;this.preview=[];this.selectionRect=null;this.pinch=this.pinchData();return;}
-    const point=this.world(screen);const app=this.app;app.manualCamera?.();app.followId=null;if(app.mode==='PREPARING'&&e.button===0)app.audio?.unlock();
+    const point=this.world(screen);this.hover=point;const app=this.app;app.manualCamera?.();app.followId=null;if(app.mode==='PREPARING'&&e.button===0)app.audio?.unlock();
     if(e.button===1||e.altKey||e.code==='Space'||app.tool==='pan'){this.drag={kind:'pan',last:screen,start:screen};return;}
     if(app.mode!=='PREPARING'){this.drag={kind:'observe',start:screen,last:screen,point,moved:false};return;}
     if(this.pasteMode&&e.button===0){this.drag={kind:'tap',start:screen,point,paste:true,moved:false};return;}
     // A touch is not known to be a tap until release: a second finger may turn
     // it into a camera gesture. Mouse placement keeps its immediate feedback.
     if(e.button===2||app.tool==='erase'){
-      app.editor.beginTransaction();this.drag={kind:'erase',start:point,last:point,transaction:true,deleted:0,radius:0};
-      const r=app.editor.eraseAt(point.x,point.y,0);this.drag.deleted+=r.deleted||0;
+      const radius=this.brushExtent(true);app.editor.beginTransaction();this.drag={kind:'erase',start:point,last:point,transaction:true,deleted:0,radius};
+      const r=app.editor.eraseAt(point.x,point.y,radius);this.drag.deleted+=r.deleted||0;
       app.refresh();return;
     }
     const hit=this.nearest(point,app.editor.formation.units);
-    if(app.tool==='select'||hit&&['brush','single'].includes(app.tool)){
+    if(app.tool==='select'||hit&&(app.tool==='single'||app.tool==='brush'&&!this.brushExtent())){
       if(hit){app.editor.select([hit.id],e.shiftKey||app.editor.selection.has(hit.id));app.refreshInspector();this.drag={kind:'move',start:point,end:point,units:app.editor.formation.units.filter(u=>app.editor.selection.has(u.id)).map(u=>({...u}))};}
       else{this.drag={kind:'select',start:point,end:point,append:e.shiftKey};this.selectionRect={x:point.x,y:point.y,width:0,height:0};}
       return;
@@ -48,7 +62,7 @@ export class BattlefieldInput{
     if(!team){const r=resolvePlacementCandidate(app.type,point);app.toast(r.message,true);return;}
     if(app.tool==='brush'){
       app.editor.beginTransaction();this.drag={kind:'brush',start:point,last:point,transaction:true,team,added:0,skipped:0};
-      const r=app.editor.placeMany([this.point(point,team)]);this.drag.added+=r.added||0;this.drag.skipped+=r.skipped||0;app.refresh();return;
+      const r=app.editor.placeMany(this.brushCandidates([point],team));this.drag.added+=r.added||0;this.drag.skipped+=r.skipped||0;app.refresh();return;
     }
     if(app.tool==='line'||app.tool==='grid'){this.drag={kind:app.tool,team,start:point,end:point};this.updatePreview(point);return;}
   }
@@ -66,9 +80,9 @@ export class BattlefieldInput{
     if(d.kind==='brush'){
       const spacing=(UNIT_MAP[app.type].radius*2+5)*app.spacing;
       const distance=Math.hypot(world.x-d.last.x,world.y-d.last.y);
-      if(distance>=spacing){const points=brushPoints({type:app.type,team:d.team,path:[d.last,world],spacing,angle:app.facing+(d.team==='red'?0:Math.PI)});const r=app.editor.placeMany(points);d.added+=r.added||0;d.skipped+=r.skipped||0;d.last=points.at(-1)||d.last;app.refreshCounters();app.setToolHint(`已部署 ${d.added} · 跳过 ${d.skipped} · 本次仅${d.team==='red'?'红':'蓝'}军`);}return;
+      if(distance>=spacing){const points=brushPoints({type:app.type,team:d.team,path:[d.last,world],spacing,angle:app.facing+(d.team==='red'?0:Math.PI)});const r=app.editor.placeMany(this.brushCandidates(points.slice(1),d.team));d.added+=r.added||0;d.skipped+=r.skipped||0;d.last=points.at(-1)||d.last;app.refreshCounters();app.setToolHint(`已部署 ${d.added} · 跳过 ${d.skipped} · 本次仅${d.team==='red'?'红':'蓝'}军`);}return;
     }
-    if(d.kind==='erase'){const distance=Math.hypot(world.x-d.last.x,world.y-d.last.y);const n=Math.min(600,Math.max(1,Math.ceil(distance/8)));for(let i=1;i<=n;i++){const r=app.editor.eraseAt(d.last.x+(world.x-d.last.x)*i/n,d.last.y+(world.y-d.last.y)*i/n,d.radius);d.deleted+=r.deleted||0;}d.last=world;app.refreshCounters();return;}
+    if(d.kind==='erase'){const r=app.editor.eraseStroke(d.last.x,d.last.y,world.x,world.y,d.radius);d.deleted+=r.deleted||0;d.last=world;app.refreshCounters();app.setToolHint(`已擦除 ${d.deleted} · 松开完成 · 可撤销`);return;}
     d.end=world;
     if(d.kind==='line'||d.kind==='grid')this.updatePreview(world);
     if(d.kind==='select')this.selectionRect={x:Math.min(d.start.x,world.x),y:Math.min(d.start.y,world.y),width:Math.abs(world.x-d.start.x),height:Math.abs(world.y-d.start.y)};
@@ -80,6 +94,7 @@ export class BattlefieldInput{
   }
   up(e){
     if(this.pointers.size>=2){this.pointers.delete(e.pointerId);this.pinch=null;this.drag=null;return;}
+    if(this.drag&&['brush','erase'].includes(this.drag.kind))this.move(e);
     this.pointers.delete(e.pointerId);const d=this.drag,app=this.app;this.drag=null;
     if(d){
       if(d.kind==='tap'&&!d.moved&&app.mode==='PREPARING'){
@@ -113,7 +128,7 @@ export class BattlefieldInput{
   }
   renderState(){
     const a=this.app;if(a.mode!=='PREPARING')return {hover:null,preview:EMPTY_PREVIEW,selectionRect:null};let hover=null;if(this.hover&&a.tool!=='pan'&&a.tool!=='select'){
-      const candidate=this.point(this.hover,this.drag?.team);const resolved=resolvePlacementCandidate(a.type,this.hover,this.drag?.team);const valid=resolved.ok?validatePlacement(a.editor.formation.units,candidate):resolved;hover={...candidate,valid:valid.ok!==false,reason:valid.message,radius:UNIT_MAP[a.type].radius,erase:a.tool==='erase'||this.drag?.kind==='erase'};
+      const erase=a.tool==='erase'||this.drag?.kind==='erase';const candidate=this.point(this.hover,this.drag?.team);const resolved=resolvePlacementCandidate(a.type,this.hover,this.drag?.team);const valid=resolved.ok?validatePlacement(a.editor.formation.units,candidate):resolved;hover={...candidate,valid:valid.ok!==false,reason:valid.message,radius:UNIT_MAP[a.type].radius,erase,brushRadius:erase?(this.drag?.radius??this.brushExtent(true)):a.tool==='brush'?this.brushExtent():0};
     }
     if(!this.preview.length)return {hover:this.pasteMode?null:hover,preview:EMPTY_PREVIEW,selectionRect:this.selectionRect};
     const ignore=this.drag?.kind==='move'?a.editor.selection:new Set();const index=new PlacementIndex(a.editor.formation.units.filter(u=>!ignore.has(u.id)));

@@ -16,3 +16,6 @@ Thumbs.db
 # CI staging output; authoritative single HTML remains at repository root.
 /dist/GEOBATTLE-OFFLINE.html
 /dist/build-info.json
+
+# Local browser/performance evidence is generated output, retained outside Git.
+/evidence/

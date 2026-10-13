@@ -156,3 +156,7 @@ esbuild 仅用于开发构建，依赖锁文件记录其 MIT 许可；这不构�
 ---
 
 <p align="center"><sub>排兵。观察。调整。再试一次。</sub></p>
+
+## Local evidence and historical packages
+
+Browser screenshots, performance traces and local acceptance output are generated under `evidence/` and ignored by Git. On 2026-10-13 the owner recycled the historical local evidence directory and three local delivery ZIPs; the game source, production files and authoritative offline HTML were retained. Existing Git history still contains the previously tracked evidence. Historical `PACKAGE-MANIFEST.json` and `DELIVERY-*.json` describe their original packages, not the current working-tree inventory.

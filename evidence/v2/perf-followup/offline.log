@@ -1,5 +1,0 @@
-
-> geometric-battle-sandbox@2.0.0 test:offline
-> node tests/offline.mjs
-
-{"timestamp":"2026-10-13T02:39:58.688Z","browser":"151.0.7922.34","artifact":"GEOBATTLE-OFFLINE.html","networkDisabled":true,"errors":[],"externalRequests":[],"checks":[{"name":"offline default game renders","pass":true,"title":"GEOBATTLE · 几何战争沙盒","mode":"PREPARING","count":80,"categories":6,"drawn":80},{"name":"offline real battle advances","pass":true,"mode":"FIGHTING","time":0.2,"active":80,"original":80,"finite":true},{"name":"no external network dependencies or console errors","pass":true}],"pass":true}

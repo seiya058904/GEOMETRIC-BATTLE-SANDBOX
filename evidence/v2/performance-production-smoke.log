@@ -1,5 +1,0 @@
-
-> geometric-battle-sandbox@2.0.0 test:performance
-> node tests/performance.mjs
-
-{"name":"100-vs-100","frames":718,"wallSeconds":12.012,"simDelta":12.066666666666666,"averageFPS":59.42282068046578,"onePercentLowFPS":31.92338387869046,"medianFrameMs":16.699999999999818,"p95FrameMs":16.799999999999272,"maxFrameMs":83.29999999999995,"gapsOver250ms":0,"totalSteps":724,"totalStepCpuMs":500.2999999858439,"averageStepMs":0.6910220994279612,"averageDrawMs":1.204450625908122,"requestedSpeed":1,"actualSpeed":1.0045510045510044,"hudLatestWindowSpeed":0.9999999999999994,"hudStepEMA":0.518282424243772,"simSeconds":12.066666666666666,"ended":false,"unitsStart":200,"unitsEnd":110,"minAlive":110,"projectilePeak":40,"effectCount":41,"drawMetrics":{"drawnUnits":130,"drawnProjectiles":27,"effects":41,"quality":"high","pixelRatio":1},"simulationFinite":true,"heapBytes":10000000,"tickProfileEnabled":false,"failures":[],"p99FrameMs":16.80000000000109,"p95DrawMs":1.5,"p95FrameMeanStepMs":1.1000000014901161,"gapsOver50ms":1,"gapsOver100ms":0,"gapsOver500ms":0}

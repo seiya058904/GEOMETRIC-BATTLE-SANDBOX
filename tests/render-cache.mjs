@@ -2,7 +2,7 @@
 import {launchBrowser,BASE_URL,startTestServer} from './browser-runtime.mjs';
 import {writeFile,mkdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
-const output=fileURLToPath(new URL('../evidence/',import.meta.url));
+const output=(process.env.GEOBATTLE_EVIDENCE||fileURLToPath(new URL('../evidence/',import.meta.url))).replace(/\/?$/, '/');
 await mkdir(output,{recursive:true});
 const stop=await startTestServer(); const browser=await launchBrowser();
 try {

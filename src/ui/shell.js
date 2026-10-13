@@ -53,9 +53,13 @@ export function createShell(root) {
           </div>
         </div>
         <div class="playback" id="playback" hidden aria-label="战斗速度"><span>速度</span>${[.25, .5, 1, 2, 4].map(s => `<button data-action="speed" data-speed="${s}" class="${s === 1 ? 'active' : ''}" aria-pressed="${s === 1}">${s}×</button>`).join('')}</div>
+        <div class="observation-controls" aria-label="观察尺度">
+          ${button('inspect-close', '近看', 'eye', 'class="arena-button" title="拉近观察单位"')}
+          ${button('reset-camera', '全图', 'target', 'class="arena-button"')}
+        </div>
         <div class="camera-controls" aria-label="镜头缩放">
           ${button('zoom-out', '缩小', 'minus', 'class="icon-button"')}<span id="zoom-label">100%</span>${button('zoom-in', '放大', 'plus', 'class="icon-button"')}
-          ${button('fit', '适配军阵', 'fit', 'class="icon-button"')}${button('reset-camera', '全图', 'target', 'class="icon-button"')}
+          ${button('fit', '适配军阵', 'fit', 'class="icon-button"')}
         </div>
         <div class="arena-bottom"><span id="tool-hint">左键部署 · 右键擦除 · 滚轮缩放</span><span id="performance" hidden></span><span id="load-warning"></span></div>
         <div class="mobile-launchers">
@@ -75,6 +79,7 @@ export function createShell(root) {
         ${button('undo', '撤销', 'undo', 'class="icon-button" id="undo-button" aria-label="撤销"')}
         ${button('redo', '重做', 'redo', 'class="icon-button" id="redo-button" aria-label="重做"')}
       </div>
+<div class="battle-guide" id="battle-guide" hidden><strong>观察 → 调整 → 再试一次</strong><span>点击单位查看状态；暂停后仍可移动镜头。</span></div>
       <div class="deployment-tools" role="toolbar" aria-label="战场操作">
         ${[['brush', '部署', 'brush', '左键点击或拖动部署，右键擦除'], ['erase', '擦除', 'erase', '擦除单位'], ['pan', '平移', 'hand', '平移视野']].map(([id, name, ico, hint]) => button(`tool-${id}`, name, ico, `class="tool-button ${id === 'brush' ? 'active' : ''}" aria-label="${hint}" data-tool="${id}" aria-pressed="${id === 'brush'}"`)).join('')}
       </div>

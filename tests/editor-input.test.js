@@ -137,6 +137,12 @@ test('keyboard shortcuts ignore inputs, editable text and modal dialogs', () => 
   app.dialog.open = true; input.key(keyboard(' ')); input.key(keyboard('Delete'));
   assert.deepEqual(app.actions, []);
 });
+test('a modal drawer blocks global edit and camera shortcuts without disabling native buttons', () => {
+  const { input, app } = fixture();
+  app.panels = { active: { getAttribute: name => name === 'aria-modal' ? 'true' : null } };
+  for (const key of ['e', 'Delete', 'f', 'z']) input.key(keyboard(key, { ctrlKey: key === 'z', target: { tagName: 'BUTTON' } }));
+  assert.deepEqual(app.actions, []);
+});
 test('undo and both redo shortcuts work; obsolete team shortcuts cannot change deployment', () => {
   const { input, app } = fixture();
   input.key(keyboard('z', { ctrlKey: true })); input.key(keyboard('z', { ctrlKey: true, shiftKey: true }));

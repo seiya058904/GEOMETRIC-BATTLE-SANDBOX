@@ -1,6 +1,7 @@
 import {UNIT_MAP} from './data/units.js';
 import {linePoints,gridPoints,brushPoints,validatePlacement,resolvePlacementCandidate,teamForDeploymentPosition} from './editor/index.js';
 import {PlacementIndex} from './editor/placement.js';
+const EMPTY_PREVIEW = Object.freeze([]);
 
 /** Pointer and keyboard input; the editor owns all mutations and history. */
 export class BattlefieldInput{
@@ -13,7 +14,7 @@ export class BattlefieldInput{
     canvas.addEventListener('lostpointercapture',e=>{if(this.pointers.has(e.pointerId))this.cancel(e);});
     canvas.addEventListener('pointerleave',()=>{if(!this.drag)this.hover=null;});
     canvas.addEventListener('contextmenu',e=>e.preventDefault());
-    canvas.addEventListener('wheel',e=>{e.preventDefault();const p=this.local(e);app.followId=null;app.renderer.camera.zoomAt(p.x,p.y,Math.exp(-e.deltaY*.0014));app.refreshZoom();},{passive:false});
+    canvas.addEventListener('wheel',e=>{e.preventDefault();const p=this.local(e);app.manualCamera?.();app.followId=null;app.renderer.camera.zoomAt(p.x,p.y,Math.exp(-e.deltaY*.0014));app.refreshZoom();},{passive:false});
     window.addEventListener('keydown',e=>this.key(e));
   }
   local(e){const r=this.canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
@@ -25,7 +26,7 @@ export class BattlefieldInput{
     if(e.button>2)return;e.preventDefault();this.canvas.focus({preventScroll:true});this.canvas.setPointerCapture(e.pointerId);
     const screen=this.local(e);this.pointers.set(e.pointerId,screen);
     if(this.pointers.size>=2){if(this.drag?.transaction)this.app.editor.cancelTransaction();this.drag=null;this.preview=[];this.selectionRect=null;this.pinch=this.pinchData();return;}
-    const point=this.world(screen);const app=this.app;app.followId=null;
+    const point=this.world(screen);const app=this.app;app.manualCamera?.();app.followId=null;if(app.mode==='PREPARING'&&e.button===0)app.audio?.unlock();
     if(e.button===1||e.altKey||e.code==='Space'||app.tool==='pan'){this.drag={kind:'pan',last:screen,start:screen};return;}
     if(app.mode!=='PREPARING'){this.drag={kind:'observe',start:screen,last:screen,point,moved:false};return;}
     if(this.pasteMode&&e.button===0){this.drag={kind:'tap',start:screen,point,paste:true,moved:false};return;}
@@ -89,7 +90,7 @@ export class BattlefieldInput{
         }
       }
       if(d.kind==='observe'&&!d.moved){const hit=this.nearest(d.point,app.sim?.units||[]);app.focusUnit(hit?.id??null);}
-      if(d.kind==='brush'||d.kind==='erase'){app.editor.commitTransaction();app.afterEdit();app.toast(d.kind==='brush'?`已部署 ${d.added} 个${d.skipped?` · ${d.skipped} 个位置被跳过`:''}`:`已删除 ${d.deleted} 个单位`);}
+      if(d.kind==='brush'||d.kind==='erase'){app.editor.commitTransaction();app.afterEdit();if(d.kind==='brush'&&d.added>0)app.audio?.place();app.toast(d.kind==='brush'?`已部署 ${d.added} 个${d.skipped?` · ${d.skipped} 个位置被跳过`:''}`:`已删除 ${d.deleted} 个单位`);}
       if(d.kind==='line'||d.kind==='grid')app.editResult(app.editor.placeMany(this.preview));
       if(d.kind==='select'){app.editor.selectRect(d.start.x,d.start.y,d.end.x,d.end.y,undefined,d.append);app.refresh();}
       if(d.kind==='move')app.editResult(app.editor.moveSelection(d.end.x-d.start.x,d.end.y-d.start.y));
@@ -99,7 +100,7 @@ export class BattlefieldInput{
   cancel(e){this.pointers.delete(e.pointerId);this.cancelOperation();}
   beginPaste(){this.pasteMode=true;this.app.toast('点击目标半场粘贴整组；越线或重叠不会放置，Esc 取消。');}
   key(e){
-    const app=this.app,tag=e.target?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag)||e.target?.isContentEditable||app.dialog.open)return;
+    const app=this.app,tag=e.target?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag)||e.target?.isContentEditable||app.dialog.open||app.panels?.active?.getAttribute('aria-modal')==='true')return;
     const mod=e.ctrlKey||e.metaKey;
     if(e.key==='Escape'){this.cancelOperation();app.closeDrawers();return;}
     if(e.code==='Space'){if(tag==='BUTTON')return;e.preventDefault();app.handleAction('start');return;}
@@ -111,10 +112,10 @@ export class BattlefieldInput{
     const action=keys[e.key]||keys[e.key.toLowerCase()];if(action){e.preventDefault();app.handleAction(action);}
   }
   renderState(){
-    const a=this.app;if(a.mode!=='PREPARING')return {hover:null,preview:[],selectionRect:null};let hover=null;if(this.hover&&a.tool!=='pan'&&a.tool!=='select'){
+    const a=this.app;if(a.mode!=='PREPARING')return {hover:null,preview:EMPTY_PREVIEW,selectionRect:null};let hover=null;if(this.hover&&a.tool!=='pan'&&a.tool!=='select'){
       const candidate=this.point(this.hover,this.drag?.team);const resolved=resolvePlacementCandidate(a.type,this.hover,this.drag?.team);const valid=resolved.ok?validatePlacement(a.editor.formation.units,candidate):resolved;hover={...candidate,valid:valid.ok!==false,reason:valid.message,radius:UNIT_MAP[a.type].radius,erase:a.tool==='erase'||this.drag?.kind==='erase'};
     }
-    if(!this.preview.length)return {hover:this.pasteMode?null:hover,preview:[],selectionRect:this.selectionRect};
+    if(!this.preview.length)return {hover:this.pasteMode?null:hover,preview:EMPTY_PREVIEW,selectionRect:this.selectionRect};
     const ignore=this.drag?.kind==='move'?a.editor.selection:new Set();const index=new PlacementIndex(a.editor.formation.units.filter(u=>!ignore.has(u.id)));
     const group=this.pasteMode&&this.hover?a.editor.getPastePreview(this.hover.x,this.hover.y):this.drag?.kind==='move'?a.editor.getMovePreview(this.drag.end.x-this.drag.start.x,this.drag.end.y-this.drag.start.y):null;
     const preview=this.preview.map(p=>{const r=validatePlacement(index,p);if(r.ok)index.add(p);return {...p,valid:r.ok&&group?.ok!==false,reason:group?.ok===false?group.message:r.message};});

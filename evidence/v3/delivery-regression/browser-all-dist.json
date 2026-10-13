@@ -1,0 +1,890 @@
+{
+  "startedAt": "2026-10-13T04:27:28.643Z",
+  "url": "http://127.0.0.1:4187",
+  "section": "all",
+  "production": true,
+  "screenshotMethod": "CDP Page.captureScreenshot after observed UI state; initial Playwright compositor-wait timeouts are retained in initial reports",
+  "browserPlugin": "absent",
+  "fallbackReason": "Browser plugin not available",
+  "rendering": "Headless Chromium; SwiftShader requested; DPR per scenario",
+  "flow": "Load the sandbox, deploy through real controls, save/reload/import, observe natural RAF battles, replay and return to original deployment.",
+  "cases": [
+    {
+      "name": "initial-identity-80-units-and-nonblank-render",
+      "status": "pass",
+      "durationMs": 329,
+      "details": {
+        "sampledColors": 273,
+        "screenshot": "browser-desktop-initial-dist.png"
+      }
+    },
+    {
+      "name": "real-categories-deploy-two-types-per-team",
+      "status": "pass",
+      "durationMs": 586,
+      "details": {
+        "screenshot": "browser-mixed-deployment-dist.png"
+      }
+    },
+    {
+      "name": "overlap-and-boundary-clicks-reject-with-visible-feedback",
+      "status": "pass",
+      "durationMs": 10
+    },
+    {
+      "name": "position-automatically-assigns-blue-on-the-right-half",
+      "status": "pass",
+      "durationMs": 43
+    },
+    {
+      "name": "fast-brush-path-one-undo-redo-transaction",
+      "status": "pass",
+      "durationMs": 203
+    },
+    {
+      "name": "line-and-grid-preview-counts-match-real-deployment",
+      "status": "pass",
+      "durationMs": 286,
+      "details": {
+        "lineCount": 22,
+        "gridCount": 196
+      }
+    },
+    {
+      "name": "box-select-move-and-rotate-real-mixed-group",
+      "status": "pass",
+      "durationMs": 198
+    },
+    {
+      "name": "clipboard-paste-to-other-team-mirror-delete-and-history",
+      "status": "pass",
+      "durationMs": 213
+    },
+    {
+      "name": "group-out-of-bounds-rejection-keeps-every-position",
+      "status": "pass",
+      "durationMs": 174
+    },
+    {
+      "name": "search-input-and-modal-ignore-game-shortcuts",
+      "status": "pass",
+      "durationMs": 90
+    },
+    {
+      "name": "clear-current-team-confirm-and-undo-preserve-other-team",
+      "status": "pass",
+      "durationMs": 60
+    },
+    {
+      "name": "empty-side-refuses-start-with-actionable-message",
+      "status": "pass",
+      "durationMs": 37
+    },
+    {
+      "name": "named-preset-save-shows-actual-unit-count",
+      "status": "pass",
+      "durationMs": 65
+    },
+    {
+      "name": "autosave-refresh-restores-the-exact-editable-formation",
+      "status": "pass",
+      "durationMs": 1049
+    },
+    {
+      "name": "named-load-restores-an-altered-army-and-can-be-undone",
+      "status": "pass",
+      "durationMs": 136
+    },
+    {
+      "name": "JSON-download-contains-complete-live-configuration",
+      "status": "pass",
+      "durationMs": 269,
+      "details": {
+        "bytes": 319,
+        "sha256": "cbffcccc830c7613910eeba3ac4338211dd5caccdecc6db0099b8c2d347fc7eb"
+      }
+    },
+    {
+      "name": "JSON-file-import-restores-exported-data-after-clear",
+      "status": "pass",
+      "durationMs": 206
+    },
+    {
+      "name": "malformed-file-and-oversize-file-protect-current-army",
+      "status": "pass",
+      "durationMs": 165
+    },
+    {
+      "name": "preset-markup-name-is-rendered-as-text-without-execution",
+      "status": "pass",
+      "durationMs": 147
+    },
+    {
+      "name": "deleting-one-preset-keeps-the-current-army-and-other-preset",
+      "status": "pass",
+      "durationMs": 66
+    },
+    {
+      "name": "random-dialog-small-20-legal-editable-units",
+      "status": "pass",
+      "durationMs": 54
+    },
+    {
+      "name": "random-dialog-normal-80-legal-editable-units",
+      "status": "pass",
+      "durationMs": 54
+    },
+    {
+      "name": "random-dialog-large-300-legal-editable-units",
+      "status": "pass",
+      "durationMs": 108
+    },
+    {
+      "name": "random-dialog-chaos-600-legal-editable-units",
+      "status": "pass",
+      "durationMs": 114
+    },
+    {
+      "name": "generated-random-army-can-be-undone-in-one-step",
+      "status": "pass",
+      "durationMs": 25
+    },
+    {
+      "name": "natural-1v1-RAF-combat-causes-real-damage",
+      "status": "pass",
+      "durationMs": 865,
+      "details": {
+        "tick": 40,
+        "hp": [
+          60,
+          60
+        ]
+      }
+    },
+    {
+      "name": "pause-ten-seconds-freezes-simulation-effects-and-canvas",
+      "status": "pass",
+      "durationMs": 10386,
+      "details": {
+        "durationMs": 10000,
+        "coreSHA256": "a9eebf3f5dc71b015c7637ce08e14ad8101a777734b0d3bf404a0d7e440c7c36",
+        "canvasSHA256": "9b042d8ea676c51ec466f1de37901b10faae0b7a811c6573836a22ecbb45b7ca",
+        "screenshot": "browser-paused-battle-dist.png"
+      }
+    },
+    {
+      "name": "all-five-speed-buttons-work-while-paused-without-ticking",
+      "status": "pass",
+      "durationMs": 199
+    },
+    {
+      "name": "battle-locks-deployment-and-keyboard-edits",
+      "status": "pass",
+      "durationMs": 12
+    },
+    {
+      "name": "unit-observation-follow-and-paused-camera-pan-zoom",
+      "status": "pass",
+      "durationMs": 236
+    },
+    {
+      "name": "resume-finishes-through-natural-ticks-and-shows-real-statistics",
+      "status": "pass",
+      "durationMs": 2285,
+      "details": {
+        "winner": "draw",
+        "duration": 6.366666666666666,
+        "screenshot": "browser-battle-result-dist.png"
+      }
+    },
+    {
+      "name": "return-to-editor-restores-the-untouched-original-army",
+      "status": "pass",
+      "durationMs": 33
+    },
+    {
+      "name": "quick-natural-duel-completes-and-matches-deployment-counts",
+      "status": "pass",
+      "durationMs": 2106
+    },
+    {
+      "name": "same-seed-replay-reproduces-complete-result-without-ghost-units",
+      "status": "pass",
+      "durationMs": 2133
+    },
+    {
+      "name": "new-seed-replay-preserves-units-and-produces-a-fresh-battle",
+      "status": "pass",
+      "durationMs": 2225
+    },
+    {
+      "name": "starting-during-a-brush-uses-the-post-cancel-editor-snapshot",
+      "status": "pass",
+      "durationMs": 124
+    },
+    {
+      "name": "320x568-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 24,
+      "details": {
+        "innerWidth": 320,
+        "innerHeight": 568,
+        "scrollWidth": 320,
+        "scrollHeight": 568,
+        "canvas": {
+          "x": 0,
+          "y": 94,
+          "width": 320,
+          "height": 366
+        },
+        "button": {
+          "x": 210,
+          "y": 46,
+          "width": 100,
+          "height": 44
+        },
+        "screenshot": "browser-320x568-initial-dist.png"
+      }
+    },
+    {
+      "name": "320x568-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 265,
+      "details": {
+        "screenshot": "browser-320x568-deployment-dist.png"
+      }
+    },
+    {
+      "name": "320x568-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 349,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-320x568-result-dist.png"
+      }
+    },
+    {
+      "name": "375x812-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 37,
+      "details": {
+        "innerWidth": 375,
+        "innerHeight": 812,
+        "scrollWidth": 375,
+        "scrollHeight": 812,
+        "canvas": {
+          "x": 0,
+          "y": 94,
+          "width": 375,
+          "height": 610
+        },
+        "button": {
+          "x": 261,
+          "y": 46,
+          "width": 104,
+          "height": 44
+        },
+        "screenshot": "browser-375x812-initial-dist.png"
+      }
+    },
+    {
+      "name": "375x812-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 254,
+      "details": {
+        "screenshot": "browser-375x812-deployment-dist.png"
+      }
+    },
+    {
+      "name": "375x812-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 358,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-375x812-result-dist.png"
+      }
+    },
+    {
+      "name": "375x812-two-finger-pinch-changes-camera-without-deploying",
+      "status": "pass",
+      "durationMs": 154,
+      "details": {
+        "before": {
+          "count": 0,
+          "zoom": 0.14458333333333334
+        },
+        "after": {
+          "count": 0,
+          "zoom": 0.227202380952381
+        }
+      }
+    },
+    {
+      "name": "768x1024-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 41,
+      "details": {
+        "innerWidth": 768,
+        "innerHeight": 1024,
+        "scrollWidth": 768,
+        "scrollHeight": 1024,
+        "canvas": {
+          "x": 236,
+          "y": 68,
+          "width": 532,
+          "height": 882
+        },
+        "button": {
+          "x": 632,
+          "y": 10.5,
+          "width": 122,
+          "height": 46
+        },
+        "screenshot": "browser-768x1024-initial-dist.png"
+      }
+    },
+    {
+      "name": "768x1024-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 205,
+      "details": {
+        "screenshot": "browser-768x1024-deployment-dist.png"
+      }
+    },
+    {
+      "name": "768x1024-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 458,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-768x1024-result-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 55,
+      "details": {
+        "innerWidth": 1366,
+        "innerHeight": 768,
+        "scrollWidth": 1366,
+        "scrollHeight": 768,
+        "canvas": {
+          "x": 300.515625,
+          "y": 68,
+          "width": 1065.484375,
+          "height": 626
+        },
+        "button": {
+          "x": 1190,
+          "y": 10.5,
+          "width": 154,
+          "height": 46
+        },
+        "screenshot": "browser-1366x768-initial-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 287,
+      "details": {
+        "screenshot": "browser-1366x768-deployment-dist.png"
+      }
+    },
+    {
+      "name": "1366x768-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 584,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-1366x768-result-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 81,
+      "details": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "canvas": {
+          "x": 304,
+          "y": 68,
+          "width": 1616,
+          "height": 938
+        },
+        "button": {
+          "x": 1744,
+          "y": 10.5,
+          "width": 154,
+          "height": 46
+        },
+        "screenshot": "browser-1920x1080-initial-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 279,
+      "details": {
+        "screenshot": "browser-1920x1080-deployment-dist.png"
+      }
+    },
+    {
+      "name": "1920x1080-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 664,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-1920x1080-result-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-layout-primary-control-and-canvas-visible",
+      "status": "pass",
+      "durationMs": 245,
+      "details": {
+        "innerWidth": 3840,
+        "innerHeight": 2160,
+        "scrollWidth": 3840,
+        "scrollHeight": 2160,
+        "canvas": {
+          "x": 304,
+          "y": 68,
+          "width": 3536,
+          "height": 2018
+        },
+        "button": {
+          "x": 3664,
+          "y": 10.5,
+          "width": 154,
+          "height": 46
+        },
+        "screenshot": "browser-3840x2160-initial-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-choose-both-teams-deploy-by-pointer-and-fit",
+      "status": "pass",
+      "durationMs": 975,
+      "details": {
+        "screenshot": "browser-3840x2160-deployment-dist.png"
+      }
+    },
+    {
+      "name": "3840x2160-start-pause-speed-result-dialog-and-return",
+      "status": "pass",
+      "durationMs": 2302,
+      "details": {
+        "winner": "red",
+        "screenshot": "browser-3840x2160-result-dist.png"
+      }
+    },
+    {
+      "name": "role-label-search-finds-melee-and-ranged-units",
+      "status": "pass",
+      "durationMs": 137,
+      "details": {
+        "screenshot": "browser-role-search-regression-dist.png"
+      }
+    },
+    {
+      "name": "paste-cancelled-by-unit-without-losing-clipboard",
+      "status": "pass",
+      "durationMs": 291
+    },
+    {
+      "name": "paste-cancelled-by-deploy-current-without-losing-clipboard",
+      "status": "pass",
+      "durationMs": 457
+    },
+    {
+      "name": "observation-buttons-retain-focus-and-native-space-enter-activation",
+      "status": "pass",
+      "durationMs": 3111,
+      "details": {
+        "screenshot": "browser-keyboard-follow-regression-dist.png"
+      }
+    },
+    {
+      "name": "v2-one-choice-two-clicks-center-forbidden-right-delete-undo",
+      "status": "pass",
+      "durationMs": 281,
+      "details": {
+        "mainOperations": 3,
+        "screenshot": "browser-v2-forbidden-preview-dist.png"
+      }
+    },
+    {
+      "name": "v2-default-thirty-unit-brush-and-cross-line-lock-one-undo",
+      "status": "pass",
+      "durationMs": 997,
+      "details": {
+        "added": 48
+      }
+    },
+    {
+      "name": "v2-selected-existing-unit-shows-actual-type-and-team",
+      "status": "pass",
+      "durationMs": 158
+    },
+    {
+      "name": "v2-batch-cross-line-preview-counts-exact-and-one-undo",
+      "status": "pass",
+      "durationMs": 200,
+      "details": {
+        "accepted": 11,
+        "skipped": 12
+      }
+    },
+    {
+      "name": "v2-mixed-select-illegal-partial-move-rollback-and-exchange",
+      "status": "pass",
+      "durationMs": 243
+    },
+    {
+      "name": "v2-paste-failure-retains-clipboard-and-moves-whole-group-opposite",
+      "status": "pass",
+      "durationMs": 282
+    },
+    {
+      "name": "v2-legacy-import-readonly-backup-cancel-and-explicit-migration",
+      "status": "pass",
+      "durationMs": 613
+    },
+    {
+      "name": "v2-autosave-crosszone-cancel-never-overwrites-raw",
+      "status": "pass",
+      "durationMs": 2903
+    },
+    {
+      "name": "v2-corrupt-and-future-autosave-backup-keeps-original",
+      "status": "pass",
+      "durationMs": 3207
+    },
+    {
+      "name": "v2-all36-single-catalog-identity-and-real-world-render",
+      "status": "pass",
+      "durationMs": 648,
+      "details": {
+        "types": 36,
+        "screenshot": "browser-v2-all36-deployment-dist.png"
+      }
+    },
+    {
+      "name": "v2-touch-320-add-both-erase-undo-pan-second-finger-cancel",
+      "status": "pass",
+      "durationMs": 720
+    },
+    {
+      "name": "v2-touch-375-add-both-erase-undo-pan-second-finger-cancel",
+      "status": "pass",
+      "durationMs": 935
+    },
+    {
+      "name": "v2-DPR2-world-preview-and-two-team-placement",
+      "status": "pass",
+      "durationMs": 923,
+      "details": {
+        "dpr": 2,
+        "screenshot": "browser-v2-DPR2-forbidden-dist.png"
+      }
+    },
+    {
+      "name": "v2-real-tab-background-pauses-and-return-stays-paused",
+      "status": "skipped",
+      "durationMs": 1211,
+      "details": {
+        "skipped": true,
+        "reason": "Browser page surfaces stayed visible despite bringToFront; actual background lifecycle is not established by this environment.",
+        "visibility": {
+          "hidden": false,
+          "state": "visible"
+        }
+      }
+    },
+    {
+      "name": "console-and-request-health",
+      "status": "pass",
+      "durationMs": 0
+    }
+  ],
+  "captures": [
+    {
+      "name": "desktop-initial",
+      "filename": "browser-desktop-initial-dist.png",
+      "status": "pass",
+      "durationMs": 312
+    },
+    {
+      "name": "mixed-deployment",
+      "filename": "browser-mixed-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 324
+    },
+    {
+      "name": "preset-escaped-name",
+      "filename": "browser-preset-escaped-name-dist.png",
+      "status": "pass",
+      "durationMs": 111
+    },
+    {
+      "name": "paused-battle",
+      "filename": "browser-paused-battle-dist.png",
+      "status": "pass",
+      "durationMs": 221
+    },
+    {
+      "name": "battle-result",
+      "filename": "browser-battle-result-dist.png",
+      "status": "pass",
+      "durationMs": 316
+    },
+    {
+      "name": "320x568-initial",
+      "filename": "browser-320x568-initial-dist.png",
+      "status": "pass",
+      "durationMs": 23
+    },
+    {
+      "name": "320x568-deployment",
+      "filename": "browser-320x568-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 57
+    },
+    {
+      "name": "320x568-result",
+      "filename": "browser-320x568-result-dist.png",
+      "status": "pass",
+      "durationMs": 54
+    },
+    {
+      "name": "375x812-initial",
+      "filename": "browser-375x812-initial-dist.png",
+      "status": "pass",
+      "durationMs": 36
+    },
+    {
+      "name": "375x812-deployment",
+      "filename": "browser-375x812-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 84
+    },
+    {
+      "name": "375x812-result",
+      "filename": "browser-375x812-result-dist.png",
+      "status": "pass",
+      "durationMs": 69
+    },
+    {
+      "name": "768x1024-initial",
+      "filename": "browser-768x1024-initial-dist.png",
+      "status": "pass",
+      "durationMs": 40
+    },
+    {
+      "name": "768x1024-deployment",
+      "filename": "browser-768x1024-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 75
+    },
+    {
+      "name": "768x1024-result",
+      "filename": "browser-768x1024-result-dist.png",
+      "status": "pass",
+      "durationMs": 83
+    },
+    {
+      "name": "1366x768-initial",
+      "filename": "browser-1366x768-initial-dist.png",
+      "status": "pass",
+      "durationMs": 54
+    },
+    {
+      "name": "1366x768-deployment",
+      "filename": "browser-1366x768-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 162
+    },
+    {
+      "name": "1366x768-result",
+      "filename": "browser-1366x768-result-dist.png",
+      "status": "pass",
+      "durationMs": 159
+    },
+    {
+      "name": "1920x1080-initial",
+      "filename": "browser-1920x1080-initial-dist.png",
+      "status": "pass",
+      "durationMs": 80
+    },
+    {
+      "name": "1920x1080-deployment",
+      "filename": "browser-1920x1080-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 145
+    },
+    {
+      "name": "1920x1080-result",
+      "filename": "browser-1920x1080-result-dist.png",
+      "status": "pass",
+      "durationMs": 214
+    },
+    {
+      "name": "3840x2160-initial",
+      "filename": "browser-3840x2160-initial-dist.png",
+      "status": "pass",
+      "durationMs": 244
+    },
+    {
+      "name": "3840x2160-deployment",
+      "filename": "browser-3840x2160-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 753
+    },
+    {
+      "name": "3840x2160-result",
+      "filename": "browser-3840x2160-result-dist.png",
+      "status": "pass",
+      "durationMs": 1090
+    },
+    {
+      "name": "role-search-regression",
+      "filename": "browser-role-search-regression-dist.png",
+      "status": "pass",
+      "durationMs": 92
+    },
+    {
+      "name": "keyboard-follow-regression",
+      "filename": "browser-keyboard-follow-regression-dist.png",
+      "status": "pass",
+      "durationMs": 789
+    },
+    {
+      "name": "v2-forbidden-preview",
+      "filename": "browser-v2-forbidden-preview-dist.png",
+      "status": "pass",
+      "durationMs": 137
+    },
+    {
+      "name": "v2-legacy-readonly",
+      "filename": "browser-v2-legacy-readonly-dist.png",
+      "status": "pass",
+      "durationMs": 273
+    },
+    {
+      "name": "v2-catalog-classical",
+      "filename": "browser-v2-catalog-classical-dist.png",
+      "status": "pass",
+      "durationMs": 132
+    },
+    {
+      "name": "v2-catalog-modern",
+      "filename": "browser-v2-catalog-modern-dist.png",
+      "status": "pass",
+      "durationMs": 78
+    },
+    {
+      "name": "v2-catalog-fantasy",
+      "filename": "browser-v2-catalog-fantasy-dist.png",
+      "status": "pass",
+      "durationMs": 60
+    },
+    {
+      "name": "v2-catalog-beasts",
+      "filename": "browser-v2-catalog-beasts-dist.png",
+      "status": "pass",
+      "durationMs": 59
+    },
+    {
+      "name": "v2-catalog-scifi",
+      "filename": "browser-v2-catalog-scifi-dist.png",
+      "status": "pass",
+      "durationMs": 67
+    },
+    {
+      "name": "v2-catalog-weird",
+      "filename": "browser-v2-catalog-weird-dist.png",
+      "status": "pass",
+      "durationMs": 59
+    },
+    {
+      "name": "v2-all36-deployment",
+      "filename": "browser-v2-all36-deployment-dist.png",
+      "status": "pass",
+      "durationMs": 55
+    },
+    {
+      "name": "v2-touch-320-modes",
+      "filename": "browser-v2-touch-320-modes-dist.png",
+      "status": "pass",
+      "durationMs": 59
+    },
+    {
+      "name": "v2-touch-375-modes",
+      "filename": "browser-v2-touch-375-modes-dist.png",
+      "status": "pass",
+      "durationMs": 52
+    },
+    {
+      "name": "v2-DPR2-forbidden",
+      "filename": "browser-v2-DPR2-forbidden-dist.png",
+      "status": "pass",
+      "durationMs": 155
+    }
+  ],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    "browser-desktop-initial-dist.png",
+    "browser-mixed-deployment-dist.png",
+    "browser-preset-escaped-name-dist.png",
+    "browser-paused-battle-dist.png",
+    "browser-battle-result-dist.png",
+    "browser-320x568-initial-dist.png",
+    "browser-320x568-deployment-dist.png",
+    "browser-320x568-result-dist.png",
+    "browser-375x812-initial-dist.png",
+    "browser-375x812-deployment-dist.png",
+    "browser-375x812-result-dist.png",
+    "browser-768x1024-initial-dist.png",
+    "browser-768x1024-deployment-dist.png",
+    "browser-768x1024-result-dist.png",
+    "browser-1366x768-initial-dist.png",
+    "browser-1366x768-deployment-dist.png",
+    "browser-1366x768-result-dist.png",
+    "browser-1920x1080-initial-dist.png",
+    "browser-1920x1080-deployment-dist.png",
+    "browser-1920x1080-result-dist.png",
+    "browser-3840x2160-initial-dist.png",
+    "browser-3840x2160-deployment-dist.png",
+    "browser-3840x2160-result-dist.png",
+    "browser-role-search-regression-dist.png",
+    "browser-keyboard-follow-regression-dist.png",
+    "browser-v2-forbidden-preview-dist.png",
+    "browser-v2-legacy-readonly-dist.png",
+    "browser-v2-catalog-classical-dist.png",
+    "browser-v2-catalog-modern-dist.png",
+    "browser-v2-catalog-fantasy-dist.png",
+    "browser-v2-catalog-beasts-dist.png",
+    "browser-v2-catalog-scifi-dist.png",
+    "browser-v2-catalog-weird-dist.png",
+    "browser-v2-all36-deployment-dist.png",
+    "browser-v2-touch-320-modes-dist.png",
+    "browser-v2-touch-375-modes-dist.png",
+    "browser-v2-DPR2-forbidden-dist.png"
+  ],
+  "browserVersion": "151.0.7922.34",
+  "summary": {
+    "pass": 73,
+    "fail": 0,
+    "skipped": 1,
+    "total": 74,
+    "capturesPassed": 37,
+    "capturesFailed": 0
+  },
+  "completedAt": "2026-10-13T04:28:30.344Z"
+}

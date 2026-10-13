@@ -6,7 +6,7 @@ const TAU = Math.PI * 2;
 const PAPER = '#edf0e6';
 const FIELD = '#111c20';
 const isGroundEffect = kind => kind === 'gravity' || kind === 'summon' || kind === 'heal';
-const IMPORTANT_EFFECTS = new Set(['laser', 'explosion', 'shockwave', 'roar', 'gravity', 'fire', 'blink']);
+const IMPORTANT_EFFECTS = new Set(['laser', 'explosion', 'shockwave', 'roar', 'gravity', 'fire', 'blink', 'heal', 'summon', 'ice']);
 const getDef = unit => unit.def ?? UNIT_MAP[unit.type] ?? SUMMON_DEFS[unit.type];
 const valid = value => Number.isFinite(value);
 function visible(x, y, radius, bounds) {
@@ -186,7 +186,7 @@ export class Renderer {
     c.setLineDash([]);
     if (invalid) strokeLine(c, unit.x - radius * .7, unit.y + radius * .7, unit.x + radius * .7, unit.y - radius * .7, '#facc65', 1.4 / cam.zoom);
     if(showLabel){
-    const label=invalid ? (unit.reason || unit.message || '此处不可放置') : unit.team==='blue' ? '放置蓝军 ◇' : '放置红军 ●';
+    const label=invalid ? (unit.reason || unit.message || '此处不可放置') : unit.team==='blue' ? '放置蓝军 ■' : '放置红军 ●';
     c.font=`600 ${12 / cam.zoom}px system-ui, sans-serif`;c.textAlign='center';
     const labelWidth=c.measureText(label).width+18/cam.zoom;
     const labelX=Math.max(bounds.left+labelWidth/2+8/cam.zoom,Math.min(bounds.right-labelWidth/2-8/cam.zoom,unit.x));
@@ -297,6 +297,16 @@ export class Renderer {
     c.restore();
     this.metrics.drawnUnits++;
     if (dead) return;
+    // Close observation has a second team channel; preserve authored silhouettes.
+    if ((z >= .85 && radius * z >= 7 && level !== 'low') || selected) {
+      const x = unit.x - radius - 4 / z, y = unit.y - radius - 3 / z;
+      c.fillStyle = team;
+      if (unit.team === 'blue') c.fillRect(x - 2 / z, y - 2 / z, 4 / z, 4 / z);
+      else dot(c, x, y, 2.3 / z, team);
+    }
+    if (unit.summoned && (radius * z >= 4 || selected)) {
+      c.setLineDash([3 / z, 3 / z]); circle(c, unit.x, unit.y, radius + 3 / z, team, 1 / z); c.setLineDash([]);
+    }
     if (battle && unit.status) this._status(c, unit, radius, time, level);
     if (battle && (selected || (showHealth && (radius * z >= 4.2 || radius >= 24))) && unit.hp < (unit.maxHp ?? def.hp)) {
       const size = Math.max(13 / z, radius * 1.6), height = Math.max(2 / z, 2.4);
@@ -338,7 +348,17 @@ export class Renderer {
       c.beginPath(); c.moveTo(unit.x - radius * .38, unit.y - radius * .45); c.lineTo(unit.x, unit.y - radius * (1.4 + pulse * .2)); c.lineTo(unit.x + radius * .3, unit.y - radius * .55);
       c.strokeStyle = '#ffbd73'; c.lineWidth = 1.25 / z; c.stroke(); c.globalAlpha = 1;
     }
-    if (level === 'low') return;
+    if (level === 'low') {
+      // Controls are gameplay information, even when ornamental stars are culled.
+      if (s.stun > 0 || s.knockdown > 0) {
+        const y = unit.y - radius - 4 / z;
+        strokeLine(c, unit.x - 3 / z, y, unit.x + 3 / z, y, '#eadb93', 1.5 / z);
+      }
+      if (s.fear > 0) {
+        c.setLineDash([3 / z, 3 / z]); circle(c, unit.x, unit.y, radius + 2 / z, '#cbb6ed', 1 / z); c.setLineDash([]);
+      }
+      return;
+    }
     if (s.stun > 0 || s.knockdown > 0) {
       const a = time * 4 + unit.id;
       for (let i = 0; i < 3; i++) {

@@ -1,0 +1,349 @@
+{
+  "baseline": "d8e33c47aa9eb92c51ff98643976b8870761b162",
+  "browser": "151.0.7922.34",
+  "renderer": "ANGLE (AMD, AMD Radeon RX 7900 XT (0x0000744C) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "environmentMatches": true,
+  "repetitions": 3,
+  "secondsPerScene": 12,
+  "rows": [
+    {
+      "name": "1-vs-1",
+      "before": {
+        "fpsMean": 59.781238645805026,
+        "fpsRange": [
+          59.75302084716506,
+          59.83650773891033
+        ],
+        "onePercentLowMean": 44.88067032332503,
+        "p95FrameMsMean": 16.733333333333576,
+        "maxFrameMs": 50.10000000000002,
+        "actualSpeedRange": [
+          1.0026190297642337,
+          1.0031133975990632
+        ],
+        "unitsStart": 2,
+        "unitsEndRange": [
+          2,
+          2
+        ],
+        "minAlive": 2,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 59.83617668223493,
+        "fpsRange": [
+          59.83601115389722,
+          59.83650773891033
+        ],
+        "onePercentLowMean": 47.742195941531655,
+        "p95FrameMsMean": 16.766666666666424,
+        "maxFrameMs": 50,
+        "actualSpeedRange": [
+          1.0023350797844552,
+          1.002635737714686
+        ],
+        "unitsStart": 2,
+        "unitsEndRange": [
+          2,
+          2
+        ],
+        "minAlive": 2,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": 0.09189845790149587
+    },
+    {
+      "name": "10-vs-10",
+      "before": {
+        "fpsMean": 60.002553508389234,
+        "fpsRange": [
+          60.00233018758009,
+          60.00300015000751
+        ],
+        "onePercentLowMean": 59.523809523803514,
+        "p95FrameMsMean": 16.733333333333576,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.99852790045274,
+          0.9991257649556637
+        ],
+        "unitsStart": 20,
+        "unitsEndRange": [
+          17,
+          17
+        ],
+        "minAlive": 17,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 60.002666786116514,
+        "fpsRange": [
+          60.002500104171006,
+          60.00300015000751
+        ],
+        "onePercentLowMean": 59.52380952380432,
+        "p95FrameMsMean": 16.700000000000728,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.9981286822476528,
+          0.9983532032001603
+        ],
+        "unitsStart": 20,
+        "unitsEndRange": [
+          17,
+          17
+        ],
+        "minAlive": 17,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": 0.00018878817760192845
+    },
+    {
+      "name": "100-vs-100",
+      "before": {
+        "fpsMean": 60.00238682644373,
+        "fpsRange": [
+          60.00233018758009,
+          60.002500104171006
+        ],
+        "onePercentLowMean": 59.52380952379921,
+        "p95FrameMsMean": 16.733333333334787,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.9983615207309283,
+          0.9987598731576199
+        ],
+        "unitsStart": 200,
+        "unitsEndRange": [
+          111,
+          111
+        ],
+        "minAlive": 111,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 60.00244346530737,
+        "fpsRange": [
+          60.002330187580114,
+          60.002500104171006
+        ],
+        "onePercentLowMean": 59.52380952379921,
+        "p95FrameMsMean": 16.700000000004366,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.998536220894668,
+          0.9991174462556833
+        ],
+        "unitsStart": 200,
+        "unitsEndRange": [
+          111,
+          111
+        ],
+        "minAlive": 111,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": 0.00009439435102454041
+    },
+    {
+      "name": "300-vs-300",
+      "before": {
+        "fpsMean": 60.00249664016974,
+        "fpsRange": [
+          60.00183084643362,
+          60.00282953703782
+        ],
+        "onePercentLowMean": 59.52380952379921,
+        "p95FrameMsMean": 16.766666666665213,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.9989178390077417,
+          0.9991756800640712
+        ],
+        "unitsStart": 600,
+        "unitsEndRange": [
+          266,
+          266
+        ],
+        "minAlive": 266,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 59.80798167304542,
+        "fpsRange": [
+          59.58622526256223,
+          59.91910920257654
+        ],
+        "onePercentLowMean": 47.60926228512448,
+        "p95FrameMsMean": 16.766666666665213,
+        "maxFrameMs": 33.400000000001455,
+        "actualSpeedRange": [
+          0.9990009990009989,
+          0.9995169001651684
+        ],
+        "unitsStart": 600,
+        "unitsEndRange": [
+          266,
+          266
+        ],
+        "minAlive": 266,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": -0.32417812260514545
+    },
+    {
+      "name": "500-vs-500",
+      "before": {
+        "fpsMean": 59.9193872330761,
+        "fpsRange": [
+          59.919055256837495,
+          59.91955322119542
+        ],
+        "onePercentLowMean": 53.00353873813061,
+        "p95FrameMsMean": 16.73333333333964,
+        "maxFrameMs": 33.400000000001455,
+        "actualSpeedRange": [
+          1.0000554815801153,
+          1.0005884181548619
+        ],
+        "unitsStart": 1000,
+        "unitsEndRange": [
+          352,
+          352
+        ],
+        "minAlive": 352,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 59.891685174259074,
+        "fpsRange": [
+          59.83644704474439,
+          59.919553221195386
+        ],
+        "onePercentLowMean": 51.25218945406766,
+        "p95FrameMsMean": 16.799999999995634,
+        "maxFrameMs": 33.400000000001455,
+        "actualSpeedRange": [
+          1.0003385334286645,
+          1.0007134073388109
+        ],
+        "unitsStart": 1000,
+        "unitsEndRange": [
+          352,
+          352
+        ],
+        "minAlive": 352,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": -0.0462322131387527
+    },
+    {
+      "name": "600-vs-600",
+      "before": {
+        "fpsMean": 59.91938723307612,
+        "fpsRange": [
+          59.91905525683753,
+          59.91955322119546
+        ],
+        "onePercentLowMean": 53.00353873813231,
+        "p95FrameMsMean": 16.733333333337214,
+        "maxFrameMs": 33.39999999999418,
+        "actualSpeedRange": [
+          1.0000055478814829,
+          1.0000970968055152
+        ],
+        "unitsStart": 1200,
+        "unitsEndRange": [
+          489,
+          489
+        ],
+        "minAlive": 489,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 59.91958941862066,
+        "fpsRange": [
+          59.91910920257654,
+          59.92005119383016
+        ],
+        "onePercentLowMean": 53.01524188203291,
+        "p95FrameMsMean": 16.766666666667636,
+        "maxFrameMs": 33.30000000000291,
+        "actualSpeedRange": [
+          0.9996417950236981,
+          1.0003052248952522
+        ],
+        "unitsStart": 1200,
+        "unitsEndRange": [
+          489,
+          490
+        ],
+        "minAlive": 489,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": 0.0003374292593338879
+    },
+    {
+      "name": "extreme-effects",
+      "before": {
+        "fpsMean": 59.94701574987064,
+        "fpsRange": [
+          59.91910920257654,
+          60.002330187580114
+        ],
+        "onePercentLowMean": 55.149670488172234,
+        "p95FrameMsMean": 16.70000000001164,
+        "maxFrameMs": 33.5,
+        "actualSpeedRange": [
+          0.9989095237697606,
+          0.999258882994616
+        ],
+        "unitsStart": 240,
+        "unitsEndRange": [
+          241,
+          241
+        ],
+        "minAlive": 240,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "after": {
+        "fpsMean": 60.00216374053127,
+        "fpsRange": [
+          60.00183084643358,
+          60.002330187580114
+        ],
+        "onePercentLowMean": 59.52380952379921,
+        "p95FrameMsMean": 16.766666666667636,
+        "maxFrameMs": 16.80000000000291,
+        "actualSpeedRange": [
+          0.9988513209811198,
+          0.999808370062653
+        ],
+        "unitsStart": 240,
+        "unitsEndRange": [
+          241,
+          241
+        ],
+        "minAlive": 240,
+        "gapsOver100ms": 0,
+        "gapsOver250ms": 0
+      },
+      "fpsChangePercent": 0.09199455547668212
+    }
+  ],
+  "minimumGates": true,
+  "averageFPSRegressionsOver5Percent": [],
+  "note": "One-percent low is the per-run worst-one-percent frame statistic averaged across 3 runs; counts vary with natural deaths and summons."
+}

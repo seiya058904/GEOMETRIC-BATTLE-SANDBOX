@@ -1,0 +1,70 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "name": "return restores category, search, selected type, tool and camera",
+      "pass": true,
+      "view": {
+        "category": "modern",
+        "search": "枪",
+        "type": "rifleman",
+        "tool": "pan",
+        "scroll": 0,
+        "camera": {
+          "x": 1200,
+          "y": 665,
+          "zoom": 0.8681384248210023
+        }
+      }
+    },
+    {
+      "name": "real WebAudio unlock, pause silence, settings mute and volume, voice cap",
+      "pass": true,
+      "audio": {
+        "state": "running",
+        "volume": 0.24,
+        "cap": 10
+      },
+      "maxVoicesObserved": 3
+    },
+    {
+      "name": "visual-before-high",
+      "pass": true,
+      "tick": 420,
+      "active": 57,
+      "effects": 21,
+      "quality": "high",
+      "zoom": 1
+    },
+    {
+      "name": "visual-before-low",
+      "pass": true,
+      "tick": 420,
+      "active": 57,
+      "effects": 21,
+      "quality": "low",
+      "zoom": 1
+    },
+    {
+      "name": "visual-after-high",
+      "pass": true,
+      "tick": 420,
+      "active": 57,
+      "effects": 21,
+      "quality": "high",
+      "zoom": 1
+    },
+    {
+      "name": "visual-after-low",
+      "pass": true,
+      "tick": 420,
+      "active": 57,
+      "effects": 21,
+      "quality": "low",
+      "zoom": 1
+    }
+  ],
+  "visualMethod": "Same default army, 420 fixed steps, 900x600 canvas, zoom 1; controlled visual fixture, not a natural-RAF performance test.",
+  "physicalAudioListening": "NOT VERIFIED",
+  "pass": true
+}

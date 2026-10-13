@@ -1,0 +1,18 @@
+{
+  "filter": "scrollable",
+  "url": "http://127.0.0.1:4185/dist/",
+  "browser": "151.0.7922.34",
+  "cases": [
+    {
+      "name": "scrollable-touch-panel-controls-have-44px-hit-areas",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [],
+  "summary": {
+    "pass": 1,
+    "fail": 0,
+    "errors": 0
+  }
+}

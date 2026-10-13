@@ -1,0 +1,80 @@
+PASS surfaces-320x568
+PASS surfaces-390x844
+FAIL surfaces-768x1024: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     action: 'presets',
++     height: 42,
++     receives: true,
++     width: 48,
++     x: 465,
++     y: 12.5
++   },
++   {
++     action: 'inspector-toggle',
++     height: 42,
++     receives: true,
++     width: 116,
++     x: 635,
++     y: 82
++   }
++ ]
+- []
+
+FAIL surfaces-844x390: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     action: 'random',
++     height: 44,
++     receives: true,
++     width: 44,
++     x: 9,
++     y: 347.5
++   },
++   {
++     action: 'tool-brush',
++     height: 44,
++     receives: true,
++     width: 100,
++     x: 313,
++     y: 347.5
++   },
++   {
++     action: 'tool-erase',
++     height: 44,
++     receives: true,
++     width: 100,
++     x: 419,
++     y: 347.5
++   },
++   {
++     action: 'tool-pan',
++     height: 44,
++     receives: true,
++     width: 100,
++     x: 525,
++     y: 347.5
++   },
++   {
++     action: 'mute',
++     height: 44,
++     receives: true,
++     width: 44,
++     x: 791,
++     y: 347.5
++   }
++ ]
+- []
+
+PASS surfaces-1366x768
+PASS surfaces-1920x1080
+PASS modal-drawer-traps-focus-and-restores-trigger
+PASS idle-cache-invalidates-on-real-input-and-settings
+PASS six-experiments-load-through-UI-and-undo-without-saving-presets
+PASS session-reports-compare-replays-and-stay-bounded
+PASS manual-camera-holds-and-reduced-motion-disables-shake
+{"pass":9,"fail":2,"errors":0}

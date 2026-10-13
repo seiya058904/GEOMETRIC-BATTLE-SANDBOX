@@ -188,14 +188,14 @@ try{
     if(process.env.LONGRUN_SCENE&&!selectedLongScene)throw new Error('Unknown LONGRUN_SCENE.');
     const formation=selectedLongScene?selectedLongScene[1]:battleFormation(100,['swordsman','rifleman','fire_mage','bomb_chicken'],99331);
     report.longRunScene=process.env.LONGRUN_SCENE||'default-100-vs-100';
-    await page.evaluate(({formation,speed,quality,targets,maxSeconds})=>{
+    await page.evaluate(({formation,speed,quality,targets,maxSeconds,returnCycles})=>{
       const a=window.geobattle;a.returnToEditor();const placement=a.editor.setFormation(formation);if(!placement.ok)throw new Error(placement.message);
       a.speed=speed;a.settings.quality=quality;a.settings.autoCamera=false;a.renderer.camera.reset();a.start();
       if(a.mode!=='FIGHTING'||document.hidden)throw new Error('Long run must start with an active foreground battle.');
       const now=performance.now();window.__geobattleLongRun={startWall:now,lastProgressWall:now,lastRAF:null,currentSim:a.sim,lastSimTime:a.sim.time,
         cumulativeSimulationSeconds:0,naturalCompletions:0,replaysStarted:0,completedReplays:0,results:[],firstResultSignature:null,
-        finite:true,failures:[],targets,maxSeconds,requestedSpeed:speed,done:false,passed:false};
-    },{formation,speed:longSpeed,quality:longQuality,targets:longTargets,maxSeconds:longMaxSeconds});
+        finite:true,failures:[],targets,maxSeconds,returnCycles,editorReturns:0,requestedSpeed:speed,done:false,passed:false};
+    },{formation,speed:longSpeed,quality:longQuality,targets:longTargets,maxSeconds:longMaxSeconds,returnCycles:process.env.LONGRUN_RETURN_CYCLES==='1'});
     report.longRun={targets:longTargets,maxWallSeconds:longMaxSeconds,requestedSpeed:longSpeed,requestedQuality:longQuality,passed:false,series:[],memoryMeasurementErrors:[],memoryMethod:'One CDP session / Runtime.getHeapUsage, checkpoint reads only, no forced GC'};
     try{longHeapSession=await context.newCDPSession(page);await longHeapSession.send('Performance.enable');report.longRun.performanceMetricsStart=(await longHeapSession.send('Performance.getMetrics')).metrics;report.longRun.cdpHeapStart={...await longHeapSession.send('Runtime.getHeapUsage'),sampleAtUTC:new Date().toISOString()};}
     catch(error){report.longRun.memoryMeasurementErrors.push(`Initial CDP heap read: ${error.message}`);}
@@ -230,7 +230,7 @@ try{
               else if(signature!==state.firstResultSignature){state.failures.push('Same-seed naturally completed replay changed its result.');state.done=true;finish();return;}
               state.naturalCompletions++;state.completedReplays=Math.max(0,state.naturalCompletions-1);
               state.results.push({index:state.naturalCompletions,wallSeconds:(wall-state.startWall)/1000,duration:result.duration,winner:result.winner,reason:result.reason,tick:a.sim.tick});
-              a.replay(false);state.replaysStarted++;state.currentSim=a.sim;state.lastSimTime=a.sim.time;state.lastProgressWall=wall;
+              if(state.returnCycles && state.naturalCompletions%2===0){const army=JSON.stringify(a.battleFormation);a.returnToEditor();if(JSON.stringify(a.editor.formation)!==army)state.failures.push('Return changed original army.');a.start();state.editorReturns++;}else a.replay(false);if(a.reports?.items.length>2)state.failures.push('Session reports exceeded two entries.');state.replaysStarted++;state.currentSim=a.sim;state.lastSimTime=a.sim.time;state.lastProgressWall=wall;
               if(a.mode!=='FIGHTING')state.failures.push('Natural result could not start its replay.');
             }
             if(wall-state.lastProgressWall>5000)state.failures.push('No genuine simulation-clock progress for over 5 seconds.');
@@ -250,7 +250,7 @@ try{
           actualSpeed:state.cumulativeSimulationSeconds/((wall-state.startWall)/1000),hudLatestWindowSpeed:a.realSpeed,
           simTime:sim?.time??null,mode:a.mode,active:sim?.activeCount??null,entities:sim?.units.length??null,projectiles:sim?.projectiles.length??null,effects:sim?.effects.length??null,
           pooledProjectiles:sim?.projectilePool.length??null,pooledEffects:sim?.effectPool.length??null,heapBytes:performance.memory?.usedJSHeapSize??null,
-          naturalCompletions:state.naturalCompletions,replaysStarted:state.replaysStarted,completedReplays:state.completedReplays,
+          editorReturns:state.editorReturns,naturalCompletions:state.naturalCompletions,replaysStarted:state.replaysStarted,completedReplays:state.completedReplays,
           finite:state.finite,failures:[...state.failures],done:state.done,passed:state.passed,results:[...state.results],
           rawFrameGapsMs,checkpointBoundaryGapMs:rawFrameGapsMs[0]??null,maxFrameGapMs:rawFrameGapsMs.length?Math.max(...rawFrameGapsMs):null,gapsOver250ms:rawFrameGapsMs.filter(g=>g>250).length};
       });
@@ -262,7 +262,7 @@ try{
       report.longRun.series.push(segment);
       if(process.env.PERF_CAPTURE_PREFIX){const path=`${process.env.PERF_CAPTURE_PREFIX}-longrun-${report.longRun.series.length}.png`;await page.locator('#battlefield').screenshot({path});segment.screenshot={path,pixels:await screenshotPixelSummary(path)};}
       Object.assign(report.longRun,{seconds:segment.wallSeconds,cumulativeSimulationSeconds:segment.cumulativeSimulationSeconds,
-        actualSpeed:segment.actualSpeed,naturalCompletions:segment.naturalCompletions,replays:segment.replaysStarted,completedReplays:segment.completedReplays,
+        actualSpeed:segment.actualSpeed,editorReturns:segment.editorReturns,naturalCompletions:segment.naturalCompletions,replays:segment.replaysStarted,completedReplays:segment.completedReplays,
         finite:segment.finite,failures:segment.failures,done:segment.done,passed:segment.passed&&errors.length===0,results:segment.results});
       console.log(JSON.stringify({longrunSegment:report.longRun.series.length,...segment,rawFrameGapsMs:undefined,results:undefined}));
       await checkpoint();

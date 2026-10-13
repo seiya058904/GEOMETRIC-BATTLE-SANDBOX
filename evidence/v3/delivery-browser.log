@@ -1,0 +1,13 @@
+PASS surfaces-320x568
+PASS surfaces-390x844
+PASS surfaces-768x1024
+PASS surfaces-844x390
+PASS surfaces-1366x768
+PASS surfaces-1920x1080
+PASS scrollable-touch-panel-controls-have-44px-hit-areas
+PASS modal-drawer-traps-focus-and-restores-trigger
+PASS idle-cache-invalidates-on-real-input-and-settings
+PASS six-experiments-load-through-UI-and-undo-without-saving-presets
+PASS session-reports-compare-replays-and-stay-bounded
+PASS manual-camera-holds-and-reduced-motion-disables-shake
+{"pass":12,"fail":0,"errors":0}

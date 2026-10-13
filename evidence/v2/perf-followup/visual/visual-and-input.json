@@ -1,0 +1,1474 @@
+{
+  "browser": "151.0.7922.34",
+  "production": true,
+  "device": "Windows headless Chromium / SwiftShader; simulated viewports, not physical devices",
+  "cases": [
+    {
+      "name": "visual-320x568",
+      "pass": true,
+      "initial": {
+        "file": "320x568-initial.png",
+        "sha256": "159e4845e641ca2ec4305bb4c087f5834735e0fca303e14cd873be6edf0fbe0e"
+      },
+      "forbidden": {
+        "file": "320x568-forbidden.png",
+        "sha256": "8ed68a8d88fbb26024c322820a34e1f66adbe3993f878754c20f7a31eb1beea3"
+      },
+      "battle": {
+        "file": "320x568-battle.png",
+        "sha256": "09801ec03e63e8d3a8ae3d66c219bccb54845b9449c0373cc6c1a667ab453e67"
+      },
+      "targets": [
+        {
+          "action": "settings",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 126,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "catalog-toggle",
+          "width": 61,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "presets",
+          "width": 61,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 84,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 97.328125,
+          "height": 53.1875,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 97.34375,
+          "height": 53.1875,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 97.328125,
+          "height": 53.1875,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2,
+        "end": 3,
+        "changed": true
+      }
+    },
+    {
+      "name": "visual-375x812",
+      "pass": true,
+      "initial": {
+        "file": "375x812-initial.png",
+        "sha256": "68f2028aa1f750cb61f98596a38aad1b4efdc57757c64cc78b82785c55d5a960"
+      },
+      "forbidden": {
+        "file": "375x812-forbidden.png",
+        "sha256": "bf4afd91cdc2bf7aca968cd8407583c2c1b4fabe91c1be66c04e0a9853feea61"
+      },
+      "battle": {
+        "file": "375x812-battle.png",
+        "sha256": "a9f76cda19b399f0b69d0a983d3d49c6df039bef29ab2c2b23817598ce220ef5"
+      },
+      "targets": [
+        {
+          "action": "settings",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 138,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "catalog-toggle",
+          "width": 67,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "presets",
+          "width": 67,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 88,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 115.65625,
+          "height": 58.1875,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 115.671875,
+          "height": 58.1875,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 115.671875,
+          "height": 58.1875,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2,
+        "end": 3,
+        "changed": true
+      }
+    },
+    {
+      "name": "visual-768x1024",
+      "pass": true,
+      "initial": {
+        "file": "768x1024-initial.png",
+        "sha256": "ab3224446a6ada76c985b4475078df13049e70dedb2f947b50155a0a2f21c00a"
+      },
+      "forbidden": {
+        "file": "768x1024-forbidden.png",
+        "sha256": "f9d3aa822fbbb31008979e754786751318da05bcf672391e851700c7e623e061"
+      },
+      "battle": {
+        "file": "768x1024-battle.png",
+        "sha256": "390ce35aa8111055c3404e4d081c18ab51217f510bb062dd4264feed50f5a501"
+      },
+      "targets": [
+        {
+          "action": "presets",
+          "width": 48,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "settings",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 136,
+          "height": 46,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.65625,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.671875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.65625,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.65625,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.671875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 65.65625,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 235,
+          "height": 72,
+          "receives": true
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 116,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "reset-camera",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 46,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 88,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 88,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 88,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2,
+        "end": 3,
+        "changed": true
+      }
+    },
+    {
+      "name": "visual-1366x768",
+      "pass": true,
+      "initial": {
+        "file": "1366x768-initial.png",
+        "sha256": "74f62e07e113d1f1f212b54a38107913b902f0d47b853e53a118b4db601df635"
+      },
+      "forbidden": {
+        "file": "1366x768-forbidden.png",
+        "sha256": "e58d0c82e467313f645c997ca43ca6a70caad54bd39bddd9fa9cc701d5fd7cfc"
+      },
+      "battle": {
+        "file": "1366x768-battle.png",
+        "sha256": "dfb4f3a363974e8a745b2a94bd1a157000279b0c1d51577e7e83947ae59b5e7f"
+      },
+      "targets": [
+        {
+          "action": "presets",
+          "width": 108,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "settings",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 154,
+          "height": 46,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 87.171875,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 299.515625,
+          "height": 72,
+          "receives": false
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 116,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "reset-camera",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 102,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2,
+        "end": 3,
+        "changed": true
+      }
+    },
+    {
+      "name": "visual-1920x1080",
+      "pass": true,
+      "initial": {
+        "file": "1920x1080-initial.png",
+        "sha256": "c3f3bb34cab7876659ae4341d22bfaa0923b6771590ce51a99980b6c2fa73dc9"
+      },
+      "forbidden": {
+        "file": "1920x1080-forbidden.png",
+        "sha256": "c3a8ec3dcb4b6c46e17b44c081c90854dd88cf40af988b04b76285f9b63d1e71"
+      },
+      "battle": {
+        "file": "1920x1080-battle.png",
+        "sha256": "89379bb4a2e1a977a428ab8683dd008294eac92212361f2a80071d6ac6c29bd6"
+      },
+      "targets": [
+        {
+          "action": "presets",
+          "width": 108,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "settings",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 154,
+          "height": 46,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.34375,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.34375,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 72,
+          "receives": true
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 116,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "reset-camera",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 102,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2.0166666666666666,
+        "end": 3.0166666666666666,
+        "changed": true
+      }
+    },
+    {
+      "name": "visual-3840x2160",
+      "pass": true,
+      "initial": {
+        "file": "3840x2160-initial.png",
+        "sha256": "d87f9432e9af8e9b1114ce7344a9afbb326aa216b1e7f5f0b14f34bbf765d408"
+      },
+      "forbidden": {
+        "file": "3840x2160-forbidden.png",
+        "sha256": "f4bf784eab591008a022b896cb357ad693a544f27aba15d17b7c603fa34ee5ed"
+      },
+      "battle": {
+        "file": "3840x2160-battle.png",
+        "sha256": "3ba443e8c597d67e7b85a1f7100a8917c4aa9bd6c957bb1fb6a70ef50e9765e9"
+      },
+      "targets": [
+        {
+          "action": "presets",
+          "width": 108,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "settings",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "help",
+          "width": 42,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "start",
+          "width": 154,
+          "height": 46,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.34375,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.328125,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "category",
+          "width": 88.34375,
+          "height": 38,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 73.765625,
+          "receives": true
+        },
+        {
+          "action": "unit",
+          "width": 303,
+          "height": 72,
+          "receives": true
+        },
+        {
+          "action": "inspector-toggle",
+          "width": 116,
+          "height": 42,
+          "receives": true
+        },
+        {
+          "action": "zoom-out",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "zoom-in",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "fit",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "reset-camera",
+          "width": 38,
+          "height": 40,
+          "receives": true
+        },
+        {
+          "action": "random",
+          "width": 102,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "undo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "redo",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        },
+        {
+          "action": "tool-brush",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-erase",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "tool-pan",
+          "width": 108,
+          "height": 48,
+          "receives": true
+        },
+        {
+          "action": "mute",
+          "width": 44,
+          "height": 44,
+          "receives": true
+        }
+      ],
+      "motion": {
+        "start": 2.05,
+        "end": 3.0666666666666664,
+        "changed": true
+      }
+    },
+    {
+      "name": "all36-natural-mechanism-observation",
+      "pass": true,
+      "types": [
+        "peasant",
+        "swordsman",
+        "shield_guard",
+        "pikeman",
+        "archer",
+        "rifleman",
+        "shotgunner",
+        "machine_gunner",
+        "sniper",
+        "rocketeer",
+        "tank",
+        "fire_mage",
+        "frost_mage",
+        "healer",
+        "necromancer",
+        "giant",
+        "dragon",
+        "wolf",
+        "raptor",
+        "rhino",
+        "gorilla",
+        "mammoth",
+        "trex",
+        "robot",
+        "laser_trooper",
+        "drone",
+        "mech",
+        "ufo",
+        "bomb_chicken",
+        "boxing_kangaroo",
+        "boomerang_thrower",
+        "gravity_orb",
+        "jester",
+        "cavalry",
+        "spring_monster",
+        "skeleton"
+      ],
+      "effects": [
+        "muzzle",
+        "impact",
+        "summon",
+        "explosion",
+        "fire",
+        "roar",
+        "gravity",
+        "charge",
+        "shockwave",
+        "blink",
+        "death",
+        "stab",
+        "heal",
+        "slash",
+        "laser",
+        "ice"
+      ],
+      "crossings": [
+        {
+          "id": 65,
+          "type": "blink_alien",
+          "team": "blue",
+          "x": 1187.8853548445225,
+          "time": 2.8666666666666667
+        },
+        {
+          "id": 29,
+          "type": "blink_alien",
+          "team": "red",
+          "x": 1203.775544846822,
+          "time": 3.1
+        },
+        {
+          "id": 33,
+          "type": "spring_monster",
+          "team": "red",
+          "x": 1202.1396447009558,
+          "time": 4.166666666666667
+        },
+        {
+          "id": 57,
+          "type": "rhino",
+          "team": "blue",
+          "x": 1199.4076860911885,
+          "time": 4.65
+        },
+        {
+          "id": 42,
+          "type": "cavalry",
+          "team": "blue",
+          "x": 1197.5940172056241,
+          "time": 4.733333333333333
+        },
+        {
+          "id": 69,
+          "type": "spring_monster",
+          "team": "blue",
+          "x": 1195.6588753469268,
+          "time": 5.133333333333333
+        },
+        {
+          "id": 56,
+          "type": "raptor",
+          "team": "blue",
+          "x": 1199.923729111465,
+          "time": 5.716666666666667
+        },
+        {
+          "id": 22,
+          "type": "gorilla",
+          "team": "red",
+          "x": 1200.687716598408,
+          "time": 6.15
+        },
+        {
+          "id": 67,
+          "type": "bomb_chicken",
+          "team": "blue",
+          "x": 1194.068992907988,
+          "time": 6.15
+        }
+      ],
+      "time": 8.45,
+      "active": 58,
+      "summoned": 8,
+      "initialTypes": [
+        "peasant",
+        "swordsman",
+        "shield_guard",
+        "pikeman",
+        "archer",
+        "cavalry",
+        "rifleman",
+        "shotgunner",
+        "machine_gunner",
+        "sniper",
+        "rocketeer",
+        "tank",
+        "fire_mage",
+        "frost_mage",
+        "healer",
+        "necromancer",
+        "giant",
+        "dragon",
+        "wolf",
+        "raptor",
+        "rhino",
+        "gorilla",
+        "mammoth",
+        "trex",
+        "robot",
+        "laser_trooper",
+        "drone",
+        "mech",
+        "blink_alien",
+        "ufo",
+        "bomb_chicken",
+        "boxing_kangaroo",
+        "spring_monster",
+        "boomerang_thrower",
+        "gravity_orb",
+        "jester"
+      ],
+      "screenshot": {
+        "file": "all36-real-battle.png",
+        "sha256": "104c28c1b2a1ffdc45d9f6349bd9fa4b68eec516fe96c599604c23f519c8155d"
+      }
+    },
+    {
+      "name": "1200-deployment-trusted-input-latency",
+      "pass": true,
+      "count": 1198,
+      "latency": [
+        {
+          "event": "input",
+          "inputToNextRAFMs": 8
+        },
+        {
+          "event": "keydown",
+          "inputToNextRAFMs": 3.399999998509884
+        },
+        {
+          "event": "input",
+          "inputToNextRAFMs": 2.899999998509884
+        },
+        {
+          "event": "pointerdown",
+          "inputToNextRAFMs": 11.5
+        },
+        {
+          "event": "pointerdown",
+          "inputToNextRAFMs": 6.9000000059604645
+        },
+        {
+          "event": "pointerdown",
+          "inputToNextRAFMs": 5.299999997019768
+        },
+        {
+          "event": "pointerdown",
+          "inputToNextRAFMs": 5.299999997019768
+        }
+      ],
+      "eventTiming": [
+        {
+          "name": "pointerover",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "mouseover",
+          "duration": 24,
+          "processingDelay": 0.5
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24,
+          "processingDelay": 0.6999999955296516
+        },
+        {
+          "name": "mousedown",
+          "duration": 24,
+          "processingDelay": 1
+        },
+        {
+          "name": "pointerup",
+          "duration": 24,
+          "processingDelay": 1.1000000014901161
+        },
+        {
+          "name": "mouseup",
+          "duration": 24,
+          "processingDelay": 1.1000000014901161
+        },
+        {
+          "name": "click",
+          "duration": 24,
+          "processingDelay": 1.1000000014901161
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24,
+          "processingDelay": 0
+        },
+        {
+          "name": "input",
+          "duration": 24,
+          "processingDelay": 0.19999999552965164
+        },
+        {
+          "name": "keydown",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24,
+          "processingDelay": 0
+        },
+        {
+          "name": "input",
+          "duration": 24,
+          "processingDelay": 0.10000000149011612
+        },
+        {
+          "name": "keyup",
+          "duration": 16,
+          "processingDelay": 8.299999997019768
+        },
+        {
+          "name": "pointerout",
+          "duration": 32,
+          "processingDelay": 14.799999997019768
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32,
+          "processingDelay": 14.799999997019768
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerover",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "mouseout",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "mouseover",
+          "duration": 32,
+          "processingDelay": 15
+        },
+        {
+          "name": "pointerdown",
+          "duration": 32,
+          "processingDelay": 15.100000001490116
+        },
+        {
+          "name": "mousedown",
+          "duration": 32,
+          "processingDelay": 15.600000001490116
+        },
+        {
+          "name": "pointerup",
+          "duration": 32,
+          "processingDelay": 15.699999995529652
+        },
+        {
+          "name": "mouseup",
+          "duration": 32,
+          "processingDelay": 15.699999995529652
+        },
+        {
+          "name": "click",
+          "duration": 32,
+          "processingDelay": 15.699999995529652
+        },
+        {
+          "name": "pointerout",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerover",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "mouseout",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "mouseover",
+          "duration": 24,
+          "processingDelay": 0.20000000298023224
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24,
+          "processingDelay": 0.29999999701976776
+        },
+        {
+          "name": "mousedown",
+          "duration": 24,
+          "processingDelay": 0.7000000029802322
+        },
+        {
+          "name": "pointerup",
+          "duration": 24,
+          "processingDelay": 0.6999999955296516
+        },
+        {
+          "name": "mouseup",
+          "duration": 24,
+          "processingDelay": 0.6999999955296516
+        },
+        {
+          "name": "click",
+          "duration": 24,
+          "processingDelay": 0.6999999955296516
+        }
+      ],
+      "limitation": "Input to next RAF and browser EventTiming are recorded; neither is a physical photon measurement."
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

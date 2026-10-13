@@ -23,6 +23,20 @@ function dot(ctx, x, y, radius, color) {
   ctx.beginPath(); ctx.arc(x, y, Math.max(.01, radius), 0, TAU); ctx.fillStyle = color; ctx.fill();
 }
 
+/** Keep every painted pixel, including faint antialiasing and a filter margin. */
+export function spriteBounds({ data, width, height }, padding = 2) {
+  let left = width, top = height, right = -1, bottom = -1;
+  for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+    if (!data[(y * width + x) * 4 + 3]) continue;
+    left = Math.min(left, x); right = Math.max(right, x);
+    top = Math.min(top, y); bottom = Math.max(bottom, y);
+  }
+  if (right < 0) return { x: 0, y: 0, width, height };
+  left = Math.max(0, left - padding); top = Math.max(0, top - padding);
+  right = Math.min(width - 1, right + padding); bottom = Math.min(height - 1, bottom + padding);
+  return { x: left, y: top, width: right - left + 1, height: bottom - top + 1 };
+}
+
 /** A read-only projection of the simulation. The owner supplies the single requestAnimationFrame. */
 export class Renderer {
   constructor(canvas) {
@@ -274,7 +288,11 @@ export class Renderer {
       // Real positions, aim, impacts, status, health and collision never come from the atlas.
       // Two poses preserve an attack tell while avoiding thousands of repeated paths.
       const sprite = this._unitSprite(unit, def);
-      c.drawImage(sprite, -4, -4, 8, 8);
+      const crop = sprite._crop;
+      // Preserve the original 16 pixels / radius and exact local coordinates.
+      // Transparent margins otherwise incur large rotated raster bounds per soldier.
+      c.drawImage(sprite, crop.x, crop.y, crop.width, crop.height,
+        crop.x / 16 - 4, crop.y / 16 - 4, crop.width / 16, crop.height / 16);
     } else paintUnit(c, unit, def, time, level !== 'low' && radius * z > 3.8);
     c.restore();
     this.metrics.drawnUnits++;
@@ -302,6 +320,8 @@ export class Renderer {
       const ctx = sprite.getContext('2d', { willReadFrequently: true });
       ctx.translate(64, 64); ctx.scale(16, 16);
       paintUnit(ctx, { id: 0, team: unit.team, angle: 0, attackPhase: pose ? .5 : 0 }, def, 0, false);
+      // One read per cached type/team/pose, never a readback in the frame loop.
+      sprite._crop = spriteBounds(ctx.getImageData(0, 0, 128, 128));
       this._sprites.set(key, sprite);
     }
     return sprite;

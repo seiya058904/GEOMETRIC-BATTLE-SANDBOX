@@ -1,5 +1,5 @@
 {
-  "sourceSha256": "d9a5fa307154d8ae9927ce55eff53ece0677fdd57282f75d963fbeaaf92f9158",
+  "sourceSha256": "cfd1b3a8088a58c94a0b8203c80594fdd90e1ea021e6de8ae99e9953de19d861",
   "artifacts": [
     {
       "path": "dist/index.html",
@@ -8,8 +8,8 @@
     },
     {
       "path": "dist/game.js",
-      "bytes": 183926,
-      "sha256": "25db032344f356624b734c91fc1327845a99cb8950d8cce804901fed6c19ee0a"
+      "bytes": 184370,
+      "sha256": "9d8bfde697285a8feb7f9d4ca0a6872edd42b09a9c6541c997bbe531e277f249"
     },
     {
       "path": "dist/style.css",
@@ -18,8 +18,8 @@
     },
     {
       "path": "GEOBATTLE-OFFLINE.html",
-      "bytes": 229735,
-      "sha256": "b3bdeb0364804c0a10b27880d085b94905a3b271e139eb5084667ca17d02485a"
+      "bytes": 230179,
+      "sha256": "f080a9cd290d0c016ea76133ba5a9f9dd378b92ad5647d53f606ad5b7ac1cffc"
     }
   ],
   "offlineMatchesDist": true,

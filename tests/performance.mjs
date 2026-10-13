@@ -55,7 +55,7 @@ const [cpuMax,memoryMax]=await Promise.all([readOptional('/sys/fs/cgroup/cpu.max
 const cpuParts=cpuMax?.split(/\s+/),quotaCores=cpuParts&&cpuParts[0]!=='max'?Number(cpuParts[0])/Number(cpuParts[1]):null;
 await mkdir('evidence',{recursive:true});const stop=await startTestServer();const browser=await launchBrowser();
 const context=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:1});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-let longHeapSession=null,longProcessSession=null,traceSession=null;
+let longHeapSession=null,longProcessSession=null,traceSession=null,cpuProfileSession=null;
 const processTelemetry=async()=>{
   const processes=(await longProcessSession.send('SystemInfo.getProcessInfo')).processInfo;
   if(platform()!=='win32')return {processes,windowsWorkingSets:null};
@@ -75,6 +75,11 @@ const report={timestamp:new Date().toISOString(),browser:browser.version(),platf
     'Long-run observer gaps include checkpoint boundaries; CDP heap reads occur between segments and do not affect scene FPS samples.']};
 if(sceneFilter==='none')report.limitations.push('Only the long-run validation was selected; this invocation makes no scene benchmark claim.');
 const checkpoint=()=>writeFile(output,JSON.stringify(report,null,2));
+async function finishTrace(){
+  const completed=new Promise(resolve=>traceSession.once('Tracing.tracingComplete',resolve));await traceSession.send('Tracing.end');const {stream}=await completed;let data='';
+  while(true){const chunk=await traceSession.send('IO.read',{handle:stream});data+=chunk.data;if(chunk.eof)break;}
+  await traceSession.send('IO.close',{handle:stream});await writeFile(process.env.PERF_TRACE,data);await traceSession.detach();traceSession=null;
+}
 try{
   if(process.env.GEOBATTLE_QA_SYNCHRONIZED_CANVAS==='1')await context.addInitScript(()=>{
     const original=HTMLCanvasElement.prototype.getContext;
@@ -93,9 +98,26 @@ try{
   report.renderer=await page.evaluate(()=>{const c=document.createElement('canvas'),g=c.getContext('webgl');if(!g)return 'WebGL unavailable; Canvas2D';const ext=g.getExtension('WEBGL_debug_renderer_info');return ext?g.getParameter(ext.UNMASKED_RENDERER_WEBGL):g.getParameter(g.RENDERER);});
   report.hardwareBackendConfirmed=/AMD|NVIDIA|Intel|Apple|Adreno|Mali|PowerVR/i.test(report.renderer)&&!/SwiftShader|llvmpipe|softpipe|software|Basic Render Driver/i.test(report.renderer);
   if(process.env.GEOBATTLE_QA_NATIVE_GPU==='1'){const gpuSession=await browser.newBrowserCDPSession();try{report.systemGPUInfo=await gpuSession.send('SystemInfo.getInfo');report.effectiveGPUCommandLine=(await gpuSession.send('Browser.getBrowserCommandLine')).arguments.filter(a=>/angle|gpu|headless|use-gl/.test(a));}finally{await gpuSession.detach();}}
-  if(process.env.PERF_TRACE){traceSession=await context.newCDPSession(page);await traceSession.send('Tracing.start',{categories:'devtools.timeline,disabled-by-default-devtools.timeline,blink,cc,gpu',transferMode:'ReturnAsStream'});}
+  report.renderProbe=process.env.PERF_RENDER_PROBE||null;
+  if(report.renderProbe) {
+    if(!['grid-off','field-off','field-cached','sprites-32','sprites-cropped','sprites-read-once','readback-flush'].includes(report.renderProbe))throw new Error('Unknown render probe.');
+    report.limitations.push('Diagnostic render override; never use this run as final acceptance.');
+    await page.evaluate(async probe=>{
+      const r=geobattle.renderer;
+      if(probe==='readback-flush'){const draw=r.draw.bind(r);r.draw=function(...args){const result=draw(...args);this.ctx.getImageData(0,0,1,1);return result;};}
+      if(probe==='grid-off'){const field=r._field.bind(r);r._field=(c,b,g,z)=>field(c,b,false,z);}
+      if(probe==='field-off')r._field=()=>{};
+      if(probe==='field-cached'){const field=r._field.bind(r);let cache;r._field=function(c,b,g,z){const m=c.getTransform(),key=[this.canvas.width,this.canvas.height,g,z,m.a,m.b,m.c,m.d,m.e,m.f].join('/');if(cache?.key!==key){const image=new OffscreenCanvas(this.canvas.width,this.canvas.height),ctx=image.getContext('2d',{willReadFrequently:true});ctx.setTransform(m);ctx.lineCap='round';ctx.lineJoin='round';field(ctx,b,g,z);cache={key,image};}c.save();c.setTransform(1,0,0,1,0,0);c.drawImage(cache.image,0,0);c.restore();};}
+      if(probe==='sprites-read-once'){const make=r._unitSprite.bind(r);r._unitSprite=function(u,d){const s=make(u,d);if(!s.__readOnce){s.getContext('2d').getImageData(0,0,s.width,s.height);s.__readOnce=true;}return s;};}
+      if(probe==='sprites-cropped'){const make=r._unitSprite.bind(r),draw=r.ctx.drawImage.bind(r.ctx);r._unitSprite=function(u,d){const s=make(u,d);if(!s.__crop){const {data}=s.getContext('2d').getImageData(0,0,s.width,s.height);let x1=s.width,y1=s.height,x2=-1,y2=-1;for(let y=0;y<s.height;y++)for(let x=0;x<s.width;x++)if(data[(y*s.width+x)*4+3]){x1=Math.min(x1,x);x2=Math.max(x2,x);y1=Math.min(y1,y);y2=Math.max(y2,y);}x1=Math.max(0,x1-2);y1=Math.max(0,y1-2);x2=Math.min(s.width-1,x2+2);y2=Math.min(s.height-1,y2+2);s.__crop={x:x1,y:y1,w:x2-x1+1,h:y2-y1+1};}return s;};r.ctx.drawImage=function(s,x,y,w,h,...rest){if(s.__crop&&!rest.length){const b=s.__crop;return draw(s,b.x,b.y,b.w,b.h,x+w*b.x/s.width,y+h*b.y/s.height,w*b.w/s.width,h*b.h/s.height);}return draw(s,x,y,w,h,...rest);};}
+      if(probe==='sprites-32'){const {paintUnit}=await import('/src/render/unit-art.js');r._sprites.clear();r._unitSprite=function(u,d){const pose=(u.attackPhase??0)>.07?1:0,key=d.id+'/'+u.team+'/'+pose;let s=this._sprites.get(key);if(!s){s=new OffscreenCanvas(32,32);const c=s.getContext('2d',{willReadFrequently:true});c.translate(16,16);c.scale(4,4);paintUnit(c,{id:0,team:u.team,angle:0,attackPhase:pose?.5:0},d,0,false);this._sprites.set(key,s);}return s;};}
+    },report.renderProbe);
+  }
   for(const [name,formation] of scenes.filter(([name])=>sceneFilter!=='none'&&(!sceneFilter||sceneFilter===name))){
     await page.bringToFront();
+    const profileThisScene=!process.env.PERF_PROFILE_SCENE||process.env.PERF_PROFILE_SCENE===name;
+    if(profileThisScene&&process.env.PERF_CPU_PROFILE){cpuProfileSession=await context.newCDPSession(page);await cpuProfileSession.send('Profiler.enable');await cpuProfileSession.send('Profiler.start');}
+    if(profileThisScene&&process.env.PERF_TRACE){traceSession=await context.newCDPSession(page);await traceSession.send('Tracing.start',{categories:'devtools.timeline,disabled-by-default-devtools.timeline,blink,cc,gpu',transferMode:'ReturnAsStream'});}
     const result=await page.evaluate(async({formation,seconds,profileTicks})=>{
       const a=window.geobattle;a.returnToEditor();const placement=a.editor.setFormation(formation);if(!placement.ok)throw new Error(placement.message);
       a.renderer.camera.reset();a.settings.quality='auto';a.settings.autoCamera=false;a.settings.screenShake=true;a.speed=1;a.start();
@@ -140,6 +162,8 @@ try{
     const gaps=result.rawSamples.map(s=>s.gapMs).filter(v=>v!=null),draws=result.rawSamples.map(s=>s.drawCpuMs).filter(v=>v!=null);
     Object.assign(result,{p99FrameMs:percentile(gaps,.99),p95DrawMs:percentile(draws,.95),p95FrameMeanStepMs:percentile(result.rawSamples.filter(s=>s.steps).map(s=>s.stepCpuMs/s.steps),.95),gapsOver50ms:gaps.filter(v=>v>50).length,gapsOver100ms:gaps.filter(v=>v>100).length,gapsOver500ms:gaps.filter(v=>v>500).length});
     if(result.rawTickDurationsMs){result.p95TickMs=percentile(result.rawTickDurationsMs,.95);result.averageProfiledTickMs=result.rawTickDurationsMs.reduce((a,b)=>a+b,0)/result.rawTickDurationsMs.length;result.profiledTickCount=result.rawTickDurationsMs.length;}
+    if(cpuProfileSession){const {profile}=await cpuProfileSession.send('Profiler.stop');await writeFile(process.env.PERF_CPU_PROFILE,JSON.stringify(profile));await cpuProfileSession.detach();cpuProfileSession=null;}
+    if(traceSession){await finishTrace();}
     if(process.env.PERF_CAPTURE_PREFIX){
       // Screenshots are separate from the FPS window to avoid readback stalls.
       await page.evaluate(formation=>{const a=geobattle;a.returnToEditor();const r=a.editor.setFormation(formation);if(!r.ok)throw new Error(r.message);a.renderer.camera.reset();a.start();},formation);
@@ -160,7 +184,10 @@ try{
   }
   if(longRunRequested){
     await page.bringToFront();
-    const formation=battleFormation(100,['swordsman','rifleman','fire_mage','bomb_chicken'],99331);
+    const selectedLongScene=process.env.LONGRUN_SCENE&&scenes.find(([name])=>name===process.env.LONGRUN_SCENE);
+    if(process.env.LONGRUN_SCENE&&!selectedLongScene)throw new Error('Unknown LONGRUN_SCENE.');
+    const formation=selectedLongScene?selectedLongScene[1]:battleFormation(100,['swordsman','rifleman','fire_mage','bomb_chicken'],99331);
+    report.longRunScene=process.env.LONGRUN_SCENE||'default-100-vs-100';
     await page.evaluate(({formation,speed,quality,targets,maxSeconds})=>{
       const a=window.geobattle;a.returnToEditor();const placement=a.editor.setFormation(formation);if(!placement.ok)throw new Error(placement.message);
       a.speed=speed;a.settings.quality=quality;a.settings.autoCamera=false;a.renderer.camera.reset();a.start();
@@ -247,12 +274,8 @@ try{
   report.passed=errors.length===0&&report.scenes.every(s=>s.simulationFinite&&s.failures.length===0&&s.totalSteps>0)&&(!longRunRequested||report.longRun?.passed===true);
 }catch(error){report.fatalError=error.stack||String(error);report.passed=false;console.error(report.fatalError);}
 finally{
-  if(traceSession){
-    const completed=new Promise(resolve=>traceSession.once('Tracing.tracingComplete',resolve));
-    await traceSession.send('Tracing.end');const {stream}=await completed;let data='';
-    while(true){const chunk=await traceSession.send('IO.read',{handle:stream});data+=chunk.data;if(chunk.eof)break;}
-    await traceSession.send('IO.close',{handle:stream});await writeFile(process.env.PERF_TRACE,data);await traceSession.detach();
-  }
+  if(cpuProfileSession){const {profile}=await cpuProfileSession.send('Profiler.stop');await writeFile(process.env.PERF_CPU_PROFILE,JSON.stringify(profile));await cpuProfileSession.detach();}
+  if(traceSession)await finishTrace();
   await checkpoint();if(longHeapSession)await longHeapSession.detach().catch(()=>{});if(longProcessSession)await longProcessSession.detach().catch(()=>{});await context.close();await browser.close();stop();
 }
 if(!report.passed)process.exitCode=1;

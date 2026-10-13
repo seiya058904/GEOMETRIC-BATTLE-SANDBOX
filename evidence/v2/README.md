@@ -29,3 +29,5 @@ Do not treat historical or failed runs as final acceptance. All evidence is loca
 |hardware.json|Windows read-only device inventory; not proof of browser backend by itself|
 
 All performance matrices keep natural simulation and actual units. Failed realtime/FPS targets are disclosed in docs/V2-PERFORMANCE-INVESTIGATION.md and V2-QA-REPORT.md. No image proves physical4K or Android device quality. File SHA-256 and exact local commit are in DELIVERY-MANIFEST.json after packaging.
+
+Current follow-up: perf-followup/README.md, comparison.json, gates.json and docs/V2-PERFORMANCE-FOLLOWUP.md. The original entries above remain9f964f3 history; build-final.json now describes the current cropped-sprite source, with prior build copied into perf-followup/build-before.json.

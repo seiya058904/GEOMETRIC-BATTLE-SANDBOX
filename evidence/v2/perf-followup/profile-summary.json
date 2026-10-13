@@ -1,0 +1,611 @@
+{
+  "software": {
+    "inclusiveEventTotalsNote": "Inclusive events overlap; these totals are not wall-time percentages.",
+    "events": [
+      {
+        "thread": 10844,
+        "name": "Paint",
+        "count": 1021,
+        "totalMs": 15088.303000000005,
+        "maxMs": 19.332,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "RunTask",
+        "count": 5250,
+        "totalMs": 11016.829000000516,
+        "maxMs": 117.815,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "ProxyMain::BeginMainFrame",
+        "count": 508,
+        "totalMs": 10817.068000000012,
+        "maxMs": 117.779,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "WebFrameWidgetImpl::UpdateLifecycle",
+        "count": 509,
+        "totalMs": 7729.347000000003,
+        "maxMs": 19.637,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "LocalFrameView::RunPaintLifecyclePhase",
+        "count": 509,
+        "totalMs": 7659.472000000004,
+        "maxMs": 19.507,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "Blink.Paint.UpdateTime",
+        "count": 509,
+        "totalMs": 7599.443999999997,
+        "maxMs": 19.377,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 23648,
+        "name": "RunTask",
+        "count": 2375,
+        "totalMs": 5445.584000000004,
+        "maxMs": 97.563,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "Scheduler::RunTask",
+        "count": 2361,
+        "totalMs": 5434.939000000002,
+        "maxMs": 97.553,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "GpuChannel::ExecuteDeferredRequest",
+        "count": 1251,
+        "totalMs": 5242.132000000002,
+        "maxMs": 97.545,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "GPUTask",
+        "count": 1251,
+        "totalMs": 5235.636999999997,
+        "maxMs": 97.543,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "RendererRasterWorker",
+        "count": 1236,
+        "totalMs": 5123.93000000001,
+        "maxMs": 59.883,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "CommandBuffer::Flush",
+        "count": 1233,
+        "totalMs": 5120.745999999991,
+        "maxMs": 59.881,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "CommandBufferStub::OnAsyncFlush",
+        "count": 1233,
+        "totalMs": 5118.625000000004,
+        "maxMs": 59.879,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "CommandBufferService:PutChanged",
+        "count": 1233,
+        "totalMs": 5111.420999999997,
+        "maxMs": 59.873,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "RasterDecoderImpl::DoEndRasterCHROMIUM",
+        "count": 2035,
+        "totalMs": 4573.619999999998,
+        "maxMs": 57.37,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 23648,
+        "name": "RasterDecoderImpl::DoEndRasterCHROMIUM::Flush",
+        "count": 2035,
+        "totalMs": 4563.378999999997,
+        "maxMs": 57.358,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 10844,
+        "name": "WebFrameWidgetImpl::BeginMainFrame",
+        "count": 508,
+        "totalMs": 3047.982000000001,
+        "maxMs": 104.501,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "Blink.Animate.UpdateTime",
+        "count": 508,
+        "totalMs": 3045.1550000000025,
+        "maxMs": 104.497,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "PageAnimator::serviceScriptedAnimations",
+        "count": 508,
+        "totalMs": 3042.5309999999977,
+        "maxMs": 104.492,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+        "count": 508,
+        "totalMs": 3034.574000000001,
+        "maxMs": 104.466,
+        "threadName": "CrRendererMain"
+      }
+    ],
+    "longest": [
+      {
+        "thread": 10844,
+        "name": "RunTask",
+        "count": 5250,
+        "totalMs": 11016.829000000516,
+        "maxMs": 117.815,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "ProxyMain::BeginMainFrame",
+        "count": 508,
+        "totalMs": 10817.068000000012,
+        "maxMs": 117.779,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "WebFrameWidgetImpl::BeginMainFrame",
+        "count": 508,
+        "totalMs": 3047.982000000001,
+        "maxMs": 104.501,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "Blink.Animate.UpdateTime",
+        "count": 508,
+        "totalMs": 3045.1550000000025,
+        "maxMs": 104.497,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "PageAnimator::serviceScriptedAnimations",
+        "count": 508,
+        "totalMs": 3042.5309999999977,
+        "maxMs": 104.492,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+        "count": 508,
+        "totalMs": 3034.574000000001,
+        "maxMs": 104.466,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "FireAnimationFrame",
+        "count": 1013,
+        "totalMs": 3032.7279999999982,
+        "maxMs": 104.417,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 10844,
+        "name": "AsyncTask Run",
+        "count": 1013,
+        "totalMs": 3029.4089999999896,
+        "maxMs": 104.414,
+        "threadName": "CrRendererMain"
+      }
+    ],
+    "exclusiveCpuSamples": [
+      {
+        "functionName": "(program) ",
+        "ms": 8349.986999999992
+      },
+      {
+        "functionName": "(idle) ",
+        "ms": 1087.650999999999
+      },
+      {
+        "functionName": "fill ",
+        "ms": 319.5290000000001
+      },
+      {
+        "functionName": "stroke ",
+        "ms": 250.60899999999984
+      },
+      {
+        "functionName": "save ",
+        "ms": 189.4999999999999
+      },
+      {
+        "functionName": "paintUnit http://127.0.0.1:4180/src/render/unit-art.js",
+        "ms": 128.119
+      },
+      {
+        "functionName": "arc ",
+        "ms": 105.76000000000005
+      },
+      {
+        "functionName": "forEachBox http://127.0.0.1:4180/src/sim/spatial.js",
+        "ms": 101.887
+      },
+      {
+        "functionName": "ellipse ",
+        "ms": 101.20100000000001
+      },
+      {
+        "functionName": "updateTimers http://127.0.0.1:4180/src/sim/engine.js",
+        "ms": 100.61600000000001
+      },
+      {
+        "functionName": " http://127.0.0.1:4180/src/sim/spatial.js",
+        "ms": 79.86399999999996
+      },
+      {
+        "functionName": "(garbage collector) ",
+        "ms": 76.69599999999997
+      },
+      {
+        "functionName": "ellipse http://127.0.0.1:4180/src/render/unit-art.js",
+        "ms": 68.77799999999999
+      },
+      {
+        "functionName": "_unit http://127.0.0.1:4180/src/render/renderer.js",
+        "ms": 65.16699999999997
+      },
+      {
+        "functionName": "updateAI http://127.0.0.1:4180/src/sim/ai.js",
+        "ms": 63.132999999999996
+      }
+    ]
+  },
+  "native": {
+    "inclusiveEventTotalsNote": "Inclusive events overlap; these totals are not wall-time percentages.",
+    "events": [
+      {
+        "thread": 27004,
+        "name": "Paint",
+        "count": 788,
+        "totalMs": 17965.661000000015,
+        "maxMs": 38.081,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "RunTask",
+        "count": 4696,
+        "totalMs": 12157.951000000725,
+        "maxMs": 87.925,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "ProxyMain::BeginMainFrame",
+        "count": 392,
+        "totalMs": 12002.766999999993,
+        "maxMs": 55.976,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "WebFrameWidgetImpl::UpdateLifecycle",
+        "count": 392,
+        "totalMs": 9103.289999999997,
+        "maxMs": 38.331,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "LocalFrameView::RunPaintLifecyclePhase",
+        "count": 392,
+        "totalMs": 9051.457999999995,
+        "maxMs": 38.255,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "Blink.Paint.UpdateTime",
+        "count": 392,
+        "totalMs": 9015.288,
+        "maxMs": 38.123,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "WebFrameWidgetImpl::BeginMainFrame",
+        "count": 392,
+        "totalMs": 2871.139,
+        "maxMs": 34.757,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "Blink.Animate.UpdateTime",
+        "count": 392,
+        "totalMs": 2869.6120000000005,
+        "maxMs": 34.752,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "PageAnimator::serviceScriptedAnimations",
+        "count": 392,
+        "totalMs": 2868.157999999997,
+        "maxMs": 34.748,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+        "count": 392,
+        "totalMs": 2863.354999999998,
+        "maxMs": 34.729,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "FireAnimationFrame",
+        "count": 780,
+        "totalMs": 2862.154000000003,
+        "maxMs": 34.673,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "AsyncTask Run",
+        "count": 780,
+        "totalMs": 2860.416999999995,
+        "maxMs": 34.671,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "FunctionCall",
+        "count": 1019,
+        "totalMs": 2850.3459999999945,
+        "maxMs": 34.651,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 24320,
+        "name": "RunTask",
+        "count": 2070,
+        "totalMs": 859.1899999999978,
+        "maxMs": 28.951,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "Scheduler::RunTask",
+        "count": 2056,
+        "totalMs": 850.7579999999984,
+        "maxMs": 28.946,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "GpuChannel::ExecuteDeferredRequest",
+        "count": 1169,
+        "totalMs": 809.0930000000008,
+        "maxMs": 28.939,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "GPUTask",
+        "count": 1161,
+        "totalMs": 803.4680000000005,
+        "maxMs": 28.934,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "RendererRasterWorker",
+        "count": 1146,
+        "totalMs": 788.946999999999,
+        "maxMs": 28.926,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "CommandBuffer::Flush",
+        "count": 1143,
+        "totalMs": 787.9999999999984,
+        "maxMs": 28.923,
+        "threadName": "CrGpuMain"
+      },
+      {
+        "thread": 24320,
+        "name": "CommandBufferStub::OnAsyncFlush",
+        "count": 1143,
+        "totalMs": 786.2049999999994,
+        "maxMs": 28.921,
+        "threadName": "CrGpuMain"
+      }
+    ],
+    "longest": [
+      {
+        "thread": 27004,
+        "name": "RunTask",
+        "count": 4696,
+        "totalMs": 12157.951000000725,
+        "maxMs": 87.925,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "ProxyMain::BeginMainFrame",
+        "count": 392,
+        "totalMs": 12002.766999999993,
+        "maxMs": 55.976,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "WebFrameWidgetImpl::UpdateLifecycle",
+        "count": 392,
+        "totalMs": 9103.289999999997,
+        "maxMs": 38.331,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "LocalFrameView::RunPaintLifecyclePhase",
+        "count": 392,
+        "totalMs": 9051.457999999995,
+        "maxMs": 38.255,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "Blink.Paint.UpdateTime",
+        "count": 392,
+        "totalMs": 9015.288,
+        "maxMs": 38.123,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "Paint",
+        "count": 788,
+        "totalMs": 17965.661000000015,
+        "maxMs": 38.081,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "WebFrameWidgetImpl::BeginMainFrame",
+        "count": 392,
+        "totalMs": 2871.139,
+        "maxMs": 34.757,
+        "threadName": "CrRendererMain"
+      },
+      {
+        "thread": 27004,
+        "name": "Blink.Animate.UpdateTime",
+        "count": 392,
+        "totalMs": 2869.6120000000005,
+        "maxMs": 34.752,
+        "threadName": "CrRendererMain"
+      }
+    ],
+    "exclusiveCpuSamples": [
+      {
+        "functionName": "(program) ",
+        "ms": 9482.22600000002
+      },
+      {
+        "functionName": "drawImage ",
+        "ms": 942.2470000000022
+      },
+      {
+        "functionName": "forEachBox http://127.0.0.1:4180/src/sim/spatial.js",
+        "ms": 206.8040000000001
+      },
+      {
+        "functionName": " http://127.0.0.1:4180/src/sim/spatial.js",
+        "ms": 123.83500000000002
+      },
+      {
+        "functionName": "updateTimers http://127.0.0.1:4180/src/sim/engine.js",
+        "ms": 113.33100000000002
+      },
+      {
+        "functionName": "save ",
+        "ms": 66.14
+      },
+      {
+        "functionName": "step http://127.0.0.1:4180/src/sim/engine.js",
+        "ms": 60.928
+      },
+      {
+        "functionName": "integrateMotion http://127.0.0.1:4180/src/sim/physics.js",
+        "ms": 59.843000000000025
+      },
+      {
+        "functionName": " http://127.0.0.1:4180/src/sim/ai.js",
+        "ms": 57.124999999999986
+      },
+      {
+        "functionName": "unlock http://127.0.0.1:4180/src/render/audio.js",
+        "ms": 50.34100000000001
+      },
+      {
+        "functionName": "rotate ",
+        "ms": 49.44199999999999
+      },
+      {
+        "functionName": "updateProjectiles http://127.0.0.1:4180/src/sim/projectiles.js",
+        "ms": 48.407999999999994
+      },
+      {
+        "functionName": "angleDelta http://127.0.0.1:4180/src/sim/rng.js",
+        "ms": 47.34899999999998
+      },
+      {
+        "functionName": "updateAI http://127.0.0.1:4180/src/sim/ai.js",
+        "ms": 45.824
+      },
+      {
+        "functionName": " http://127.0.0.1:4180/src/sim/projectiles.js",
+        "ms": 44.70099999999999
+      }
+    ]
+  },
+  "afterNative": {
+    "events": [
+      {
+        "name": "RasterDecoderImpl::DoEndRasterCHROMIUM::Flush",
+        "tid": 32180,
+        "count": 2839,
+        "totalMs": 830.5590000000001,
+        "maxMs": 27.538,
+        "thread": "CrGpuMain",
+        "averageMs": 0.2925533638605143
+      },
+      {
+        "name": "Blink.Paint.UpdateTime",
+        "tid": 23420,
+        "count": 708,
+        "totalMs": 6616.270000000002,
+        "maxMs": 12.751,
+        "thread": "CrRendererMain",
+        "averageMs": 9.345014124293789
+      }
+    ],
+    "note": "Single instrumented12s target scene, same instrumentation as before native; separate from three-repeat acceptance."
+  }
+}

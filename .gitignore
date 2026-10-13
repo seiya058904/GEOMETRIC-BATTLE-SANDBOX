@@ -13,3 +13,6 @@ Thumbs.db
 /DELIVERY-*-9f964f3.json
 /evidence/v2/perf-followup/baseline-source/
 /evidence/v2/perf-followup/profile-*-trace.json
+# CI staging output; authoritative single HTML remains at repository root.
+/dist/GEOBATTLE-OFFLINE.html
+/dist/build-info.json

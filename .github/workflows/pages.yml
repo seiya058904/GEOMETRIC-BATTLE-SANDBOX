@@ -30,6 +30,8 @@ jobs:
       - run: npm run check
       - run: npm test
       - run: npm run build
+      - name: Reject drift between committed artifacts and a fresh build
+        run: git diff --exit-code -- dist GEOBATTLE-OFFLINE.html
       - name: Verify and prepare production artifact
         run: node scripts/prepare-pages.mjs
       - uses: actions/configure-pages@v5

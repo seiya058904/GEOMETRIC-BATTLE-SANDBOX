@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/readme-cover.svg" width="100%" alt="GEOBATTLE — illustrated project cover" />
+</p>
+
 <h1 align="center">⚔️ GEOBATTLE</h1>
 
 <p align="center">
@@ -122,6 +126,8 @@ Units must initially be placed inside their team's deployment half and may not o
 ## 💾 Local Saves & Performance Boundaries
 
 Formation data belongs to the current **browser and site origin**, not to a cloud account. The hosted site and a locally opened file do not automatically share it; use JSON export/import for backup or transfer.
+
+Use **one editing tab at a time** for the same site. An older open tab can overwrite the shared autosave with its own formation; cross-tab conflict protection is not implemented. Export important formations as JSON before switching sessions.
 
 This is a **single-player spectator sandbox**, not a multiplayer game, campaign, economy simulator, or general-purpose rigid-body physics engine. The **1,200 active-unit cap** includes summons and is a safety limit, **not** a promise of smooth performance at that scale. Very large formations can cause substantial frame-time spikes; lowering quality or using fewer units may help. Thirty-six units are provided for experimentation, not claimed to be competitively balanced.
 

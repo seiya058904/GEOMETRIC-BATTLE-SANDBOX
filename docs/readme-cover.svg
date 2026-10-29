@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="cover-title cover-desc">
+  <title id="cover-title">GEOMETRIC-BATTLE-SANDBOX — illustrated project cover</title>
+  <desc id="cover-desc">Build the armies. Let the battle decide. A decorative vector illustration accompanies the project title.</desc>
+  <rect width="1200" height="360" rx="24" fill="#112530"/>
+  <path d="M56 70h38" stroke="#A6CED8" stroke-width="4" stroke-linecap="round"/>
+  <text x="110" y="76" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#A6CED8" letter-spacing="2">A GEOMETRIC BATTLE SANDBOX</text>
+  <text x="56" y="174" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700" fill="#EDF4F2" letter-spacing="0">GEOBATTLE</text>
+  
+  <text x="58" y="220" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#EDF4F2" letter-spacing="0">Build the armies. Let the battle decide.</text>
+  <text x="58" y="315" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#A6CED8" letter-spacing="2">DEPLOY · OBSERVE · REVISE</text>
+  <g transform="translate(757 48)">
+  <path d="M0 37h351v220H0Z" fill="#172936" stroke="#354B59"/>
+  <path d="M175 37v220" stroke="#67808D" stroke-dasharray="6 7"/>
+  <path d="M0 92h351M0 147h351M0 202h351M59 37v220M117 37v220M234 37v220M292 37v220" stroke="#233D49"/>
+  <g fill="#EF8C78"><circle cx="54" cy="91" r="13"/><circle cx="54" cy="147" r="13"/><circle cx="54" cy="203" r="13"/><path d="M100 76l25 15-25 15ZM100 132l25 15-25 15ZM100 188l25 15-25 15Z"/></g>
+  <g fill="#83CDE2"><rect x="285" y="78" width="26" height="26" rx="4"/><rect x="285" y="134" width="26" height="26" rx="4"/><rect x="285" y="190" width="26" height="26" rx="4"/><path d="M251 76l-25 15 25 15ZM251 132l-25 15 25 15ZM251 188l-25 15 25 15Z"/></g>
+  <path d="M139 147h17M195 147h17" stroke="#F5E5BB" stroke-width="3"/>
+  <path d="M175 126l5 14 14 7-14 5-5 15-5-15-14-5 14-7Z" fill="#F5E5BB"/>
+  <path d="M18 22h105M228 22h105" stroke="#67808D" stroke-width="2"/>
+  </g>
+</svg>

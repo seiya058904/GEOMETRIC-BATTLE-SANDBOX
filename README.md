@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="docs/readme-cover.svg" width="100%" alt="GEOBATTLE — illustrated project cover" />
+  <a href="https://seiya058904.github.io/GEOMETRIC-BATTLE-SANDBOX/">
+    <img src="docs/readme-cover.svg" width="100%" alt="GEOBATTLE — illustrated project cover" />
+  </a>
 </p>
 
 <h1 align="center">⚔️ GEOBATTLE</h1>
@@ -104,7 +106,7 @@ The default battlefield begins with **40 units per side**. You can fight immedia
 
 **[Get the standalone offline HTML →](GEOBATTLE-OFFLINE.html)**
 
-Save `GEOBATTLE-OFFLINE.html` to your computer and open it in a modern browser. This packaged file is the offline game; the development `index.html` is not a drop-in standalone export. No account, installation, or live game server is needed.
+Open the file link above, choose **Download raw file** on GitHub, and save `GEOBATTLE-OFFLINE.html` to your computer. Then open the downloaded file in a modern browser. This packaged file is the offline game; the development `index.html` is not a drop-in standalone export. No account, installation, or live game server is needed.
 
 ### ⌨️ Controls at a Glance
 
@@ -143,7 +145,7 @@ npm ci
 npm run dev
 ~~~
 
-Open **http://127.0.0.1:4178/**. The local development server requires a manual refresh after source edits.
+Open **http://127.0.0.1:4178/**. The local development server requires a manual refresh after source edits. Stop it with `Ctrl+C` before running the checks and production preview below; both servers use port 4178 by default.
 
 ~~~bash
 npm run check

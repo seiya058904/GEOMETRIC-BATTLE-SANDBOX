@@ -435,6 +435,17 @@ dialog .dialog-foot button{min-height:44px}
 
 dialog[open]{display:flex;flex-direction:column}dialog .dialog-head,dialog .dialog-foot{flex-shrink:0}dialog .dialog-body{min-height:0;flex:1}
 </style>
+<!-- Cloudflare Web Analytics: public website only -->
+<script type="module">
+// Aggregate page visits on the public website only; local and offline copies stay offline.
+if (location.hostname === "seiya058904.github.io" && !document.querySelector("script[data-cf-beacon]")) {
+  const beacon = document.createElement("script");
+  beacon.type = "module";
+  beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  beacon.dataset.cfBeacon = JSON.stringify({ token: "092f74f76781425ab5ed9495073e4d0f", spa: false });
+  document.head.appendChild(beacon);
+}
+</script>
 </head>
 <body>
   <div id="app"></div>

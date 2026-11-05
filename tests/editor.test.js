@@ -439,6 +439,18 @@ test('autosave survives a fresh store instance and does not alias caller data', 
   const fresh = new PresetStore(storage); assert.deepEqual(fresh.loadAutosave().value, sample());
   assert.equal(storage.map.has(AUTOSAVE_KEY), true);
 });
+test('A02: a stale tab cannot overwrite a newer autosave written by another tab', () => {
+  const storage = new MemoryStorage(); new PresetStore(storage).saveAutosave(empty(0));
+  const oldTab = new PresetStore(storage), newTab = new PresetStore(storage);
+  oldTab.loadAutosave(); newTab.loadAutosave();
+  assert.equal(newTab.saveAutosave(sample()).ok, true);
+  const newer = storage.map.get(AUTOSAVE_KEY);
+  const stale = oldTab.saveAutosave(empty(0));
+  assert.equal(stale.ok, false); assert.equal(stale.code, 'stale');
+  assert.equal(storage.map.get(AUTOSAVE_KEY), newer);
+  assert.equal(newTab.saveAutosave(sample()).ok, true, 'the tab that owns the latest save keeps saving');
+  assert.equal(new PresetStore(storage).saveAutosave(empty(0)).ok, true, 'a fresh tab may save after reading');
+});
 test('autosave preserves a deliberately empty field rather than resurrecting the default', () => {
   const store = new PresetStore(new MemoryStorage()); store.saveAutosave(empty(0));
   assert.deepEqual(store.loadAutosave().value, empty(0));

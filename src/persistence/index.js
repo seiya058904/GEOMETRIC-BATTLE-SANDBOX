@@ -28,6 +28,7 @@ export class PresetStore {
     this._idCounter = 0;
     this._autosaveProtection = null;
     this._autosaveRead = false;
+    this._autosaveBase = null;
     try {
       this._storage = arguments.length ? storage : globalThis.localStorage;
       if (!this._storage || typeof this._storage.getItem !== 'function' || typeof this._storage.setItem !== 'function') {
@@ -54,7 +55,13 @@ export class PresetStore {
       error: '原始自动存档仍受保护，请先导出备份并明确接受恢复结果。' };
     const serialized = exportFormationJSON(formation);
     if (!serialized.ok) return serialized;
+    // Compare-before-write: refuse to overwrite an autosave another tab wrote after this page last read/wrote it.
+    const current = this._read(AUTOSAVE_KEY, '自动保存');
+    if (!current.ok) return current;
+    if ((current.value ?? null) !== this._autosaveBase) return { ok: false, code: 'stale',
+      error: '另一个标签页已保存了更新的布阵，本页未覆盖它。刷新页面即可载入最新布阵。' };
     const result = this._write(AUTOSAVE_KEY, serialized.value, '自动保存');
+    if (result.ok) this._autosaveBase = serialized.value;
     return result.ok ? { ok: true, value: true } : result;
   }
 
@@ -62,6 +69,7 @@ export class PresetStore {
     this._autosaveRead = true;
     const result = this._read(AUTOSAVE_KEY, '恢复布阵');
     if (!result.ok) { this._autosaveProtection = undefined; return result; }
+    this._autosaveBase = result.value ?? null;
     if (result.value === null || result.value === undefined) return { ok: true, value: null };
     const parsed = parseFormationJSON(result.value);
     if (!parsed.ok) this._autosaveProtection = result.value;
